@@ -6,13 +6,17 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "build-mobile": "next build && next export && npx cap sync"
   },
   "dependencies": {
-    "@next/font": "13.1.6",
+    "@capacitor/android": "^4.6.3",
+    "@capacitor/cli": "^4.6.3",
+    "@capacitor/core": "^4.6.3",
     "@types/node": "18.13.0",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.10",
+    "capacitor": "^0.5.5",
     "eslint": "8.34.0",
     "eslint-config-next": "13.1.6",
     "next": "13.1.6",
