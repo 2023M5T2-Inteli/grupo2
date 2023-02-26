@@ -108,7 +108,7 @@ _Value_Proposition_Canvas_
 
 ## Matriz de Risco
 
-
+f
 
 # Requisitos do Sistema
 
