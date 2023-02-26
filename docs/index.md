@@ -103,16 +103,16 @@ Dentre os três métodos supramensionados, aquele que mais se destaca para a com
 
 ## Análise do cenário: Matriz de Oceano Azul
 
-![img](img\project\Matriz-Oceano-Azul.png)
+![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/Matriz-Oceano-Azul.png)
 
 ## Proposta de Valor: Value Proposition Canvas
 
-![img](img\project\Canvas-Value-Propostion-1.png)
+![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/Canvas-Value-Propostion-1.png)
 
 
 ## Matriz de Risco
 
-![img](img\project\Matriz-Risco.png)
+![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/Matriz-Risco.png)
 
 
 # Requisitos do Sistema
@@ -136,12 +136,12 @@ Dentre os três métodos supramensionados, aquele que mais se destaca para a com
 
 ## Histórias dos usuários (user stories)
 
-![img](img\project\User-Story.jpg)
+![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/User-Story.jpg)
 
 # Arquitetura do Sistema
 
 ## Módulos do Sistema e Visão Geral (Big Picture)
-![img](img\project\Arquitetura-do-sistema.jpg)
+![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/Arquitetura-do-sistema.jpg)
 
 ## Descrição dos Subsistemas
 | Componente  | Descrição da Função 	|
