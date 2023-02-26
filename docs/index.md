@@ -10,11 +10,12 @@
 
 <font size="+12"><center>
 Concepção de sistema de automação industrial
+
 </center></font>
 
->*Observação 1: A estrutura inicial deste documento é só um exemplo. O seu grupo deverá alterar esta estrutura de acordo com o que está sendo solicitado nos artefatos.*
+> _Observação 1: A estrutura inicial deste documento é só um exemplo. O seu grupo deverá alterar esta estrutura de acordo com o que está sendo solicitado nos artefatos._
 
->*Observação 2: O índice abaixo não precisa ser editado se você utilizar o Visual Studio Code com a extensão **Markdown All in One**. Essa extensão atualiza o índice automaticamente quando o arquivo é salvo.*
+> _Observação 2: O índice abaixo não precisa ser editado se você utilizar o Visual Studio Code com a extensão **Markdown All in One**. Essa extensão atualiza o índice automaticamente quando o arquivo é salvo._
 
 **Conteúdo**
 
@@ -55,79 +56,71 @@ Concepção de sistema de automação industrial
   - [Manual do Administrador](#manual-do-administrador)
 - [Referências](#referências)
 
-
 # Autores
 
-* Aluno 1
-* Aluno 2
-* Aluno 3
-* Aluno 4
-* Aluno 5
-* Aluno 6
-* Aluno 7
-* Aluno 8
-
+- Alberto da Rocha Miranda
+- Caio Martins de Abreu
+- Israel Nunes Lopes Carvalho
+- Bianca Cassemiro Lima
+- Igor Scapin Francisco Garcia
+- Paulo Presa Evangelista
+- Tainara Rodrigues Teixeira
 
 # Visão Geral do Projeto
 
 ## Empresa
 
-*Descrição_da_empresa*
+_Descrição_da_empresa_
 
 ## O Problema
 
-*Descrição_do_problema*
+_Descrição_do_problema_
 
 ## Objetivos
 
 ### Objetivos gerais
 
-*Lista_de_objetivos_gerais*
+_Lista_de_objetivos_gerais_
 
 ### Objetivos específicos
 
-*Lista_de_objetivos específicos*
+_Lista_de_objetivos específicos_
 
 ## Partes interessadas
 
-*Lista_e_apresentação_das_partes_interessadas*
+_Lista_e_apresentação_das_partes_interessadas_
 
 # Análise do Problema
 
-*Descrição_da_análise_do_problema*
+_Descrição_da_análise_do_problema_
 
 ## Análise da área de atuação
 
-*Descrição_da_análise_da_área_de_atuação*
+_Descrição*da_análise_da*área_de_atuação_
 
 ## Análise do cenário: Matriz SWOT
 
-*Matriz_SWOT*
-
+_Matriz_SWOT_
 
 ## Proposta de Valor: Value Proposition Canvas
 
-*Value_Proposition_Canvas*
-
+_Value_Proposition_Canvas_
 
 ## Matriz de Risco
 
-*Matriz_de_risco*
 
 
 # Requisitos do Sistema
 
-*Descrição_dos_requisitos*
+_Descrição_dos_requisitos_
 
 ## Personas
 
-*Descrição_das_personas*
-
+_Descrição_das_personas_
 
 ## Histórias dos usuários (user stories)
 
-*Descrição_das_histórias_dos_usuários*
-
+_Descrição_das_histórias_dos_usuários_
 
 # Arquitetura do Sistema
 
@@ -137,9 +130,7 @@ Concepção de sistema de automação industrial
 
 ### Requisitos de software
 
-
 ## Tecnologias Utilizadas
-
 
 # UX e UI Design
 
@@ -147,13 +138,11 @@ Concepção de sistema de automação industrial
 
 ## Design de Interface - Guia de Estilos
 
-
 # Projeto de Banco de Dados
 
 ## Modelo Conceitual
 
 ## Modelo Lógico
-
 
 # Teste de Software
 
@@ -161,9 +150,7 @@ Concepção de sistema de automação industrial
 
 ## Teste de Usabilidade
 
-
 # Análise de Dados
-
 
 # Manuais
 
@@ -172,6 +159,5 @@ Concepção de sistema de automação industrial
 ## Manual do Usuário
 
 ## Manual do Administrador
-
 
 # Referências
