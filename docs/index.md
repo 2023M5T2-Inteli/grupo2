@@ -131,7 +131,11 @@ Dentre os três métodos supramensionados, aquele que mais se destaca para a com
 
 ## Personas
 
-*Descrição_das_personas*
+Foram desenvolvidas duas personas referente ao público que se pretende atender com a solução proposta. A primeira persona seria o operário que lida com as tarefas cotidianas, e manuais, do IPT, já a segunda persona é aquela que lida com os materiais que são separados pelo operário. Seguem referenciadas, respectivamente.
+
+![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/Persona-Diogo.png)
+
+![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/Persona-Fernando.png) 
 
 
 ## Histórias dos usuários (user stories)
