@@ -63,14 +63,13 @@ Concepção de sistema de automação industrial
 
 # Autores
 
-* [Alberto da Rocha](https://www.linkedin.com/in/alberto-da-rocha-miranda-angrysine/)
-* [Bianca Cassemiro](https://www.linkedin.com/in/bianca-cassemiro/)
-* [Caio Martins](https://www.linkedin.com/in/caio-m1849/)
-* [Igor Garcia](https://www.linkedin.com/in/igor-garcia-126a1823b/)
-* [Israel Carvalho](https://www.linkedin.com/in/israel-carvalho-706133241/)
-* [Paulo Presa Evangelista](https://www.linkedin.com/in/paulo-evangelista/)
-* [Tainara Rodrigues](https://www.linkedin.com/in/tainara-rodrigues-763a42233/)
-
+- [Alberto da Rocha](https://www.linkedin.com/in/alberto-da-rocha-miranda-angrysine/)
+- [Bianca Cassemiro](https://www.linkedin.com/in/bianca-cassemiro/)
+- [Caio Martins](https://www.linkedin.com/in/caio-m1849/)
+- [Igor Garcia](https://www.linkedin.com/in/igor-garcia-126a1823b/)
+- [Israel Carvalho](https://www.linkedin.com/in/israel-carvalho-706133241/)
+- [Paulo Presa Evangelista](https://www.linkedin.com/in/paulo-evangelista/)
+- [Tainara Rodrigues](https://www.linkedin.com/in/tainara-rodrigues-763a42233/)
 
 # Visão Geral do Projeto
 
@@ -151,7 +150,7 @@ Foram desenvolvidas duas personas referente ao público que se pretende atender 
 
 ![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/Aquitetura-por-blocos1.png)
 
- Alterações feita na arquitetura em blocos
+Alterações feita na arquitetura em blocos
 
 Ao concluir a testagem com as células de carga, não conseguimos chegar a uma conclusão especificamente, visto que, o equipamento de pesagem não funcionou como esperávamos. Em vista disso, recorremos a uma nova arquitetura do sistema, retirando a célula de carga e possibilitando uma construção mais compacta para a solução, tendo apenas uma função principal de separação dos materiais com o uso dos eletroímãs.
 
@@ -195,13 +194,13 @@ Durante os testes, no entanto, houve momentos em que o robô travou ao tentar mo
 
 Outro aspecto observado nos testes foi o delay de alguns segundos após a execução do código para o braço robótico se movimentar. Esse delay pode ser relevante em situações que exigem uma resposta rápida do robô, porém, acreditamos que isso não impactará nosso projeto.
 
-Além disso testes com a garra mostraram que apesar da garra facilmente pegar o imâ existem momentos em que o imã escorrega caindo da garra quando ela se move muito rápido. 
-(colocar vídeo da garra segurando o imã)
+Além disso testes com a garra mostraram que apesar da garra facilmente pegar o imâ existem momentos em que o imã escorrega caindo da garra quando ela se move muito rápido.
+[vídeo do braço carregando imã](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/v%C3%ADdeos/bra%C3%A7o%20levantando%20im%C3%A3.mp4)
 
 ### Eletroimã
 
 Além do teste que realizamos da garra levantando imã (citado na seção acima) realizamos um teste para medir a capacidade magnética do ima. Ligamos o imã a uma fonte de voltagem variável e fomos gradativamente aumentando a voltagem. Percebemos que quanto maior a voltagem maior a capacidade de captação do ima. Magnetizamos moedas pois sabendo o peso das moedas poderemos estimar a massa de metal que o imã é capaz de reter (ainda não realizamos esse cálculo). Concluimos também que a forma como os metais se acumulam no imã impacta a massa que ele consegue segurar, já que se o material for depositado no sentido horizontal ele afeta o impacto di imã negativamente já que o campo magnético é inversamente proporcional a distância por isso deve-se botar o material na vertical.
-(colocar vídeo de teste do imã)
+[vídeo do imã sendo testado](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/v%C3%ADdeos/testes%20im%C3%A3.mp4)
 
 ### Bomba de água
 
