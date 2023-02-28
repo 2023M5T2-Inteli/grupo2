@@ -191,12 +191,12 @@ Durante os testes, no entanto, houve momentos em que o robô travou ao tentar mo
 Outro aspecto observado nos testes foi o delay de alguns segundos após a execução do código para o braço robótico se movimentar. Esse delay pode ser relevante em situações que exigem uma resposta rápida do robô, porém, acreditamos que isso não impactará nosso projeto.
 
 Além disso testes com a garra mostraram que apesar da garra facilmente pegar o imâ existem momentos em que o imã escorrega caindo da garra quando ela se move muito rápido.
-[vídeo do braço carregando imã](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/v%C3%ADdeos/bra%C3%A7o%20levantando%20im%C3%A3.mp4)
+[vídeo do braço carregando imã](https://drive.google.com/file/d/1U3UM0020-NH9rNW-j4T8iVwKVBouk3X4/view?usp=sharing)
 
 ### Eletroimã
 
 Além do teste que realizamos da garra levantando imã (citado na seção acima) realizamos um teste para medir a capacidade magnética do ima. Ligamos o imã a uma fonte de voltagem variável e fomos gradativamente aumentando a voltagem. Percebemos que quanto maior a voltagem maior a capacidade de captação do ima. Magnetizamos moedas pois sabendo o peso das moedas poderemos estimar a massa de metal que o imã é capaz de reter (ainda não realizamos esse cálculo). Concluimos também que a forma como os metais se acumulam no imã impacta a massa que ele consegue segurar, já que se o material for depositado no sentido horizontal ele afeta o impacto di imã negativamente já que o campo magnético é inversamente proporcional a distância por isso deve-se botar o material na vertical.
-[vídeo do imã sendo testado](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/v%C3%ADdeos/testes%20im%C3%A3.mp4)
+[vídeo do imã sendo testado](https://drive.google.com/file/d/1GvG1zHHmeROZmBOhi5rblqbd3_31_6Tq/view?usp=share_link)
 
 ### Bomba de água
 
