@@ -146,13 +146,13 @@ Foram desenvolvidas duas personas referente ao público que se pretende atender 
 
 1. Primeira versão da Arquitetura em blocos
 
-![img]
+![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/Aquitetura-por-blocos1.png)
 
  Alterações feita na arquitetura em blocos
-![img]
+![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/Altera%C3%A7%C3%B5es-arquitetura1.png)
 
 2. Segunda versão da Arquitetura em blocos
-![img]
+![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/Arquitetura-por-blocos-2.png)
 
 ## Módulos do Sistema e Visão Geral (Big Picture)
 ![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/Arquitetura-do-sistema.jpg)
