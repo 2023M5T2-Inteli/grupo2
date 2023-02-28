@@ -200,7 +200,7 @@ Além do teste que realizamos da garra levantando imã (citado na seção acima)
 
 ### Bomba de água
 
-Foram realizados teste com a bomba e percebemos que ele foi capaz de agitar a água, porém chegamos a conclusão de que quando o material for disperso na água a chance da bomba não atuar de forma similar ao nossos teste é grande. Logo, mais testes devem ser realuzados
+Foram realizados teste com a bomba e percebemos que ele foi capaz de agitar a água, porém chegamos a conclusão de que quando o material for disperso na água a chance da bomba não atuar de forma similar ao nossos teste é grande. Logo, mais testes devem ser realizados.
 
 # UX e UI Design
 
