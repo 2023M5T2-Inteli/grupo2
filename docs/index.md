@@ -10,11 +10,12 @@
 
 <font size="+12"><center>
 Concepção de sistema de automação industrial
+
 </center></font>
 
->*Observação 1: A estrutura inicial deste documento é só um exemplo. O seu grupo deverá alterar esta estrutura de acordo com o que está sendo solicitado nos artefatos.*
+> _Observação 1: A estrutura inicial deste documento é só um exemplo. O seu grupo deverá alterar esta estrutura de acordo com o que está sendo solicitado nos artefatos._
 
->*Observação 2: O índice abaixo não precisa ser editado se você utilizar o Visual Studio Code com a extensão **Markdown All in One**. Essa extensão atualiza o índice automaticamente quando o arquivo é salvo.*
+> _Observação 2: O índice abaixo não precisa ser editado se você utilizar o Visual Studio Code com a extensão **Markdown All in One**. Essa extensão atualiza o índice automaticamente quando o arquivo é salvo._
 
 **Conteúdo**
 
@@ -34,11 +35,16 @@ Concepção de sistema de automação industrial
 - [Requisitos do Sistema](#requisitos-do-sistema)
   - [Personas](#personas)
   - [Histórias dos usuários (user stories)](#histórias-dos-usuários-user-stories)
-- [Arquitetura do Sistema](#arquitetura-do-sistema)
+- [Arquitetura do Sistema Lembrar aqui](#arquitetura-do-sistema-lembrar-aqui)
   - [Módulos do Sistema e Visão Geral (Big Picture)](#módulos-do-sistema-e-visão-geral-big-picture)
+  - [V1](#v1)
   - [Descrição dos Subsistemas](#descrição-dos-subsistemas)
-    - [Requisitos de software](#requisitos-de-software)
+  - [Requisitos de software](#requisitos-de-software)
   - [Tecnologias Utilizadas](#tecnologias-utilizadas)
+  - [Testes de atuadores, sensores e do microcontrolador](#testes-de-atuadores-sensores-e-do-microcontrolador)
+    - [Braço Robótico](#braço-robótico)
+    - [Eletroimã](#eletroimã)
+    - [Bomba de água](#bomba-de-água)
 - [UX e UI Design](#ux-e-ui-design)
   - [Wireframe + Storyboard](#wireframe--storyboard)
   - [Design de Interface - Guia de Estilos](#design-de-interface---guia-de-estilos)
@@ -55,17 +61,15 @@ Concepção de sistema de automação industrial
   - [Manual do Administrador](#manual-do-administrador)
 - [Referências](#referências)
 
-
 # Autores
 
-* [Alberto da Rocha](https://www.linkedin.com/in/alberto-da-rocha-miranda-angrysine/)
-* [Bianca Cassemiro](https://www.linkedin.com/in/bianca-cassemiro/)
-* [Caio Martins](https://www.linkedin.com/in/caio-m1849/)
-* [Igor Garcia](https://www.linkedin.com/in/igor-garcia-126a1823b/)
-* [Israel Carvalho](https://www.linkedin.com/in/israel-carvalho-706133241/)
-* [Paulo Presa Evangelista](https://www.linkedin.com/in/paulo-evangelista/)
-* [Thainara Rodrigues](https://www.linkedin.com/in/tainara-rodrigues-763a42233/)
-
+- [Alberto da Rocha](https://www.linkedin.com/in/alberto-da-rocha-miranda-angrysine/)
+- [Bianca Cassemiro](https://www.linkedin.com/in/bianca-cassemiro/)
+- [Caio Martins](https://www.linkedin.com/in/caio-m1849/)
+- [Igor Garcia](https://www.linkedin.com/in/igor-garcia-126a1823b/)
+- [Israel Carvalho](https://www.linkedin.com/in/israel-carvalho-706133241/)
+- [Paulo Presa Evangelista](https://www.linkedin.com/in/paulo-evangelista/)
+- [Thainara Rodrigues](https://www.linkedin.com/in/tainara-rodrigues-763a42233/)
 
 # Visão Geral do Projeto
 
@@ -74,32 +78,33 @@ Concepção de sistema de automação industrial
 O Instituto de Pesquisas Tecnológicas, IPT, é um centro de pesquisa que atua diretamente com diversas indústrias e realiza desenvolvimento de novas ferramentas ou métodos para lidar com os problemas que seus clientes propõem.
 
 ## O Problema
+
 O processo de separação magnética realizada pelo IPT é manual e toma o tempo dos funcionários, estes que poderiam estar realizando outras atividades que não a separação de minerais metálicos em uma mistura.
 
 ## Objetivos
 
 ### Objetivos gerais
 
-Com o objetivo de salientar as dores apresentadas pelo cliente, o tempo despendido com um processo totalmente manual e a necessidade de um profissional treinado para realizar a tarefa, pretende-se conceber uma ferramenta que automatize este processo. 
+Com o objetivo de salientar as dores apresentadas pelo cliente, o tempo despendido com um processo totalmente manual e a necessidade de um profissional treinado para realizar a tarefa, pretende-se conceber uma ferramenta que automatize este processo.
 
 ### Objetivos específicos
 
-Tendo em vista a otimização do tempo dos pesquisadores que trabalham no IPT, o grupo IPTech propõe o desenvolvimento de uma ferramenta que possa automatizar o processo de separação magnética, neste caso será utilizado um braço mecânico acoplado com um microcontrolador, Raspberry Pi Pico W, e atuadores, conjunto de eletroimãs, que irão realizar a tarefa de coletar, lavar e separar os itens de uma mistura. 
+Tendo em vista a otimização do tempo dos pesquisadores que trabalham no IPT, o grupo IPTech propõe o desenvolvimento de uma ferramenta que possa automatizar o processo de separação magnética, neste caso será utilizado um braço mecânico acoplado com um microcontrolador, Raspberry Pi Pico W, e atuadores, conjunto de eletroimãs, que irão realizar a tarefa de coletar, lavar e separar os itens de uma mistura.
 
 ## Partes interessadas
 
-* Setor de materiais avançados do IPT
-* Inteli
+- Setor de materiais avançados do IPT
+- Inteli
 
 # Análise do Problema
 
-Para fazer a análise do problema, foram utilizados três métodos, a matriz de oceano azul, o Canvas Value Proposition e foi realizado um Workshop com o cliente para conhecer como o processo é feito atualmente. 
+Para fazer a análise do problema, foram utilizados três métodos, a matriz de oceano azul, o Canvas Value Proposition e foi realizado um Workshop com o cliente para conhecer como o processo é feito atualmente.
 
-Dentre os três métodos supramensionados, aquele que mais se destaca para a compreensão do problema foi o workshop, no qual pudemos conhecer as instalações do cliente e discutir possíveis features e necessidades que este tem em relação a ferramenta que será desenvolvida. 
+Dentre os três métodos supramensionados, aquele que mais se destaca para a compreensão do problema foi o workshop, no qual pudemos conhecer as instalações do cliente e discutir possíveis features e necessidades que este tem em relação a ferramenta que será desenvolvida.
 
 ## Análise da área de atuação
 
-*Descrição_da_análise_da_área_de_atuação*
+_Descrição*da_análise_da*área_de_atuação_
 
 ## Análise do cenário: Matriz de Oceano Azul
 
@@ -109,11 +114,9 @@ Dentre os três métodos supramensionados, aquele que mais se destaca para a com
 
 ![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/Canvas-Value-Propostion-1.png)
 
-
 ## Matriz de Risco
 
 ![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/Matriz-Risco.png)
-
 
 # Requisitos do Sistema
 
@@ -135,34 +138,59 @@ Foram desenvolvidas duas personas referente ao público que se pretende atender 
 
 ![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/Persona-Diogo.png)
 
-![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/Persona-Fernando.png) 
-
+![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/Persona-Fernando.png)
 
 ## Histórias dos usuários (user stories)
 
 ![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/User-Story.jpg)
 
-# Arquitetura do Sistema
+# Arquitetura do Sistema Lembrar aqui
 
 ## Módulos do Sistema e Visão Geral (Big Picture)
+
+## V1
+
 ![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/Arquitetura-do-sistema.jpg)
 
 ## Descrição dos Subsistemas
-| Componente  | Descrição da Função 	|
-|---	|---	|
-| Magician Lite 	| Braço robótico responsável por segurar os eletroimãs e fazer o transporteda mistura entre os recipien-<br>tes 	|
-| Raspberry Pi Pico W 	| Microcontrolador responsável por coordenar as funções do braço robótico. 	|
-| Eletroimã 	| Atuador responsável por criar um campo eletromagnético que fará a coleta do material metálico. 	|
-| Célula de Carga HX711	| Responsável por fazer o controle de tensão para o eletroimã, de modo a variar o campo eletromagnético. 	|
-| Bandeja 	| Serão utilizadas três bandejas, sendo a primeira para despejar a mistura e iniciar a separação via<br>eletroimã, a segunda para fazer a lavagem do material coletado retirando assim as impurezas não metá-<br>licas da mistura e a terceira será utilizada para depositar o material já separado. 	|
+
+| Componente            | Descrição da Função                                                                                                                                                                                                                                                                                |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Magician Lite         | Braço robótico responsável por segurar os eletroimãs e fazer o transporteda mistura entre os recipien-<br>tes                                                                                                                                                                                      |
+| Raspberry Pi Pico W   | Microcontrolador responsável por coordenar as funções do braço robótico.                                                                                                                                                                                                                           |
+| Eletroimã             | Atuador responsável por criar um campo eletromagnético que fará a coleta do material metálico.                                                                                                                                                                                                     |
+| Célula de Carga HX711 | Responsável por fazer o controle de tensão para o eletroimã, de modo a variar o campo eletromagnético.                                                                                                                                                                                             |
+| Bandeja               | Serão utilizadas três bandejas, sendo a primeira para despejar a mistura e iniciar a separação via<br>eletroimã, a segunda para fazer a lavagem do material coletado retirando assim as impurezas não metá-<br>licas da mistura e a terceira será utilizada para depositar o material já separado. |
 
 ## Requisitos de software
 
-
 ## Tecnologias Utilizadas
-* Backend-Microcontrolador: Python
-* Backend-Aplicação: Flask, Python 
-* Frontend: TypeScript, Next.js, CSS
+
+- Backend-Microcontrolador: Python
+- Backend-Aplicação: Flask, Python
+- Frontend: TypeScript, Next.js, CSS
+
+## Testes de atuadores, sensores e do microcontrolador
+
+### Braço Robótico
+
+Um dos primeiros testes realizados foi sobre o alcance do braço, que apresentou um ângulo de rotação de um pouco menos que 180 graus. Além disso, o robô apresentou uma boa capacidade de alcance na horizontal, podendo alcançar áreas maiores do que o tamanho da bandeja utilizada nos testes. Já na vertical, o robô conseguiu alcançar a bandeja sem problemas.
+
+Durante os testes, no entanto, houve momentos em que o robô travou ao tentar movimentá-lo além do seu alcance, tornando-se incapaz de se mover após isso. Esse tipo de limitação é importante para ser levado em consideração em aplicações futuras do robô. Não fomos capazes de identificar como corrigir o erro sem desligar e ligar denovo o robo.
+
+Outro aspecto observado nos testes foi o delay de alguns segundos após a execução do código para o braço robótico se movimentar. Esse delay pode ser relevante em situações que exigem uma resposta rápida do robô, porém, acreditamos que isso não impactará nosso projeto.
+
+Além disso testes com a garra mostraram que apesar da garra facilmente pegar o imâ existem momentos em que o imã escorrega caindo da garra quando ela se move muito rápido. 
+(colocar vídeo da garra segurando o imã)
+
+### Eletroimã
+
+Além do teste que realizamos da garra levantando imã (citado na seção acima) realizamos um teste para medir a capacidade magnética do ima. Ligamos o imã a uma fonte de voltagem variável e fomos gradativamente aumentando a voltagem. Percebemos que quanto maior a voltagem maior a capacidade de captação do ima. Magnetizamos moedas pois sabendo o peso das moedas poderemos estimar a massa de metal que o imã é capaz de reter (ainda não realizamos esse cálculo). Concluimos também que a forma como os metais se acumulam no imã impacta a massa que ele consegue segurar, já que se o material for depositado no sentido horizontal ele afeta o impacto di imã negativamente já que o campo magnético é inversamente proporcional a distância por isso deve-se botar o material na vertical.
+(colocar vídeo de teste do imã)
+
+### Bomba de água
+
+Foram realizados teste com a bomba e percebemos que ele foi capaz de agitar a água, porém chegamos a conclusão de que quando o material for disperso na água a chance da bomba não atuar de forma similar ao nossos teste é grande. Logo, mais testes devem ser realuzados
 
 # UX e UI Design
 
@@ -170,13 +198,11 @@ Foram desenvolvidas duas personas referente ao público que se pretende atender 
 
 ## Design de Interface - Guia de Estilos
 
-
 # Projeto de Banco de Dados
 
 ## Modelo Conceitual
 
 ## Modelo Lógico
-
 
 # Teste de Software
 
@@ -184,9 +210,7 @@ Foram desenvolvidas duas personas referente ao público que se pretende atender 
 
 ## Teste de Usabilidade
 
-
 # Análise de Dados
-
 
 # Manuais
 
@@ -195,6 +219,5 @@ Foram desenvolvidas duas personas referente ao público que se pretende atender 
 ## Manual do Usuário
 
 ## Manual do Administrador
-
 
 # Referências
