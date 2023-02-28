@@ -149,9 +149,13 @@ Foram desenvolvidas duas personas referente ao público que se pretende atender 
 ![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/Aquitetura-por-blocos1.png)
 
  Alterações feita na arquitetura em blocos
+
+Ao concluir a testagem com as células de carga, não conseguimos chegar a uma conclusão especificamente, visto que, o equipamento de pesagem não funcionou como esperávamos. Em vista disso, recorremos a uma nova arquitetura do sistema, retirando a célula de carga e possibilitando uma construção mais compacta para a solução, tendo apenas uma função principal de separação dos materiais com o uso dos eletroímãs.
+
 ![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/Altera%C3%A7%C3%B5es-arquitetura1.png)
 
 2. Segunda versão da Arquitetura em blocos
+
 ![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/Arquitetura-por-blocos-2.png)
 
 ## Módulos do Sistema e Visão Geral (Big Picture)
