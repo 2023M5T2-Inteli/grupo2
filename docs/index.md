@@ -64,7 +64,7 @@ Concepção de sistema de automação industrial
 * [Igor Garcia](https://www.linkedin.com/in/igor-garcia-126a1823b/)
 * [Israel Carvalho](https://www.linkedin.com/in/israel-carvalho-706133241/)
 * [Paulo Presa Evangelista](https://www.linkedin.com/in/paulo-evangelista/)
-* [Thainara Rodrigues](https://www.linkedin.com/in/tainara-rodrigues-763a42233/)
+* [Tainara Rodrigues](https://www.linkedin.com/in/tainara-rodrigues-763a42233/)
 
 
 # Visão Geral do Projeto
@@ -143,6 +143,16 @@ Foram desenvolvidas duas personas referente ao público que se pretende atender 
 ![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/User-Story.jpg)
 
 # Arquitetura do Sistema
+
+1. Primeira versão da Arquitetura em blocos
+
+![img]
+
+ Alterações feita na arquitetura em blocos
+![img]
+
+2. Segunda versão da Arquitetura em blocos
+![img]
 
 ## Módulos do Sistema e Visão Geral (Big Picture)
 ![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/Arquitetura-do-sistema.jpg)
