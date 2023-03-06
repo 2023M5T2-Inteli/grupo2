@@ -1,5 +1,6 @@
 from serial.tools import list_ports
 
+
 import pydobot
 import PySimpleGUI as sg
 
@@ -42,11 +43,19 @@ while True:
     if event == "get pos":
         (x, y, z, fr, j1, j2, j3, j4) = device.pose()
         arrayPos.append([x, y, z])
+        # create an archive to input the arrayPos data
+        with open('arrayPos.txt', 'w') as f:
+            for item in arrayPos:
+                f.write("%s " % item)
+
     if event == "RUN ARRAY":
         for i in arrayPos:
             device.move_to(i[0], i[1], i[2], 0, wait=True)
     if event == 'Clear array':
         arrayPos = []
+        # clear the txt file
+        with open('arrayPos.txt', 'w') as f:
+            f.write("")
     if event == 'RUN':
         (x, y, z, r, j1, j2, j3, j4) = device.pose()
         print(f'x:{x} y:{y} z:{z} j1:{j1} j2:{j2} j3:{j3} j4:{j4}')
