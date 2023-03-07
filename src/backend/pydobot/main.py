@@ -8,7 +8,11 @@ available_ports = list_ports.comports()
 print(f'available ports: {[x.device for x in available_ports]}')
 port = "COM7"
 
-device = pydobot.Dobot(port=port, verbose=True)
+try:
+    device = pydobot.Dobot(port=port, verbose=True)
+except OSError as e:
+    print("[ERRO] A porta selecionada não respondeu -->",e) 
+    exit()
 
 layout = [
     [sg.Button('Iniciar Ensaio')],
