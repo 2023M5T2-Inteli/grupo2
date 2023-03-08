@@ -211,6 +211,16 @@ Uma das vantagens de utilizar um aplicativo .exe é que ele pode fazer o control
 
 <img width="296" alt="Captura de tela 2023-03-08 171918" src="https://user-images.githubusercontent.com/99210055/223841450-2c107631-9f8d-4472-a3dc-713380fda4ea.png">
 
+# Detalhamento da interface
+Ao programa ser executado, é possível observar a interface apresentada na imagem acima. A função dos botões será descrita abaixo:
+"Iniciar Ensaio" -> Executa a rotina de ensaio padrão. O robô percorre pelas 3 bandejas, de forma preestabelecida. Por enquanto, esse ensaio padrão não pode ser modificado pelo usuário.
+"Salvar novo ciclo" -> A cada clique nesse botão, a posição do robô atual é salva em um banco de dados. Após salvar toda a rota desejada, é possível que ela seja executada. (O botão de executar as rotas salvas pelo usuário ainda não foi implementao, mas é algo planejado para a próxima sprint)
+
+Para fechar o progama, basta clicar no botão X, no canto superior direito da guia, bem como em qualquer programa.
+
+OBS.: Esta interface ainda está em estági ode desenvolvimento, e será aprimorada conforme as próximas sprints, e necessidades que surgirem.
+
+
 ## Design de Interface - Guia de Estilos
 Nossa interface é desenvolvida utilizando várias rows com elementos contidos nelas. Os elementos são minimalistas, com ícones destacados e instruções simples.
 Além disso, são utilizadas imagens para incrementar a interface. A fonte utilizada é "Mont Serrat", e a paleta de cores utiliza as cores padrão do IPT.
