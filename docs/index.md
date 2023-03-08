@@ -205,18 +205,16 @@ Foram realizados teste com a bomba e percebemos que ele foi capaz de agitar a á
 # UX e UI Design
 
 ## Wireframe + Storyboard
-O front end a ser desenvolvido é um website utilizando o framework Next JS, que permitirá ao usuário acessar as principais funcionalidades do projeto. O website terá um design claro e minimalista, com uma interface de usuário intuitiva para facilitar a interação do usuário com as funcionalidades.
-O website apresentará um controle para o braço robótico, permitindo ao usuário selecionar as diferentes posições e movimentos que o braço deve realizar. Essas opções estarão disponíveis em botões, dropdowns ou outras formas de interação, dependendo do design escolhido para o projeto.
-Além disso, o usuário terá a opção de executar e salvar a rota selecionada, permitindo assim que possa ser usada posteriormente, sem precisar ser reconfigurada novamente.
-Outra funcionalidade importante presente no front end será o controle de intensidade de imã. Este controle permitirá ao usuário ajustar a intensidade do ímã utilizado no braço robótico. Isso pode ser útil em diferentes situações, dependendo das necessidades específicas do usuário.
-No geral, o objetivo do front end é tornar as funcionalidades do projeto acessíveis e fáceis de usar para o usuário, com um design minimalista e intuitivo que permita ao usuário realizar suas tarefas com eficiência e eficácia.
+O front end a ser desenvolvido é um arquivo executável criado em Python utilizando a biblioteca PySimpleGUI, que permitirá ao usuário acessar as principais funcionalidades do projeto de forma fácil e intuitiva. O aplicativo apresentará a funcionalidade de executar e salvar a rota selecionada, permitindo assim que possa ser usada posteriormente, sem precisar ser reconfigurada novamente. Além disso, o usuário poderá controlar a intensidade do ímã utilizado no braço robótico por meio de um controle deslizante. Isso pode ser útil em diferentes situações, dependendo das necessidades específicas do usuário.
 
-<img width="458" alt="Captura de tela 2023-02-23 133458" src="https://user-images.githubusercontent.com/99203402/221928794-ede07ddc-7292-4b67-9094-52fca4abd952.png">
+Uma das vantagens de utilizar um aplicativo .exe é que ele pode fazer o controle do robô sem acesso à internet, além de que pode ser facilmente utilizado em diversos dispositivos sem precisar instalar dependências adicionais, o que facilita o uso e distribuição do projeto. O objetivo do aplicativo é tornar as funcionalidades do projeto acessíveis e fáceis de usar para o usuário, podendo ser executado no mais básico dos computadores e notebooks, contando com um design minimalista e intuitivo que permita ao usuário realizar suas tarefas com eficiência e eficácia.
 
-
-<img width="458" alt="Captura de tela 2023-02-23 133522" src="https://user-images.githubusercontent.com/99203402/221929093-dc13fac2-6f54-4179-a820-b23311bec384.png">
+<img width="296" alt="Captura de tela 2023-03-08 171918" src="https://user-images.githubusercontent.com/99210055/223841450-2c107631-9f8d-4472-a3dc-713380fda4ea.png">
 
 ## Design de Interface - Guia de Estilos
+Nossa interface é desenvolvida utilizando várias rows com elementos contidos nelas. Os elementos são minimalistas, com ícones destacados e instruções simples.
+Além disso, são utilizadas imagens para incrementar a interface. A fonte utilizada é "Mont Serrat", e a paleta de cores utiliza as cores padrão do IPT.
+
 
 # Projeto de Banco de Dados
 
