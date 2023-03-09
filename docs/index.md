@@ -45,6 +45,10 @@ Concepção de sistema de automação industrial
     - [Braço Robótico](#braço-robótico)
     - [Eletroimã](#eletroimã)
     - [Bomba de água](#bomba-de-água)
+- [Materiais e métodos da fabricação dos dispositivos eletrônicos e mecânicos](#arquitetura-do-sistema-lembrar-aqui)
+  - [Funcionamento dos dispositivos mecânicos](#Funcionamento-dos-dispositivos-mecânicos)
+  - [Dispositivos eletrônicos fabricados](#Dispositivos-eletrônicos-fabricados)
+  - [Método de fabricação dos dispositivos eletrônicos](#Método-de-fabricação-dos-dispositivos-eletrônicos)
 - [UX e UI Design](#ux-e-ui-design)
   - [Wireframe + Storyboard](#wireframe--storyboard)
   - [Design de Interface - Guia de Estilos](#design-de-interface---guia-de-estilos)
@@ -201,6 +205,12 @@ Além do teste que realizamos da garra levantando imã (citado na seção acima)
 ### Bomba de água
 
 Foram realizados teste com a bomba e percebemos que ele foi capaz de agitar a água, porém chegamos a conclusão de que quando o material for disperso na água a chance da bomba não atuar de forma similar ao nossos teste é grande. Logo, mais testes devem ser realizados.
+
+# Materiais e Métodos da Fabricação dos Dispositivos Eletrônicos e Mecânicos
+
+## Funcionamento dos dispositivos mecânicos
+## Dispositivos eletrônicos fabricados
+## Método de fabricação dos dispositivos eletrônicos]
 
 # UX e UI Design
 
