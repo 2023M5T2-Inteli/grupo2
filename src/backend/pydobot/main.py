@@ -1,12 +1,10 @@
 from serial.tools import list_ports
-
-
 import pydobot
 import PySimpleGUI as sg
 
 available_ports = list_ports.comports()
 print(f'available ports: {[x.device for x in available_ports]}')
-port = "COM7"
+port = "COM5"
 
 device = pydobot.Dobot(port=port, verbose=True)
 
