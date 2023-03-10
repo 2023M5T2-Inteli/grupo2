@@ -210,8 +210,18 @@ Foram realizados teste com a bomba e percebemos que ele foi capaz de agitar a á
 
 ## Funcionamento dos dispositivos mecânicos
 ## Dispositivos eletrônicos fabricados
-## Método de fabricação dos dispositivos eletrônicos]
+Foram fabricados:
+ - 4 eletroimãs, cada par ligado em paralelo para utilização dos dois canais da ponte H.
+ - uma ponte H, utilizada para possibilitar a inversão de polaridade nos eletroimãs utilizados.
+ - PCB, que contém raspberry PI e a ponte H, devidamente soldados, que permitem a ativação e inversão da ponte H pelo microcontrolador.
+## Método de fabricação dos dispositivos eletrônicos
+## Esquemático descritivo dos dispositivos eletrônicos fabricados:
+O esquemático descritivo das conexões foi feito utilizando o software EasyEDA, contendo os componentes, ponte h e o módulo de carga HX711, e as respectivas portas utilizadas para conectá-los ao Raspberry Pi Pico W. Este esquemático pode ser visto abaixo. 
+[!Esquemático do Circuito](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/diagrama/SCHEMA-PROJETO.pdf) 
 
+Com o esquemático pronto, produzimos o PCB do diagrama utilizando o software supracitado, EasyEDA, de modo a compreender como os componentes estariam dispostos em uma placa, como pode ser observado abaixo. 
+
+[!PCB da Solução](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/diagrama/PCB-PROJETO.pdf)
 # UX e UI Design
 
 ## Wireframe + Storyboard
