@@ -217,11 +217,11 @@ Foram fabricados:
 ## Método de fabricação dos dispositivos eletrônicos
 ## Esquemático descritivo dos dispositivos eletrônicos fabricados:
 O esquemático descritivo das conexões foi feito utilizando o software EasyEDA, contendo os componentes, ponte h e o módulo de carga HX711, e as respectivas portas utilizadas para conectá-los ao Raspberry Pi Pico W. Este esquemático pode ser visto abaixo. 
-[img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/diagrama/SCHEMA-PROJETO.pdf) 
+![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/diagrama/SCHEMA-PROJETO.pdf) 
 
 Com o esquemático pronto, produzimos o PCB do diagrama utilizando o software supracitado, EasyEDA, de modo a compreender como os componentes estariam dispostos em uma placa, como pode ser observado abaixo. 
 
-[img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/diagrama/PCB-PROJETO.pdf)
+![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/diagrama/PCB-PROJETO.pdf)
 # UX e UI Design
 
 ## Wireframe + Storyboard
