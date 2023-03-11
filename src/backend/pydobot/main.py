@@ -6,7 +6,7 @@ import PySimpleGUI as sg
 available_ports = list_ports.comports()
 print(f'available ports: {[x.device for x in available_ports]}')
 
-port = "COM7"
+port = "COM28"
 #Configuration of theme and font
 font = ('Montserrat', 15,'bold')
 sg.theme('DarkBlue2')
@@ -27,7 +27,7 @@ layout = [
 
 
 (fx, fy, fz, fr, j1, j2, j3, j4) = device.pose()
-
+count = 3
 print(fx, fy, fz, fr, j1, j2, j3, j4)
 #Creating an array to add a new path
 arrayPos = []
@@ -47,8 +47,10 @@ while True:
         break
     #Start moving the robot from the event "Iniciar Ensaio"
     if event == "Iniciar Ensaio":
-        for i in presetArray:
-            device.move_to(i[0], i[1], i[2], 0, wait=True)
+        while not count == 0:
+            for i in presetArray:
+                device.move_to(i[0], i[1], i[2], 0, wait=True)
+            count -= 1
     #Save the position the robot is currently in, givin autonomy to the user
     if event == "Salvar novo ciclo":
         (x, y, z, fr, j1, j2, j3, j4) = device.pose()
