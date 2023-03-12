@@ -209,18 +209,25 @@ Foram realizados teste com a bomba e percebemos que ele foi capaz de agitar a á
 # Materiais e Métodos da Fabricação dos Dispositivos Eletrônicos e Mecânicos
 
 ## Dispositivos eletrônicos fabricados
-Foram fabricados:
  - 4 eletroimãs, cada par ligado em paralelo para utilização dos dois canais da ponte H.
  - Ponte H, utilizada para possibilitar a inversão do campo magnético nos eletroimãs utilizados.
  - PCB, que contém raspberry PI e a ponte H, devidamente soldados, que permitem a ativação e inversão da ponte H pelo microcontrolador.
 
 ## Método de fabricação dos dispositivos eletrônicos
-  - Foram soladados, em paralelo, 2 eletroimãs em cada uma das duas saídas da ponte H.
-  - Foi anexada à ponte H dois cabos para a possibiidade de conexção com uma fonte de 12 V e com o GND do Raspberry Pi Pico W.
+  - Foram soladados, em paralelo, 2 eletroimãs nas duas saídas da ponte H.
+  - Foi anexada à ponte H dois cabos para a possibilidade de conexção com uma fonte de 12 V e com o GND do Raspberry Pi Pico W.
   - O Raspberry Pi Pico W, que está conectado a um computador, tem mais 4 ligações com a ponte H, a fim de controlar a polariadade de suas saídas.
 
+![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/Raspberry-PonteH-Imas.jpeg)
+
+|Conexções                            |Cores                         |
+|-------------------------------------|:----------------------------:|
+| Ponte H com Eletroimãs              | Verde, Marrom, Azul, Laranja |
+| Ponte H com Raspberry Pi Pico W     | Verde, Amarelo               |
+| Ponte H com fonte e GND do Raspberry| Vermelho, Azul               |
+
 ## Funcionamento dos dispositivos eletrônicos
-Ao ser energizado, o Raspberry Pi Pico W atua de acordo com seu código de operação, assim ativando as ligações com a ponte H. Isso fará com que os eletroimãs proporcionem campos magnéticos. Em um dado momento, o microcontrolador fará a ponte H inverter a polaridade de suas saídas, criando assim um pequeno campo invertido nos imãs em relação ao anterior, e imediatamente depois o rasberry vai os desligar, resultando na desativação pretendida do magnetismo no eletroimã.
+Ao ser energizado, o Raspberry Pi Pico W atua de acordo com seu código de operação, assim ativando as ligações com a ponte H, isso fará com que os eletroimãs proporcionem campos magnéticos. Em um dado momento, o microcontrolador fará a ponte H inverter a polaridade de suas saídas, criando assim um pequeno campo invertido nos imãs em relação ao anterior, e imediatamente depois, o rasberry vai desliga-los, resultando na desativação pretendida do magnetismo do eletroimã.
 
 ## Esquemático descritivo dos dispositivos eletrônicos fabricados:
 O esquemático descritivo das conexões foi feito utilizando o software EasyEDA, contendo os componentes, ponte h e o módulo de carga HX711, e as respectivas portas utilizadas para conectá-los ao Raspberry Pi Pico W. Este esquemático pode ser visto abaixo. 
