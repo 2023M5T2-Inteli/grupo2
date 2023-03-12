@@ -219,7 +219,7 @@ Foram fabricados:
   - Foi anexada à ponte H dois cabos para a possibiidade de conexção com uma fonte de 12 V e com o GND do Raspberry Pi Pico W.
   - O Raspberry Pi Pico W, que está conectado a um computador, tem mais 4 ligações com a ponte H, a fim de controlar a polariadade de suas saídas.
 
-## Funcionamento dos dispositivos mecânicos
+## Funcionamento dos dispositivos eletrônicos
 Ao ser energizado, o Raspberry Pi Pico W atua de acordo com seu código de operação, assim ativando as ligações com a ponte H. Isso fará com que os eletroimãs proporcionem campos magnéticos. Em um dado momento, o microcontrolador fará a ponte H inverter a polaridade de suas saídas, criando assim um pequeno campo invertido nos imãs em relação ao anterior, e imediatamente depois o rasberry vai os desligar, resultando na desativação pretendida do magnetismo no eletroimã.
 
 ## Esquemático descritivo dos dispositivos eletrônicos fabricados:
@@ -229,6 +229,30 @@ O esquemático descritivo das conexões foi feito utilizando o software EasyEDA,
 Com o esquemático pronto, produzimos o PCB do diagrama utilizando o software supracitado, EasyEDA, de modo a compreender como os componentes estariam dispostos em uma placa, como pode ser observado abaixo. 
 
 ![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/diagrama/PCB-PROJETO-1.png)
+
+
+## Dispositivos mecânicos fabricados 
+
+O design a seguir contempla a parte mecânica principal do projeto, a peça que irá segurar os eletroímãs, sobretudo de extrema importância principalmente quando os eletroímãs forem desligados na terceira bandeja para desprender os materiais eletrodomésticos por completo. Assim, o design da peça a ser fabricada, como um todo, valoriza consideravelmente o minimalismo e a praticidade, visto que não será necessário a fabricação de um elemento do zero, pois, usaremos a peça que já vem no kit do robô Dobot Mágico Lite, mais especificamente a peça que prende a caneta ao robô. 
+  
+Dessa maneira, a fabricação da peça irá ser feita com base apenas em um  paralelepípedo vazado que irá substituir o tubo da caneta e terá a função primordial de armazenar no seu interior toda a fiação elétrica dos eletroímãs, levando todos os fios a serem conectados com a ponte H e o microcontrolador Raspberry Py Picpo W que se localizará na parte traseira do robô, não ocasionando assim uma possível interferência na movimentação do braço,  consequentemente também será de suma importância um cubo que conseguirá armazenar as quatro unidades dos eletroímãs que iremos utilizar para a separação do material nas três bandejas. 
+
+![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/Rob%C3%B4-com-a-pe%C3%A7a-acoplada.jpg)
+Figura representativa do croqui esquemático com a peça fabricada acoplada à peça que segura a caneta, e a fiação dos eletroímãs sendo conectada também com o circuito elétrico, encontrado na parte posterior do robô. 
+
+![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/Rob%C3%B4-com-a-caneta.png)
+Figura do robô com a peça que iremos utilizar como base para a fabricação da peça que irá acoplar os eletroímãs. 
+
+![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/Pe%C3%A7a-acoplada.jpg)
+Figura representativa do croqui esquemático com a peça fabricada, através do desenho é possível verificar como os eletroímãs ficaram posicionados no interior do cubo, também vemos como os fios irão se conectar com os componentes percorrendo o caminho por dentro do paralelepípedo.
+
+![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/Medidas-da-pe%C3%A7a.png)
+Desenho em 3D da peça fabricada junto com a peça irá segurá-la, através do desenho é possível verificar as medidas principais da peça que irá ser acoplada a outra peça já existente. 
+
+![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/Medidas-da-pe%C3%A7a2.png)
+Desenho em 3D da peça fabricada, através do desenho é possível verificar as medidas principais da peça. Como elementos geométricos temos: um cubo principal onde os eletroímãs serão posicionados com a medida de 4 centímetros por comprimento e largura e um paralelepípedo vazado que irá dar caminho para a fiação elétrica com 5 centímetros e de 1 centímetro  de largura. 
+Para a construção da peça iremos utilizar o único filamento que é hidrofóbico (material que não absorve água) o  PP (polipropileno), visto que, é um material bastante resistente e é frequentemente utilizado em projetos que requerem resistência à água como: a fabricação de embalagens para alimentos, bebidas, produtos químicos e farmacêuticos. 
+
 # UX e UI Design
 
 ## Wireframe + Storyboard
