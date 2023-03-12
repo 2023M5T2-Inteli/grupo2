@@ -35,7 +35,7 @@ Concepção de sistema de automação industrial
 - [Requisitos do Sistema](#requisitos-do-sistema)
   - [Personas](#personas)
   - [Histórias dos usuários (user stories)](#histórias-dos-usuários-user-stories)
-- [Arquitetura do Sistema Lembrar aqui](#arquitetura-do-sistema-lembrar-aqui)
+- [Arquitetura do Sistema](#arquitetura-do-sistema)
   - [Módulos do Sistema e Visão Geral (Big Picture)](#módulos-do-sistema-e-visão-geral-big-picture)
   - [V1](#v1)
   - [Descrição dos Subsistemas](#descrição-dos-subsistemas)
@@ -45,7 +45,7 @@ Concepção de sistema de automação industrial
     - [Braço Robótico](#braço-robótico)
     - [Eletroimã](#eletroimã)
     - [Bomba de água](#bomba-de-água)
-- [Materiais e métodos da fabricação dos dispositivos eletrônicos e mecânicos](#arquitetura-do-sistema-lembrar-aqui)
+- [Materiais e métodos da fabricação dos dispositivos eletrônicos e mecânicos](#arquitetura-do-sistema)
   - [Funcionamento dos dispositivos mecânicos](#Funcionamento-dos-dispositivos-mecânicos)
   - [Dispositivos eletrônicos fabricados](#Dispositivos-eletrônicos-fabricados)
   - [Método de fabricação dos dispositivos eletrônicos](#Método-de-fabricação-dos-dispositivos-eletrônicos)
@@ -153,7 +153,7 @@ Foram desenvolvidas duas personas referente ao público que se pretende atender 
 
 ![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/User-Story.jpg)
 
-# Arquitetura do Sistema Lembrar aqui
+# Arquitetura do Sistema
 
 1. Primeira versão da Arquitetura em blocos
 
@@ -185,11 +185,11 @@ Ao fenalizar a testagem com as células de carga, foi possível concluir que nã
 
 ## Tecnologias Utilizadas
 
-- Backend-Microcontrolador: Python
-- Backend-Aplicação: Flask, Python
-- Frontend: TypeScript, Next.js, CSS
+- Backend-Microcontrolador: MicroPython
+- Backend-Aplicação: Python
+- Frontend: PySimpleGUI
 
-## Testes de atuadores, sensores e do microcontrolador
+## Testes de atuadores, sensores e do microcontrolador (Sprint 2)
 
 ### Braço Robótico
 
@@ -211,7 +211,32 @@ Além do teste que realizamos da garra levantando imã (citado na seção acima)
 
 Foram realizados teste com a bomba e percebemos que ele foi capaz de agitar a água, porém chegamos a conclusão de que quando o material for disperso na água a chance da bomba não atuar de forma similar ao nossos teste é grande. Logo, mais testes devem ser realizados.
 
+## Testes de atuadores, sensores e do microcontrolador (Sprint 3)
+
+Na sprint 3 fizemos a implementação dos componentes eletrônicos juntamente com o robo para testar o modelo conceito que estava sendo desenvolvido anteriormente. 
+
+Desta forma, utilizando uma peça quadrangular de circuito impresso fizemos uma base para acoplar os 4 imãs utilizados e verificar se área de varredura pensada até então atendia o objetivo da solução. Como é possível ver no vídeo abaixo. 
+
+[Teste de Conceito](https://drive.google.com/file/d/1xd4uUyERMX7U0zyBkPTvCpRegGQAV03W/view?usp=sharing)
+
+Utilizando um computador foi realizada a comunicação entre Raspberry Pi Pico W e os eletroimãs supramencionados, de modo a verificar se o código desenvolvido realizava as funções de ativação dos eletroimãs, inversão da polaridade do imã e desativação deste componente. Com o teste pudemos observar que o microcontrolador estava adequado à solução, tendo em vista que este fez o controle pretendido dos atuadores. 
+
+Outrossim, através da interface gráfica desenvolvida em PySimpleGUI, conseguimos realizar a gravação de uma rotina para o robô, aquela demonstrada no vídeo, para um cenário comum de utilização. Comprovando novamente que o conceito pensado até então se adequava a solução pretendida na sprint 2. 
+
 # Materiais e Métodos da Fabricação dos Dispositivos Eletrônicos e Mecânicos
+
+## Materiais utilizados 
+| Quantidade | Nome do Material  |
+|---|---|
+| 1x | Placa de Circuito Impresso |
+| 1x | Raspberry Pi Pico W |
+| 1x | Ponte H L298N  |
+| 1x | Módulo de Conversor para Sensor de Peso HX711|
+| 1x | Módulo regulador de Tensão (Stepup) MT3608|
+| 4x | Eletroimã convencional (12v) |
+| 10x | Jumpers |
+| 3x | Bandejas |
+
 
 ## Dispositivos eletrônicos fabricados
  - 4 eletroimãs, cada par ligado em paralelo para utilização dos dois canais da ponte H.
@@ -219,7 +244,7 @@ Foram realizados teste com a bomba e percebemos que ele foi capaz de agitar a á
  - PCB, que contém raspberry PI e a ponte H, devidamente soldados, que permitem a ativação e inversão da ponte H pelo microcontrolador.
 
 ## Método de fabricação dos dispositivos eletrônicos
-  - Foram soladados, em paralelo, 2 eletroimãs nas duas saídas da ponte H.
+  - Foram soldados, em paralelo, 2 eletroimãs nas duas saídas da ponte H.
   - Foi anexada à ponte H dois cabos para a possibilidade de conexção com uma fonte de 12 V e com o GND do Raspberry Pi Pico W.
   - O Raspberry Pi Pico W, que está conectado a um computador, tem mais 4 ligações com a ponte H, a fim de controlar a polariadade de suas saídas.
 
