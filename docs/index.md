@@ -276,12 +276,59 @@ Ao programa ser executado, é possível observar a interface apresentada na imag
 
 Para fechar o progama, basta clicar no botão X, no canto superior direito da guia, bem como em qualquer programa.
 
-OBS.: Esta interface ainda está em estági ode desenvolvimento, e será aprimorada conforme as próximas sprints, e necessidades que surgirem.
+OBS.: Esta interface ainda está em estágio de desenvolvimento, e será aprimorada conforme as próximas sprints, e necessidades que surgirem.
+
+# Detalhamento da criação do executável
+é possível criar um arquivo .EXE único que pode ser distribuído para usuários do Windows, eliminando a necessidade de instalar o interpretador Python em cada computador que deseja executá-lo. Para isso, você pode usar o PyInstaller, uma ferramenta que converte um script Python em um arquivo executável autocontido.
+
+Para usar o PyInstaller, você precisará instalá-lo primeiro, bem como o PySimpleGUI se ainda não estiver instalado em seu sistema. A instalação do PyInstaller e do PySimpleGUI é simples e requer apenas um comando no terminal do seu sistema.
+
+```
+pip install PySimpleGUI
+pip install PyInstaller
+```
+Para criar seu arquivo EXE a partir de seu programa que usa PySimpleGUI, "nome do seu arquivo.py" digite este comando no prompt de comando do Windows:
+
+```
+pyinstaller -wF nomeDoArquivo.py
+```
+
+Você ficará com um único arquivo, nomeDoArquivo.exe, localizado em uma pasta chamada dist sob a pasta onde você executou o pyinstaller comando.
+Seu arquivo EXE deve ser executado sem criar uma "janela shell". Somente a janela da GUI deve aparecer na barra de tarefas.
+
+Se você tiver uma falha com algo como:
+
+```
+ValueError: script '.......\src\tkinter' not found
+```
+
+Em seguida, tente adicionar --hidden-import tkinterao seu comando
+
+# Testes entre interface o robô
+Fizemos testes de usabilidade para avaliar a interação entre o robô Dobot Magician Lite e o PySimpleGUI. Para isso, criamos um arquivo executável do programa e testamos em diversos computadores com o objetivo principal de confirmar se o programa estava funcionando corretamente.
+
+Com o arquivo executável em mãos, você pode facilmente executar o programa em sua máquina e, ao conectar o robô Dobot Magician Lite através de um cabo USB, pode realizar o ciclo de ensaio previamente programado. Além disso, você também pode gerar novos ensaios e testá-los, tudo isso sem a necessidade de instalar o Python ou outras bibliotecas no seu computador.
+
+Com essa abordagem, torna-se mais fácil e prático testar a funcionalidade do programa em diferentes máquinas e ambientes, sem precisar passar por processos de instalação ou configuração complexos. O arquivo executável empacota todo o código e dependências necessárias para o programa funcionar corretamente em um único arquivo, simplificando a distribuição e a utilização do aplicativo.
+
+
+https://user-images.githubusercontent.com/99203402/224576115-a0a9aa83-9ee1-4f89-82d6-70484bd09211.mp4
+
+O vídeo apresenta um dos testes realizados entre o PySimpleGUI e o robô Dobot Magician Lite, mostrando a interação entre os dois e a rota que o robô segue após o início do ensaio. Além disso, o vídeo destaca que não é necessária a conexão WiFi durante a execução do programa, tornando o processo mais simples e acessível.
+
+Ao observar o vídeo, é possível notar como o PySimpleGUI permite que o usuário execute o ensaio de forma intuitiva, sem a necessidade de conhecimento prévio em programação ou robótica. Com apenas alguns cliques, o robô segue uma rota pré-programada e realiza as tarefas desejadas.
+
+A demonstração também enfatiza que não é necessário estar conectado a uma rede WiFi para executar o programa, tornando-o mais prático e portátil. Isso significa que você pode executar o programa em qualquer lugar, desde que tenha uma conexão USB com o robô.
+
+Em resumo, o vídeo mostra a facilidade de uso do PySimpleGUI em conjunto com o robô Dobot Magician Lite, bem como a praticidade de não precisar de uma conexão WiFi para executar o programa.
 
 
 ## Design de Interface - Guia de Estilos
-Nossa interface é desenvolvida utilizando várias rows com elementos contidos nelas. Os elementos são minimalistas, com ícones destacados e instruções simples.
-Além disso, são utilizadas imagens para incrementar a interface. A fonte utilizada é "Mont Serrat", e a paleta de cores utiliza as cores padrão do IPT.
+Desenvolvemos nossa interface utilizando várias linhas (rows) que contêm elementos minimalistas e de fácil compreensão. Os ícones utilizados são destacados para facilitar a identificação e as instruções são simples e diretas. Além disso, as imagens foram usadas para melhorar a aparência geral da interface.
+
+Para manter a consistência visual, optamos por usar a fonte "Montserrat" em toda a interface, o que contribui para uma aparência mais moderna e sofisticada. A paleta de cores foi desenvolvida a partir das cores padrão do IPT, garantindo uma harmonização visual com outros projetos e sistemas desenvolvidos pela instituição.
+
+Com essa abordagem, buscamos criar uma interface agradável e fácil de usar, que possa ser compreendida facilmente pelos usuários, independentemente do seu nível de habilidade ou experiência com a utilização de programas e aplicativos. Acreditamos que a combinação de elementos minimalistas, instruções claras e imagens atraentes cria uma interface atraente e intuitiva que facilita o uso e aumenta a satisfação do usuário.
 
 
 # Projeto de Banco de Dados
