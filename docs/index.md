@@ -219,7 +219,7 @@ Desta forma, utilizando uma peça quadrangular de circuito impresso fizemos uma 
 
 [Teste de Conceito](https://drive.google.com/file/d/1xd4uUyERMX7U0zyBkPTvCpRegGQAV03W/view?usp=sharing)
 
-Utilizando um computador foi realizada a comunicação entre Raspberry Pi Pico W e os eletroimãs supramencionados, de modo a verificar se o código desenvolvido realizava as funções de ativação dos eletroimãs, inversão da polaridade do imã e desativação deste componente. Com o teste pudemos observar que o microcontrolador estava adequado à solução, tendo em vista que este fez o controle pretendido dos atuadores. 
+Utilizando um computador foi realizada a comunicação entre Raspberry Pi Pico W e os eletroimãs supramencionados, de modo a verificar se o código desenvolvido realizava as funções de ativação dos eletroimãs, inversão da corrente para inverter o momento dipolar do imã, evitando que ele se torne um ímã permanente, e desativação deste componente. Com o teste pudemos observar que o microcontrolador estava adequado à solução, tendo em vista que este fez o controle pretendido dos atuadores. 
 
 Outrossim, através da interface gráfica desenvolvida em PySimpleGUI, conseguimos realizar a gravação de uma rotina para o robô, aquela demonstrada no vídeo, para um cenário comum de utilização. Comprovando novamente que o conceito pensado até então se adequava a solução pretendida na sprint 2. 
 
