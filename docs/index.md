@@ -37,20 +37,26 @@ Concepção de sistema de automação industrial
   - [Histórias dos usuários (user stories)](#histórias-dos-usuários-user-stories)
 - [Arquitetura do Sistema](#arquitetura-do-sistema)
   - [Módulos do Sistema e Visão Geral (Big Picture)](#módulos-do-sistema-e-visão-geral-big-picture)
-  - [V1](#v1)
   - [Descrição dos Subsistemas](#descrição-dos-subsistemas)
   - [Requisitos de software](#requisitos-de-software)
   - [Tecnologias Utilizadas](#tecnologias-utilizadas)
-  - [Testes de atuadores, sensores e do microcontrolador](#testes-de-atuadores-sensores-e-do-microcontrolador)
+  - [Testes de atuadores, sensores e do microcontrolador (Sprint 2)](#testes-de-atuadores-sensores-e-do-microcontrolador-sprint-2)
     - [Braço Robótico](#braço-robótico)
     - [Eletroimã](#eletroimã)
     - [Bomba de água](#bomba-de-água)
-- [Materiais e métodos da fabricação dos dispositivos eletrônicos e mecânicos](#arquitetura-do-sistema)
-  - [Funcionamento dos dispositivos mecânicos](#Funcionamento-dos-dispositivos-mecânicos)
-  - [Dispositivos eletrônicos fabricados](#Dispositivos-eletrônicos-fabricados)
-  - [Método de fabricação dos dispositivos eletrônicos](#Método-de-fabricação-dos-dispositivos-eletrônicos)
+  - [Testes de atuadores, sensores e do microcontrolador (Sprint 3)](#testes-de-atuadores-sensores-e-do-microcontrolador-sprint-3)
+- [Materiais e Métodos da Fabricação dos Dispositivos Eletrônicos e Mecânicos](#materiais-e-métodos-da-fabricação-dos-dispositivos-eletrônicos-e-mecânicos)
+  - [Materiais utilizados](#materiais-utilizados)
+  - [Dispositivos eletrônicos fabricados](#dispositivos-eletrônicos-fabricados)
+  - [Método de fabricação dos dispositivos eletrônicos](#método-de-fabricação-dos-dispositivos-eletrônicos)
+  - [Funcionamento dos dispositivos eletrônicos](#funcionamento-dos-dispositivos-eletrônicos)
+  - [Esquemático descritivo dos dispositivos eletrônicos fabricados:](#esquemático-descritivo-dos-dispositivos-eletrônicos-fabricados)
+  - [Dispositivos mecânicos fabricados](#dispositivos-mecânicos-fabricados)
 - [UX e UI Design](#ux-e-ui-design)
   - [Wireframe + Storyboard](#wireframe--storyboard)
+- [Detalhamento da interface](#detalhamento-da-interface)
+- [Detalhamento da criação do executável](#detalhamento-da-criação-do-executável)
+- [Testes entre interface o robô](#testes-entre-interface-o-robô)
   - [Design de Interface - Guia de Estilos](#design-de-interface---guia-de-estilos)
 - [Projeto de Banco de Dados](#projeto-de-banco-de-dados)
   - [Modelo Conceitual](#modelo-conceitual)
@@ -89,11 +95,16 @@ O processo de separação magnética realizada pelo IPT é manual e toma o tempo
 
 ### Objetivos gerais
 
-Com o objetivo de salientar as dores apresentadas pelo cliente, o tempo despendido com um processo totalmente manual e a necessidade de um profissional treinado para realizar a tarefa, pretende-se conceber uma ferramenta que automatize este processo.
+Tendo em vista a otimização do tempo dos pesquisadores que trabalham no IPT, o grupo IPTech propõe o desenvolvimento de uma ferramenta que possa automatizar o processo de separação magnética, neste caso será utilizado um braço mecânico acoplado com um microcontrolador, Raspberry Pi Pico W, e atuadores, conjunto de eletroimãs, que irão realizar a tarefa de coletar, lavar e separar os itens de uma mistura.
 
 ### Objetivos específicos
+Temos 4 objetivos principais com esse protótipo:
 
-Tendo em vista a otimização do tempo dos pesquisadores que trabalham no IPT, o grupo IPTech propõe o desenvolvimento de uma ferramenta que possa automatizar o processo de separação magnética, neste caso será utilizado um braço mecânico acoplado com um microcontrolador, Raspberry Pi Pico W, e atuadores, conjunto de eletroimãs, que irão realizar a tarefa de coletar, lavar e separar os itens de uma mistura.
+1) O braço robótico  deve ser capaz de percorrer a totalidace 3 bandejas dispostas em volta do robô cada uma 90 graus de distância uma da outra. 
+2) Iniciar o percorrimento da bandeja deve ser simples, somente necessitando inserir as dimensões das bandejas e apertar um botão
+3) O tempo para percorrer as bandejas uma vez deve ser menor que 2 minutos e o tempo para realizar o processo totalmente deve ser menor que 15 min (tempo que um funcionário do ipt demora para realizar o processo)
+4) Deve haver uma forma do robô salvar executar caminhos personalizados que o usuário consiga inputar de forma clara e objetiva
+
 
 ## Partes interessadas
 
