@@ -200,12 +200,20 @@ Durante os testes, no entanto, houve momentos em que o robô travou ao tentar mo
 Outro aspecto observado nos testes foi o delay de alguns segundos após a execução do código para o braço robótico se movimentar. Esse delay pode ser relevante em situações que exigem uma resposta rápida do robô, porém, acreditamos que isso não impactará nosso projeto.
 
 Além disso testes com a garra mostraram que apesar da garra facilmente pegar o imâ existem momentos em que o imã escorrega caindo da garra quando ela se move muito rápido.
-[vídeo do braço carregando imã](https://drive.google.com/file/d/1U3UM0020-NH9rNW-j4T8iVwKVBouk3X4/view?usp=sharing)
+[vídeo do braço carregando imã]
+
+https://user-images.githubusercontent.com/99188421/225750970-88165905-a67a-4805-bce9-52022a9f8418.mp4
+
+
 
 ### Eletroimã
 
 Além do teste que realizamos da garra levantando imã (citado na seção acima) realizamos um teste para medir a capacidade magnética do ima. Ligamos o imã a uma fonte de voltagem variável e fomos gradativamente aumentando a voltagem. Percebemos que quanto maior a voltagem maior a capacidade de captação do ima. Magnetizamos moedas pois sabendo o peso das moedas poderemos estimar a massa de metal que o imã é capaz de reter (ainda não realizamos esse cálculo). Concluimos também que a forma como os metais se acumulam no imã impacta a massa que ele consegue segurar, já que se o material for depositado no sentido horizontal ele afeta o impacto di imã negativamente já que o campo magnético é inversamente proporcional a distância por isso deve-se botar o material na vertical.
-[vídeo do imã sendo testado](https://drive.google.com/file/d/1GvG1zHHmeROZmBOhi5rblqbd3_31_6Tq/view?usp=share_link)
+[vídeo do imã sendo testado]
+
+https://user-images.githubusercontent.com/99188421/225750788-ec3e0387-1f70-403d-bd01-5e17cfa6619f.mp4
+
+
 
 ### Bomba de água
 
@@ -217,7 +225,11 @@ Na sprint 3 fizemos a implementação dos componentes eletrônicos juntamente co
 
 Desta forma, utilizando uma peça quadrangular de circuito impresso fizemos uma base para acoplar os 4 imãs utilizados e verificar se área de varredura pensada até então atendia o objetivo da solução. Como é possível ver no vídeo abaixo. 
 
-[Teste de Conceito](https://drive.google.com/file/d/1xd4uUyERMX7U0zyBkPTvCpRegGQAV03W/view?usp=sharing)
+[Teste de Conceito]
+
+
+
+
 
 Utilizando um computador foi realizada a comunicação entre Raspberry Pi Pico W e os eletroimãs supramencionados, de modo a verificar se o código desenvolvido realizava as funções de ativação dos eletroimãs, inversão da corrente para inverter o momento dipolar do imã, evitando que ele se torne um ímã permanente, e desativação deste componente. Com o teste pudemos observar que o microcontrolador estava adequado à solução, tendo em vista que este fez o controle pretendido dos atuadores. 
 
