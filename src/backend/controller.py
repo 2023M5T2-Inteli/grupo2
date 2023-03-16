@@ -7,14 +7,13 @@ class Controller(object):
             import pydobot
 
             #lista as portas disponíveis, atualmente sempre é a COM5
-            available_ports = list_ports.comports()
-            print(f'available ports: {[x.self.device for x in available_ports]}')
+         
             port = "COM5"
 
             #cria o objeto do Dobot, estabelecendo a comunicação
             self.device = pydobot.Dobot(port=port, verbose=False)
              #move o Dobot para a posição inicial
-            self.device.move_to(225.7625732421875, 0.0, 150.50729370117188, 0.0, wait=True)
+            
     
     #função para fazer o quadrado
     def square(self,l: float) :
@@ -115,8 +114,23 @@ class Controller(object):
             (x, y, z, r, j1, j2, j3, j4) =self.device.pose()
             
             #rotaciona o Dobot
-            self.device.move_to(x+l, y, z,r+l, wait=True)
-            self.device.move_to(x-l, y, z,r-l, wait=True)
+            self.device.move_to(225.7625732421875, 0.0, 300, 0.0, wait=True)
+            self.device.move_to(x, y+l, z,r, wait=True)
+            self.device.move_to(y+l, x, z,r, wait=True)
+            
+            
+                
+            return "success"
+
+        except Exception as e:
+            return str(e)
+    
+    def get_delta(self):
+        try:
+            #pega a posição atual do Dobot
+            (x, y, z, r, j1, j2, j3, j4) =self.device.pose()
+            
+            #rotaciona o Dobot
             self.device.move_to(x, y, z,r, wait=True)
                 
             return "success"

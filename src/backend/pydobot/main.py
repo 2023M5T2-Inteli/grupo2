@@ -6,7 +6,7 @@ import PySimpleGUI as sg
 available_ports = list_ports.comports()
 print(f'available ports: {[x.device for x in available_ports]}')
 
-port = "COM28"
+port = "COM5"
 #Configuration of theme and font
 font = ('Montserrat', 15,'bold')
 sg.theme('DarkBlue2')
