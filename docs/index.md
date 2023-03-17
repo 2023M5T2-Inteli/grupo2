@@ -222,7 +222,11 @@ https://user-images.githubusercontent.com/99188421/225750970-88165905-a67a-4805-
 Além do teste que realizamos da garra levantando imã (citado na seção acima) realizamos um teste para medir a capacidade magnética do ima. Ligamos o imã a uma fonte de voltagem variável e fomos gradativamente aumentando a voltagem. Percebemos que quanto maior a voltagem maior a capacidade de captação do ima. Magnetizamos moedas pois sabendo o peso das moedas poderemos estimar a massa de metal que o imã é capaz de reter (ainda não realizamos esse cálculo). Concluimos também que a forma como os metais se acumulam no imã impacta a massa que ele consegue segurar, já que se o material for depositado no sentido horizontal ele afeta o impacto di imã negativamente já que o campo magnético é inversamente proporcional a distância por isso deve-se botar o material na vertical.
 [vídeo do imã sendo testado]
 
-https://user-images.githubusercontent.com/99188421/225750788-ec3e0387-1f70-403d-bd01-5e17cfa6619f.mp4
+
+
+
+https://user-images.githubusercontent.com/99188421/225979202-89a1aac9-9ae4-4954-926b-f0b82df7cc26.mp4
+
 
 
 
