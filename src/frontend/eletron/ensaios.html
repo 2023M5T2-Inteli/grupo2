@@ -8,5 +8,29 @@
 </head>
 <body>
     <button onclick="window.location.href='index.html'">Voltar</button>
+    <h3>Our Flask Buttons</h3>
+        <!-- <form method="post" action="/robot">
+            <input type="submit" value="VALUE1" name="action1"/>
+            <input type="submit" value="VALUE2" name="action2" />
+        </form> -->
+
+    <h3>Our Axios Buttons</h3>
+    <button onclick="makePostRequest('requisicaos')">Axios Button</button>
+    
+    
+    
 </body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    test = 'Hello'
+    async function makePostRequest(test) {
+    axios.post('http://localhost:5000/robot', test)
+    .then(function (response) {
+    console.log("It says: " + response.data);
+    })
+    .catch(function (error) {
+    console.log(error);
+    });
+    }
+</script>
 </html>
