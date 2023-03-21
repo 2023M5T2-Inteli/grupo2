@@ -5,7 +5,7 @@ from time import sleep
 # inicializando o modulo HX711 (DT, SCK)
 hx = HX711(2, 3)
 # valor base de medida
-base = 128750
+base = 142000
 
 #Função para ler e retornar os valores da célula de carga
 def readCell(load_cell):
