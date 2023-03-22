@@ -5,23 +5,57 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-    <button onclick="window.location.href='index.html'">Voltar</button>
-    <h3>Our Flask Buttons</h3>
-        <!-- <form method="post" action="/robot">
-            <input type="submit" value="VALUE1" name="action1"/>
-            <input type="submit" value="VALUE2" name="action2" />
-        </form> -->
+    <button onload="getRoutes()" onclick="window.location.href='index.html'">Voltar</button>
 
-    <h3>Our Axios Buttons</h3>
-    <button onclick="makePostRequest('requisicaos')">Axios Button</button>
-    
+    <div class="container">
+        <div class="row d-flex justify-content-left">            
+            <div class="col-sm">
+                <button class="" onclick="makePostRequest('rodar')">Rodar rota padrão</button>
+                <button onclick="makePostRequest('parar')">Gravar ponto</button>
+            </div>
+
+
+            <div class="col-sm">
+                <label for="rotas">Selecione a rota:</label>
+                <select name="rotas" id="routes">
+                <!-- <option value="volvo">Leitada</option>
+                <option value="saab">Leitada 2</option>
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option> -->
+                </select>
+            </div>
+        </div>
+    </div>
+
+
     
     
 </body>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
+    // body onload get all routes from database
+    getRoutes = () => {
+        axios.get('http://localhost:5000/robot/getroutes')
+        .then(function (response) {
+            console.log(response.data);
+            // populate the select with the routes
+            let routes = document.getElementById('routes');
+            for (let i = 0; i < response.data.length; i++) {
+                let option = document.createElement('option');
+                option.value = response.data[i];
+                // option.innerHTML = response.data[i].name;
+                routes.appendChild(option);
+            }
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+    }
+
+
     test = 'Hello'
     async function makePostRequest(test) {
     axios.post('http://localhost:5000/robot', test)
@@ -31,6 +65,7 @@
     .catch(function (error) {
     console.log(error);
     });
+    
     }
 </script>
 </html>

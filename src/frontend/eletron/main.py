@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+# import and create sqlite database
 
 app = Flask(__name__)
 
@@ -10,6 +11,11 @@ def robot():
         print(request.form)
     return "Hello World"
 
+@app.route("/robot/getroutes", methods=["GET"])
+def getroutes():
+    print("Pegando rotas...")
+    # function to get routes from database, if i had imported the database module
+    return "rotas"
 
 
 if __name__ == "__main__":
