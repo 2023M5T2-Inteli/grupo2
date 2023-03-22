@@ -1,18 +1,17 @@
 const { app, BrowserWindow } = require("electron");
 // const path = require("path");
 
-
 const createWindow = () => {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
       nodeIntegration: true,
-    }
+    },
   });
   // launch flask server
   const { spawn } = require("child_process");
-  const pythonProcess = spawn("python", ["./main.py"]);
+  const pythonProcess = spawn("flask", ["run"]);
   pythonProcess.stdout.on("data", (data) => {
     console.log(data.toString());
   });
@@ -22,7 +21,6 @@ const createWindow = () => {
   pythonProcess.on("close", (code) => {
     console.log(`child process exited with code ${code}`);
   });
-
 
   win.loadFile("index.html");
 };
