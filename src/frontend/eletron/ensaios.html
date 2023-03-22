@@ -7,16 +7,15 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
-<body>
-    <button onload="getRoutes()" onclick="window.location.href='index.html'">Voltar</button>
+<body onload="getRoutes()">
+    <button onclick="window.location.href='index.html'">Voltar</button>
 
     <div class="container">
         <div class="row d-flex justify-content-left">            
             <div class="col-sm">
-                <button class="" onclick="makePostRequest('rodar')">Rodar rota padrão</button>
-                <button onclick="makePostRequest('parar')">Gravar ponto</button>
+                <button class="btn btn-primary " onclick="makePostRequest('rodar')">Rodar rota padrão</button>
+                <button class="btn btn-primary " onclick="makePostRequest('parar')">Gravar ponto</button>
             </div>
-
 
             <div class="col-sm">
                 <label for="rotas">Selecione a rota:</label>
@@ -38,15 +37,16 @@
 <script>
     // body onload get all routes from database
     getRoutes = () => {
-        axios.get('http://localhost:5000/robot/getroutes')
+        console.log("getRoutes")
+        axios.get('http://localhost:5000/get')
         .then(function (response) {
             console.log(response.data);
             // populate the select with the routes
             let routes = document.getElementById('routes');
             for (let i = 0; i < response.data.length; i++) {
                 let option = document.createElement('option');
-                option.value = response.data[i];
-                // option.innerHTML = response.data[i].name;
+                option.value = response.data[i]; //.id
+                option.innerHTML = response.data[i]; //.nome
                 routes.appendChild(option);
             }
         })

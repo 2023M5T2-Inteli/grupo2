@@ -11,7 +11,7 @@ const createWindow = () => {
   });
   // launch flask server
   const { spawn } = require("child_process");
-  const pythonProcess = spawn("flask", ["run"]);
+  const pythonProcess = spawn("python", ["-m flask run"]);
   pythonProcess.stdout.on("data", (data) => {
     console.log(data.toString());
   });
