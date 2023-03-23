@@ -105,3 +105,30 @@ button{
 }
 
 
+.backButton{
+    position: absolute;
+    right: 10vh;
+    top: 8vh;
+}
+
+.header img{
+    margin-left: 12vh;
+    margin-top: 3vh;
+}
+
+.tableData{
+    color: #fff;
+}
+
+.routeDescripition{
+    color: #fff;
+    font-weight: 500;
+}
+
+.btnAdd{
+    margin-left: 6px;
+}
+
+.form{
+    margin-left: 9px;
+}
