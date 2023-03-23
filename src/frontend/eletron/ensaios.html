@@ -16,8 +16,30 @@
         <div class="row d-flex justify-content-left">            
             <div id="buttonsMain" class="col-sm">
                 <div class="p-2"><button class="btn btn-primary btn-lg" onclick="makePostRequest('rodar')">Iniciar ensaio padrão</button></div>
-                <!-- arrow down -->
-                <div class="p-2"><button class="btn btn-primary btn-lg" onclick="newRoute()">Gravar nova rota</button></div>
+                <div class="p-2"><button class="btn btn-primary btn-lg" data-bs-toggle="collapse" data-bs-target="#divContainer" aria-expanded="false" aria-controls="divContainer">Gravar nova rota</button></div>
+
+                <div class="row collapse" id="divContainer">
+                    <div class="col-sm">
+                      <form>
+                        <div class="form-group">
+                          <label for="name">Nome da rota</label>
+                          <input type="text" class="form-control" id="name" placeholder="Nome da rota">
+                        </div>
+                        <div class="form-group">
+                          <label for="description">Descrição da rota</label>
+                          <input type="text" class="form-control" id="description" placeholder="Descrição da rota">
+                        </div>
+                        <div class="row">
+                          <div class="col-sm p-2">
+                            <button class="btn btn-primary" type="button" onclick="addNodePost()">Adicionar ponto</button>
+                          </div>
+                          <div class="col-sm p-2">
+                            <button class="btn btn-primary" type="submit">Salvar rota</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                </div>  
             </div>
 
             <div class="col-sm">
@@ -60,6 +82,7 @@
     
     
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>
     // body onload get all routes from database
@@ -97,7 +120,6 @@
     }
 
 
-    test = 'Hello'
     async function makePostRequest(test) {
     axios.post('http://localhost:5000/robot', test)
     .then(function (response) {
@@ -108,87 +130,5 @@
     });
     }
 
-    // checks if there is a form already created, if not, create one
-    function newRoute(){
-        let buttonsMain = document.getElementById('buttonsMain');
-        let divContainer = document.getElementById('divContainer');
-        if (divContainer == null){
-            newRouteCreate();
-        } else {
-            buttonsMain.removeChild(divContainer);
-            // newRouteCreate();
-        }
-    }
-
-    // when clicks on "gravar nova rota", insert form inputs into html, below id "buttonsMain"  
-
-    function newRouteCreate(){
-        let buttonsMain = document.getElementById('buttonsMain');
-        let divContainer = document.createElement('div');
-        divContainer.setAttribute('class', 'row');
-        divContainer.setAttribute('id', 'divContainer');
-
-        let divForm = document.createElement('div');
-        divForm.setAttribute('class', 'col-sm');
-        let form = document.createElement('form');
-
-        let divName = document.createElement('div');
-        divName.setAttribute('class', 'form-group');
-        let labelName = document.createElement('label');
-        labelName.setAttribute('for', 'name');
-        labelName.innerHTML = 'Nome da rota';
-        let inputName = document.createElement('input');
-        inputName.setAttribute('type', 'text');
-        inputName.setAttribute('class', 'form-control');
-        inputName.setAttribute('id', 'name');
-        inputName.setAttribute('placeholder', 'Nome da rota');
-        divName.appendChild(labelName);
-        divName.appendChild(inputName);
-
-        let divDescription = document.createElement('div');
-        divDescription.setAttribute('class', 'form-group');
-        let labelDescription = document.createElement('label');
-        labelDescription.setAttribute('for', 'description');
-        labelDescription.innerHTML = 'Descrição da rota';
-        let inputDescription = document.createElement('input');
-        inputDescription.setAttribute('type', 'text');
-        inputDescription.setAttribute('class', 'form-control');
-        inputDescription.setAttribute('id', 'description');
-        inputDescription.setAttribute('placeholder', 'Descrição da rota');
-        divDescription.appendChild(labelDescription);
-        divDescription.appendChild(inputDescription);
-
-        // row for buttons, so they are side by side
-        let divRowButtons = document.createElement('div');
-        divRowButtons.setAttribute('class', 'row');
-
-        // button to add nodes that runs a function x()
-        let divAddNode = document.createElement('div');
-        divAddNode.setAttribute('class', 'col-sm');
-        let buttonAddNode = document.createElement('button');
-        buttonAddNode.setAttribute('class', 'btn btn-primary');
-        buttonAddNode.setAttribute('type', 'button')
-        buttonAddNode.setAttribute('onclick', 'addNodePost()');
-        buttonAddNode.innerHTML = 'Adicionar ponto';
-        divAddNode.appendChild(buttonAddNode);
-
-        // button to save route
-        let divSaveRoute = document.createElement('div');
-        divSaveRoute.setAttribute('class', 'col-sm');
-        let buttonSaveRoute = document.createElement('button');
-        buttonSaveRoute.setAttribute('class', 'btn btn-primary');
-        buttonSaveRoute.setAttribute('type', 'subtmit');
-        buttonSaveRoute.innerHTML = 'Salvar rota';
-        divSaveRoute.appendChild(buttonSaveRoute);
-
-        form.appendChild(divName);
-        form.appendChild(divDescription);
-        form.appendChild(divRowButtons);
-        divRowButtons.appendChild(divAddNode);
-        divRowButtons.appendChild(divSaveRoute);
-        divForm.appendChild(form);
-        divContainer.appendChild(divForm);
-        buttonsMain.appendChild(divContainer);
-    }
 </script>
 </html>
