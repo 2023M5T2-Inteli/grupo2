@@ -1,6 +1,7 @@
 # Importação das bibliotecas usadas
 import machine
 import time
+import sys
 
 # Definindo os pinos para a Ponte H
 bomb1 = machine.Pin(0, machine.Pin.OUT)  # Pino 1 da Ponte H
@@ -36,44 +37,23 @@ def desativaIma():
     ima2.value(0)
     
     print("Desligado")
+    
+print("oii")
 
 # Ciclo de funcionamento dos imãs
 while True:
-    print("CICLO")
-    
-    ativaIma()
-    
-    time.sleep(27) # Tempo do imã ligado
-    
-    ativaBomb()
-    
-    time.sleep(27) # Tempo do imã ligado
-    
-    desativaBomb()
-    
-    inverteIma()
-    
-    time.sleep(1) # Tempo da inversão do campo do imã
-    
-    desativaIma()
-    
-    time.sleep(11) # Tempo do imã desligado
-    
-    
-    
-    ativaIma()
-    #ima ativado
+    v = sys.stdin.readline().strip()
 
-    time.sleep(20)
-
-    inverteIma()
-    #ima invertido
-
-    time.sleep(5)
-    
-    desativaIma()
-    #ima desligado
-    
-    time.sleep(2)
+    # Se a string lida for "on", ele liga o LED da placa, se for "off", desliga
+    if v.lower() == "on":
+        ativaIma()
+        ativaBomb()
+    elif v.lower() == "off":
+        desativaIma()
+        desativaBomb()
     
     
+    
+  
+    
+      
