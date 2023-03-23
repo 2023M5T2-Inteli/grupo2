@@ -73,3 +73,35 @@ button{
     -webkit-transform: rotate(45deg);
   }
 
+  /* table scroll for mobile screen */
+@media screen and (max-width: 600px) {
+    .scrollit {
+        /* sizing */
+        width: 50%;
+        height: 50%;
+    }
+}
+
+/* table scroll for desktop screen */
+@media screen and (min-width: 600px) {
+    .scrollit {
+        overflow: scroll;
+        overflow-x: hidden;
+        height: 610px;
+    }
+    /* minimalist bar style */
+    .scrollit::-webkit-scrollbar {
+        width: 10px;
+    }
+    .scrollit::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+    .scrollit::-webkit-scrollbar-thumb {
+        background: #888;
+    }
+    .scrollit::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+}
+
+
