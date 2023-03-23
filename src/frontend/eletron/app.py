@@ -1,7 +1,7 @@
 from flask import Flask,request
 from flask_sqlalchemy import SQLAlchemy
 
-
+print("leitada")
 
 #initialize the app
 app = Flask(__name__)

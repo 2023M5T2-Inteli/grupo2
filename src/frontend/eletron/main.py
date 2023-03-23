@@ -15,7 +15,7 @@ def robot():
 def getroutes():
     print("Pegando rotas...")
     # function to get routes from database, if i had imported the database module
-    return "rotas"
+    return "rotasfodinasss"
 
 
 if __name__ == "__main__":
