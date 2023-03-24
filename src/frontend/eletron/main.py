@@ -19,6 +19,8 @@ presetArray = [[225.76258850097656, 0.0, 150.50729370117188], [215.7076568603515
 
 app = Flask(__name__)
 
+
+
 print("flaskei")
 
 @app.route("/robot" , methods=["GET", "POST"])
@@ -35,6 +37,33 @@ def getroutes():
     # function to get routes from database, if i had imported the database module
     return "rotasfodinasss"
 
+@app.get("/magnet_on")
+def magnet_on():
+    import serial
+    import time
+    try:
+        tempo_espera = 2
+        taxa_transmissao = 115200
+        comunicacao_serial = serial.Serial("COM5", taxa_transmissao, timeout = tempo_espera)
+        comunicacao_serial.write(b"on\n") # Escreve "on" na serial
+        time.sleep(1)
+        return "on"
+    except Exception as e:
+        return str(e)
+    
+@app.get("/magnet_off")
+def magnet_off():
+    import serial
+    import time
+    try:
+        tempo_espera = 2
+        taxa_transmissao = 115200
+        comunicacao_serial = serial.Serial("COM5", taxa_transmissao, timeout = tempo_espera)
+        comunicacao_serial.write(b"off\n") # Escreve "on" na serial
+        time.sleep(1)
+        return "off"
+    except Exception as e:
+        return str(e)
 
 
 if __name__ == "__main__":

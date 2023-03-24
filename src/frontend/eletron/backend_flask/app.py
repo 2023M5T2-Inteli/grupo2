@@ -1,12 +1,15 @@
 from flask import Flask,request
 from flask_sqlalchemy import SQLAlchemy
-
-print("leitada")
+from extensions import db
 
 #initialize the app
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///project.db"
-db = SQLAlchemy(app)
+
+
+#initialize the database
+db.init_app(app)
+
 
 from controller import DobotController as dobot
 

@@ -1,4 +1,4 @@
-from app import db,app
+from extensions import db
 
 #helps when recreate the databases
 db.metadata.clear()
@@ -11,8 +11,9 @@ class Position(db.Model):
     z = db.Column(db.Float)
     r = db.Column(db.Float)
     order = db.Column(db.Integer)
-    track = db.Column(db.Integer)  
+    track = db.Column(db.String(30))  
     time = db.Column(db.DateTime, default=db.func.now())
+    magnet = db.Column(db.Boolean)
 
 
 
@@ -25,6 +26,7 @@ class Position(db.Model):
     
 
 if __name__ == "__main__":
+    from app import app
 
     with app.app_context():
         db.drop_all()
