@@ -338,10 +338,11 @@ OBS.: Esta interface ainda está em estágio de desenvolvimento, e será aprimor
 
 ### V2
 
-O programa atualmente contem 2 telas uma home e uma tela de execução. A tela de home atualmente serve propósitos estéticos mas também tem a função de reconectar o dobot ao computador se a conexão for perdida. Aqui segue seu desing atual: [alberto do fututro bota a foto aqui , assinado alberto do passado]
+O programa atualmente contem 2 telas uma home e uma tela de execução. A tela de home atualmente serve propósitos estéticos mas também tem a função de reconectar o dobot ao computador se a conexão for perdida. Aqui segue seu desing atual: ![img](https://github.com/2023M5T2-Inteli/grupo2/blob/dev/docs/img/project/wireframe_v2_tela_ensaio.png)
 
 A tela de execução atualmente agrupa a função de duas telas que ainda serão desenvolvidas. A primeira funcionalidade dessa tela é de executar o ciclo padrão do robot, isso é realizado apertando o botão iniciar ensaio padrão. Atualmente essa tela tem a funcionalidade de permitir o usuário salvar novos ciclos (ainda não integrada com o back) que sera uma tela própia no futuro, nessa tela o usuário ensira os pontos que o dobot vai percorrer e decidir se o imã estará ligado ou não.
-[alberto do fututro bota a foto aqui , assinado alberto do passado]
+![img]([https://github.com/2023M5T2-Inteli/grupo2/blob/dev/docs/img/project/wireframe_v2_tela_ensaio.png](https://github.com/2023M5T2-Inteli/grupo2/blob/dev/docs/img/project/wireframe_v2_tela_inicial.png))
+
 
 # Detalhamento da criação do executável
 
@@ -420,7 +421,7 @@ order: a ordem que os pontos serão percorridos na rota é um int.
 
 magnet: se o imã deve ou não estar ligado naquele momento é um booleano.
 
-[alberto do passado botar imagem, alberto do futuro]
+![img](https://github.com/2023M5T2-Inteli/grupo2/blob/dev/docs/img/project/IPTech%20database%20diagram.png)
 
 ## Modelo Conceitual
 
