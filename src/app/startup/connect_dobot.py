@@ -1,4 +1,4 @@
-import PySimpleGUI as sg
+
 from serial.tools import list_ports
 
 
@@ -15,5 +15,3 @@ SE A PORTA CERTA É A COM8, A VARIAVEL port DEVE SER 8
 
 ''' 
 
-port = 1
-print("PORT=="+str(port)+"==")
