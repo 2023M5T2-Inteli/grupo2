@@ -12,7 +12,7 @@ const createWindow = () => {
   });
   // launch flask server
 
-  win.loadFile("index.html");
+  win.loadFile("pages/index.html");
 };
 
 app.on("window-all-closed", () => {
@@ -57,7 +57,7 @@ const py_connectDobot = () => {
 const py_runServer = (dobotPort) => {
   return new Promise((resolve, reject) => {
     const pythonProcess = spawn("python", [
-      "./backend_flask/app.py",
+      "./api/app.py",
       dobotPort,
     ]);
 

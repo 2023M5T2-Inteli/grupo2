@@ -43,7 +43,7 @@ body {
     width: 100%;
     height: 100%;
     /* center image */
-    background-image: url("./images/magician-lite.png");
+    background-image: url("../assets/magician-lite.png");
     background-repeat: no-repeat;
     background-position: center bottom;
     background-size: contain;
