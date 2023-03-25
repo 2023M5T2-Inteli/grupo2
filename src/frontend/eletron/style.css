@@ -116,7 +116,7 @@ button{
     margin-top: 3vh;
 }
 
-.tableData{
+td, thead{
     color: #fff;
 }
 
