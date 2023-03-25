@@ -21,7 +21,10 @@
     <div class="container pt-5 ">
         <div class="row d-flex justify-content-left">            
             <div id="buttonsMain" class="col-sm d-flex flex-column">
-                <div class="p-2"><button class="btn btn-primary btn-lg" onclick="makePostRequest('rodar')">Iniciar ensaio padrão</button></div>
+                <div class="row">
+                    <div class="col-auto pl-4 pb-2"><button class="btn btn-primary btn-lg" onclick="makePostRequest('rodar')">Iniciar ensaio padrão</button></div>
+                    <div class="col-auto ml-2 d-flex justify-content-center align-items-start"><button onclick="magnetonoff()" id="magnetButton" class="btn btn-primary">Ligar Imã</button></div>
+                </div>
                 <div class="p-2"><button class="btn btn-primary btn-lg" data-bs-toggle="collapse" data-bs-target="#divContainer" aria-expanded="false" aria-controls="divContainer">Adicionar nova rota</button></div>
             
                 <div class="row collapse pt-3" id="divContainer">
@@ -116,6 +119,23 @@
         .catch(function (error) {
             console.log(error);
         });
+    }
+
+    // Função que altera o botão de ligar/desligar imã e envia o comando para o raspberry
+    function magnetonoff(){
+        const magnetButton = document.getElementById('magnetButton');
+        if(magnetButton.innerHTML == "Ligar Imã"){
+            magnetButton.innerHTML = "Desligar Imã";
+            axios.get("http://localhost:5000/magnet_on").then(function (response) {
+                console.log(response.data);
+            })
+
+        }else{
+            magnetButton.innerHTML = "Ligar Imã";
+            axios.get("http://localhost:5000/magnet_off").then(function (response) {
+                console.log(response.data);
+            })
+        }
     }
 
 
