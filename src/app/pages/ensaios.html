@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../styles/style.css">
+    <script src="../scripts/ensaios.js"></script>
+</head>
+<body onload="getRoutes()">
+    
+    <div class="header">
+       
+            <img src="../assets/logo.png" alt="">
+        
+        <div class="backButton mb-3">
+            <button class="btn btn-primary" onclick="window.location.href='index.html'">Voltar</button>
+        </div>
+    </div>
+    <div class="container pt-5 ">
+        <div class="row d-flex justify-content-left">            
+            <div id="buttonsMain" class="col-sm d-flex flex-column">
+                <div class="row">
+                    <div class="col-auto pl-4 pb-2"><button class="btn btn-primary btn-lg" onclick="makePostRequest('rodar')">Iniciar ensaio padrão</button></div>
+                    <div class="col-auto ml-2 d-flex justify-content-center align-items-start"><button onclick="magnetonoff()" id="magnetButton" class="btn btn-primary">Ligar Imã</button></div>
+                </div>
+                <div class="p-2"><button class="btn btn-primary btn-lg" data-bs-toggle="collapse" data-bs-target="#divContainer" aria-expanded="false" aria-controls="divContainer">Adicionar nova rota</button></div>
+            
+                <div class="row collapse pt-3" id="divContainer">
+                    <div class="col-sm">
+                      <form class="form">
+                        <div class="form-group">
+                          <label for="name" class="routeDescripition">Nome da rota</label>
+                          <input type="text" class="form-control" id="name" placeholder="Nome da rota">
+                        </div>
+                        <div class="form-group">
+                          <label for="description" class="routeDescripition">Descrição da rota</label>
+                          <input type="text" class="form-control" id="description" placeholder="Descrição da rota">
+                        </div>
+                        <div class="row">
+                          <div class="col-sm pb-2 pl-4">
+                            <button class="btn btn-primary" type="button" onclick="addNodePost()">Adicionar ponto</button>
+                          </div>
+                          <div class="col-sm pl-4">
+                            <button class="btn btn-primary" type="submit">Salvar rota</button>
+                          </div>
+                        </div>
+                        </form>
+                    </div>
+                </div>  
+            
+                
+            </div>
+          
+            <div class="col-sm">
+                <div class="row">
+                    <div class="col scrollit">
+                        <table class="table table-striped" id="routes">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Nome</th>
+                                    <th scope="col">Descrição</th>
+                                    <th scope="col">Selecionar</th>
+                                    <th scope="col">Excluir</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Nome da rota</td>
+                                    <td>Descrição da rota</td>
+                                    <td><button class="btn btn-primary">Selecionar</button></td>
+                                    <td><button class="btn btn-primary">Excluir</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    
+    
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</html>

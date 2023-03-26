@@ -54,9 +54,17 @@ Concepção de sistema de automação industrial
   - [Dispositivos mecânicos fabricados](#dispositivos-mecânicos-fabricados)
 - [UX e UI Design](#ux-e-ui-design)
   - [Wireframe + Storyboard](#wireframe--storyboard)
+    - [V1](#v1)
+    - [V2](#v2)
 - [Detalhamento da interface](#detalhamento-da-interface)
+    - [V1](#v1-1)
+    - [V2](#v2-1)
 - [Detalhamento da criação do executável](#detalhamento-da-criação-do-executável)
+    - [V1](#v1-2)
+    - [V2](#v2-2)
 - [Testes entre interface o robô](#testes-entre-interface-o-robô)
+    - [V1](#v1-3)
+    - [V2](#v2-3)
   - [Design de Interface - Guia de Estilos](#design-de-interface---guia-de-estilos)
 - [Projeto de Banco de Dados](#projeto-de-banco-de-dados)
   - [Modelo Conceitual](#modelo-conceitual)
@@ -127,6 +135,7 @@ _Descrição*da_análise_da*área_de_atuação_
 
 ![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/Matriz-Oceano-Azul.png)
 Com a matriz de oceano azul, é possível obserar onde nosso protótipo tem seu destaque e qual seu diferencial. Através dele, podemos criar muitos ganhos para o cliente, e diferenciá-lo da concorrência. Reduzimos ou eliminamos o que não julgamos tão importante, e elevamos e criamos os ganhos e diferenciais.
+
 ## Proposta de Valor: Value Proposition Canvas
 
 ![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/Canvas-Value-Propostion-1.png)
@@ -236,9 +245,9 @@ Foram realizados teste com a bomba e percebemos que ele foi capaz de agitar a á
 
 ## Testes de atuadores, sensores e do microcontrolador (Sprint 3)
 
-Na sprint 3 fizemos a implementação dos componentes eletrônicos juntamente com o robo para testar o modelo conceito que estava sendo desenvolvido anteriormente. 
+Na sprint 3 fizemos a implementação dos componentes eletrônicos juntamente com o robo para testar o modelo conceito que estava sendo desenvolvido anteriormente.
 
-Desta forma, utilizando uma peça quadrangular de circuito impresso fizemos uma base para acoplar os 4 imãs utilizados e verificar se área de varredura pensada até então atendia o objetivo da solução. Como é possível ver no vídeo abaixo. 
+Desta forma, utilizando uma peça quadrangular de circuito impresso fizemos uma base para acoplar os 4 imãs utilizados e verificar se área de varredura pensada até então atendia o objetivo da solução. Como é possível ver no vídeo abaixo.
 
 [Teste de Conceito]
 
@@ -252,87 +261,100 @@ https://user-images.githubusercontent.com/99188421/225978501-5d349fbb-136e-44f6-
 
 
 
-Utilizando um computador foi realizada a comunicação entre Raspberry Pi Pico W e os eletroimãs supramencionados, de modo a verificar se o código desenvolvido realizava as funções de ativação dos eletroimãs, inversão da corrente para inverter o momento dipolar do imã, evitando que ele se torne um ímã permanente, e desativação deste componente. Com o teste pudemos observar que o microcontrolador estava adequado à solução, tendo em vista que este fez o controle pretendido dos atuadores. 
+Utilizando um computador foi realizada a comunicação entre Raspberry Pi Pico W e os eletroimãs supramencionados, de modo a verificar se o código desenvolvido realizava as funções de ativação dos eletroimãs, inversão da corrente para inverter o momento dipolar do imã, evitando que ele se torne um ímã permanente, e desativação deste componente. Com o teste pudemos observar que o microcontrolador estava adequado à solução, tendo em vista que este fez o controle pretendido dos atuadores.
 
-Outrossim, através da interface gráfica desenvolvida em PySimpleGUI, conseguimos realizar a gravação de uma rotina para o robô, aquela demonstrada no vídeo, para um cenário comum de utilização. Comprovando novamente que o conceito pensado até então se adequava a solução pretendida na sprint 2. 
+Outrossim, através da interface gráfica desenvolvida em PySimpleGUI, conseguimos realizar a gravação de uma rotina para o robô, aquela demonstrada no vídeo, para um cenário comum de utilização. Comprovando novamente que o conceito pensado até então se adequava a solução pretendida na sprint 2.
 
 # Materiais e Métodos da Fabricação dos Dispositivos Eletrônicos e Mecânicos
 
-## Materiais utilizados 
-| Quantidade | Nome do Material  |
-|---|---|
-| 1x | Placa de Circuito Impresso |
-| 1x | Raspberry Pi Pico W |
-| 1x | Ponte H L298N  |
-| 1x | Módulo de Conversor para Sensor de Peso HX711|
-| 1x | Módulo regulador de Tensão (Stepup) MT3608|
-| 4x | Eletroimã convencional (12v) |
-| 10x | Jumpers |
-| 3x | Bandejas |
+## Materiais utilizados
 
+| Quantidade | Nome do Material                              |
+| ---------- | --------------------------------------------- |
+| 1x         | Placa de Circuito Impresso                    |
+| 1x         | Raspberry Pi Pico W                           |
+| 1x         | Ponte H L298N                                 |
+| 1x         | Módulo de Conversor para Sensor de Peso HX711 |
+| 1x         | Módulo regulador de Tensão (Stepup) MT3608    |
+| 4x         | Eletroimã convencional (12v)                  |
+| 10x        | Jumpers                                       |
+| 3x         | Bandejas                                      |
 
 ## Dispositivos eletrônicos fabricados
- - 4 eletroimãs, cada par ligado em paralelo para utilização dos dois canais da ponte H.
- - Ponte H, utilizada para possibilitar a inversão do campo magnético nos eletroimãs utilizados.
- - PCB, que contém raspberry PI e a ponte H, devidamente soldados, que permitem a ativação e inversão da ponte H pelo microcontrolador.
+
+- 4 eletroimãs, cada par ligado em paralelo para utilização dos dois canais da ponte H.
+- Ponte H, utilizada para possibilitar a inversão do campo magnético nos eletroimãs utilizados.
+- PCB, que contém raspberry PI e a ponte H, devidamente soldados, que permitem a ativação e inversão da ponte H pelo microcontrolador.
 
 ## Método de fabricação dos dispositivos eletrônicos
-  - Foram soldados, em paralelo, 2 eletroimãs nas duas saídas da ponte H.
-  - Foi anexada à ponte H dois cabos para a possibilidade de conexção com uma fonte de 12 V e com o GND do Raspberry Pi Pico W.
-  - O Raspberry Pi Pico W, que está conectado a um computador, tem mais 4 ligações com a ponte H, a fim de controlar a polariadade de suas saídas.
+
+- Foram soldados, em paralelo, 2 eletroimãs nas duas saídas da ponte H.
+- Foi anexada à ponte H dois cabos para a possibilidade de conexção com uma fonte de 12 V e com o GND do Raspberry Pi Pico W.
+- O Raspberry Pi Pico W, que está conectado a um computador, tem mais 4 ligações com a ponte H, a fim de controlar a polariadade de suas saídas.
 
 ![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/Raspberry-PonteH-Imas.jpeg)
 
-|Conexões                            |Cores                         |
-|-------------------------------------|:----------------------------:|
-| Ponte H com Eletroimãs              | Verde, Marrom, Azul, Laranja |
-| Ponte H com Raspberry Pi Pico W     | Verde, Amarelo               |
-| Ponte H com fonte e GND do Raspberry| Vermelho, Azul               |
+| Conexões                             |            Cores             |
+| ------------------------------------ | :--------------------------: |
+| Ponte H com Eletroimãs               | Verde, Marrom, Azul, Laranja |
+| Ponte H com Raspberry Pi Pico W      |        Verde, Amarelo        |
+| Ponte H com fonte e GND do Raspberry |        Vermelho, Azul        |
 
 ## Funcionamento dos dispositivos eletrônicos
+
 Ao ser energizado, o Raspberry Pi Pico W atua de acordo com seu código de operação, assim ativando as ligações com a ponte H, isso fará com que os eletroimãs proporcionem campos magnéticos. Em um dado momento, o microcontrolador fará a ponte H inverter a polaridade de suas saídas, criando assim um pequeno campo invertido nos imãs em relação ao anterior, e imediatamente depois, o rasberry vai desliga-los, resultando na desativação pretendida do magnetismo do eletroimã.
 
 ## Esquemático descritivo dos dispositivos eletrônicos fabricados:
-O esquemático descritivo das conexões foi feito utilizando o software EasyEDA, contendo os componentes, ponte h e o módulo de carga HX711, e as respectivas portas utilizadas para conectá-los ao Raspberry Pi Pico W. Este esquemático pode ser visto abaixo. 
-![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/diagrama/SCHEMA-PROJETO-1.png) 
 
-Com o esquemático pronto, produzimos o PCB do diagrama utilizando o software supracitado, EasyEDA, de modo a compreender como os componentes estariam dispostos em uma placa, como pode ser observado abaixo. 
+O esquemático descritivo das conexões foi feito utilizando o software EasyEDA, contendo os componentes, ponte h e o módulo de carga HX711, e as respectivas portas utilizadas para conectá-los ao Raspberry Pi Pico W. Este esquemático pode ser visto abaixo.
+![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/diagrama/SCHEMA-PROJETO-1.png)
+
+Com o esquemático pronto, produzimos o PCB do diagrama utilizando o software supracitado, EasyEDA, de modo a compreender como os componentes estariam dispostos em uma placa, como pode ser observado abaixo.
 
 ![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/diagrama/PCB-PROJETO-1.png)
 
+## Dispositivos mecânicos fabricados
 
-## Dispositivos mecânicos fabricados 
+O design a seguir contempla a parte mecânica principal do projeto, a peça que irá segurar os eletroímãs, sobretudo de extrema importância principalmente quando os eletroímãs forem desligados na terceira bandeja para desprender os materiais eletrodomésticos por completo. Assim, o design da peça a ser fabricada, como um todo, valoriza consideravelmente o minimalismo e a praticidade, visto que não será necessário a fabricação de um elemento do zero, pois, usaremos a peça que já vem no kit do robô Dobot Mágico Lite, mais especificamente a peça que prende a caneta ao robô.
 
-O design a seguir contempla a parte mecânica principal do projeto, a peça que irá segurar os eletroímãs, sobretudo de extrema importância principalmente quando os eletroímãs forem desligados na terceira bandeja para desprender os materiais eletrodomésticos por completo. Assim, o design da peça a ser fabricada, como um todo, valoriza consideravelmente o minimalismo e a praticidade, visto que não será necessário a fabricação de um elemento do zero, pois, usaremos a peça que já vem no kit do robô Dobot Mágico Lite, mais especificamente a peça que prende a caneta ao robô. 
-  
-Dessa maneira, a fabricação da peça irá ser feita com base apenas em um  paralelepípedo vazado que irá substituir o tubo da caneta e terá a função primordial de armazenar no seu interior toda a fiação elétrica dos eletroímãs, levando todos os fios a serem conectados com a ponte H e o microcontrolador Raspberry Py Picpo W que se localizará na parte traseira do robô, não ocasionando assim uma possível interferência na movimentação do braço,  consequentemente também será de suma importância um cubo que conseguirá armazenar as quatro unidades dos eletroímãs que iremos utilizar para a separação do material nas três bandejas. 
+Dessa maneira, a fabricação da peça irá ser feita com base apenas em um paralelepípedo vazado que irá substituir o tubo da caneta e terá a função primordial de armazenar no seu interior toda a fiação elétrica dos eletroímãs, levando todos os fios a serem conectados com a ponte H e o microcontrolador Raspberry Py Picpo W que se localizará na parte traseira do robô, não ocasionando assim uma possível interferência na movimentação do braço, consequentemente também será de suma importância um cubo que conseguirá armazenar as quatro unidades dos eletroímãs que iremos utilizar para a separação do material nas três bandejas.
 
 ![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/Rob%C3%B4-com-a-pe%C3%A7a-acoplada.jpg)
-Figura representativa do croqui esquemático com a peça fabricada acoplada à peça que segura a caneta, e a fiação dos eletroímãs sendo conectada também com o circuito elétrico, encontrado na parte posterior do robô. 
+Figura representativa do croqui esquemático com a peça fabricada acoplada à peça que segura a caneta, e a fiação dos eletroímãs sendo conectada também com o circuito elétrico, encontrado na parte posterior do robô.
 
 ![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/Rob%C3%B4-com-a-caneta.png)
-Figura do robô com a peça que iremos utilizar como base para a fabricação da peça que irá acoplar os eletroímãs. 
+Figura do robô com a peça que iremos utilizar como base para a fabricação da peça que irá acoplar os eletroímãs.
 
 ![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/Pe%C3%A7a-acoplada.jpg)
 Figura representativa do croqui esquemático com a peça fabricada, através do desenho é possível verificar como os eletroímãs ficaram posicionados no interior do cubo, também vemos como os fios irão se conectar com os componentes percorrendo o caminho por dentro do paralelepípedo.
 
 ![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/Medidas-da-pe%C3%A7a.png)
-Desenho em 3D da peça fabricada junto com a peça irá segurá-la, através do desenho é possível verificar as medidas principais da peça que irá ser acoplada a outra peça já existente. 
+Desenho em 3D da peça fabricada junto com a peça irá segurá-la, através do desenho é possível verificar as medidas principais da peça que irá ser acoplada a outra peça já existente.
 
 ![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/Medidas-da-pe%C3%A7a2.png)
-Desenho em 3D da peça fabricada, através do desenho é possível verificar as medidas principais da peça. Como elementos geométricos temos: um cubo principal onde os eletroímãs serão posicionados com a medida de 4 centímetros por comprimento e largura e um paralelepípedo vazado que irá dar caminho para a fiação elétrica com 5 centímetros e de 1 centímetro  de largura. 
-Para a construção da peça iremos utilizar o único filamento que é hidrofóbico (material que não absorve água) o  PP (polipropileno), visto que, é um material bastante resistente e é frequentemente utilizado em projetos que requerem resistência à água como: a fabricação de embalagens para alimentos, bebidas, produtos químicos e farmacêuticos. 
+Desenho em 3D da peça fabricada, através do desenho é possível verificar as medidas principais da peça. Como elementos geométricos temos: um cubo principal onde os eletroímãs serão posicionados com a medida de 4 centímetros por comprimento e largura e um paralelepípedo vazado que irá dar caminho para a fiação elétrica com 5 centímetros e de 1 centímetro de largura.
+Para a construção da peça iremos utilizar o único filamento que é hidrofóbico (material que não absorve água) o PP (polipropileno), visto que, é um material bastante resistente e é frequentemente utilizado em projetos que requerem resistência à água como: a fabricação de embalagens para alimentos, bebidas, produtos químicos e farmacêuticos.
 
 # UX e UI Design
 
 ## Wireframe + Storyboard
+
+### V1
+
 O front end a ser desenvolvido é um arquivo executável criado em Python utilizando a biblioteca PySimpleGUI, que permitirá ao usuário acessar as principais funcionalidades do projeto de forma fácil e intuitiva. O aplicativo apresentará a funcionalidade de executar e salvar a rota selecionada, permitindo assim que possa ser usada posteriormente, sem precisar ser reconfigurada novamente. Além disso, o usuário poderá controlar a intensidade do ímã utilizado no braço robótico por meio de um controle deslizante. Isso pode ser útil em diferentes situações, dependendo das necessidades específicas do usuário.
 
 Uma das vantagens de utilizar um aplicativo .exe é que ele pode fazer o controle do robô sem acesso à internet, além de que pode ser facilmente utilizado em diversos dispositivos sem precisar instalar dependências adicionais, o que facilita o uso e distribuição do projeto. O objetivo do aplicativo é tornar as funcionalidades do projeto acessíveis e fáceis de usar para o usuário, podendo ser executado no mais básico dos computadores e notebooks, contando com um design minimalista e intuitivo que permita ao usuário realizar suas tarefas com eficiência e eficácia.
 
 <img width="296" alt="Captura de tela 2023-03-08 171918" src="https://user-images.githubusercontent.com/99210055/223841450-2c107631-9f8d-4472-a3dc-713380fda4ea.png">
 
+### V2
+
+O front end sera um arquivo executável que utilizará eletron uma library em javascript que permite transformar htmls em arquivos executáveis. Uma vantagem é que o eletron permite embutir o servidor junto com o executável, ou seja, quando ativamos o front o back e inciado junto e não precisa ficar ligado a todo momento. Outra vantagem do eletron é que ela, após testes, se mostrou capaz realizar comunicação front-back-dobot com poucos delays e erros, por outro lado o pysimplegui apresentou erros de sincronismo das requisições http que não soubemos resolver o que forçou a mudança de programa. Escolhemos o eletron como subistituto pois ele permitia que usassemos html uma tecnologia que todos os membros estão confortáveis e mantivemos todas as vantagens da aplicação ser um executável
+
 # Detalhamento da interface
+
+### V1
+
 Ao programa ser executado, é possível observar a interface apresentada na imagem acima. A função dos botões será descrita abaixo:
 "Iniciar Ensaio" -> Executa a rotina de ensaio padrão. O robô percorre pelas 3 bandejas, de forma preestabelecida. Por enquanto, esse ensaio padrão não pode ser modificado pelo usuário.
 "Salvar novo ciclo" -> A cada clique nesse botão, a posição do robô atual é salva em um banco de dados. Após salvar toda a rota desejada, é possível que ela seja executada. (O botão de executar as rotas salvas pelo usuário ainda não foi implementao, mas é algo planejado para a próxima sprint)
@@ -341,7 +363,19 @@ Para fechar o progama, basta clicar no botão X, no canto superior direito da gu
 
 OBS.: Esta interface ainda está em estágio de desenvolvimento, e será aprimorada conforme as próximas sprints, e necessidades que surgirem.
 
+### V2
+
+O programa atualmente contem 2 telas uma home e uma tela de execução. A tela de home atualmente serve propósitos estéticos mas também tem a função de reconectar o dobot ao computador se a conexão for perdida. Aqui segue seu desing atual: 
+![img](https://github.com/2023M5T2-Inteli/grupo2/blob/dev/docs/img/project/wireframe_v2_tela_inicial.png)
+
+A tela de execução atualmente agrupa a função de duas telas que ainda serão desenvolvidas. A primeira funcionalidade dessa tela é de executar o ciclo padrão do robot, isso é realizado apertando o botão iniciar ensaio padrão. Atualmente essa tela tem a funcionalidade de permitir o usuário salvar novos ciclos (ainda não integrada com o back) que sera uma tela própia no futuro, nessa tela o usuário ensira os pontos que o dobot vai percorrer e decidir se o imã estará ligado ou não.
+![img](https://github.com/2023M5T2-Inteli/grupo2/blob/dev/docs/img/project/wireframe_v2_tela_ensaio.png)
+
+
 # Detalhamento da criação do executável
+
+### V1
+
 é possível criar um arquivo .EXE único que pode ser distribuído para usuários do Windows, eliminando a necessidade de instalar o interpretador Python em cada computador que deseja executá-lo. Para isso, você pode usar o PyInstaller, uma ferramenta que converte um script Python em um arquivo executável autocontido.
 
 Para usar o PyInstaller, você precisará instalá-lo primeiro, bem como o PySimpleGUI se ainda não estiver instalado em seu sistema. A instalação do PyInstaller e do PySimpleGUI é simples e requer apenas um comando no terminal do seu sistema.
@@ -350,6 +384,7 @@ Para usar o PyInstaller, você precisará instalá-lo primeiro, bem como o PySim
 pip install PySimpleGUI
 pip install PyInstaller
 ```
+
 Para criar seu arquivo EXE a partir de seu programa que usa PySimpleGUI, "nome do seu arquivo.py" digite este comando no prompt de comando do Windows:
 
 ```
@@ -367,13 +402,18 @@ ValueError: script '.......\src\tkinter' not found
 
 Em seguida, tente adicionar --hidden-import tkinterao seu comando
 
+### V2
+
+Para gerar um executável o usuário devera entar no diretório src (caminho relativo a root) e rodar o commando : "npm run make" esse comando começará rodando a file "install_libs.py" que installa as dependências do projeto, depois é gerada uma pasta chamada out seguindo o caminho src\out\make\squirrel.windows\x64 dentro dessa pasta teremos um arquivo app(atualmente como estamos preparando o app para lidar com flask e postegresql a geração do app não funciona, porém o comando "npm run start" gera uma simulação de como funcionará na prática).
+
 # Testes entre interface o robô
+
+### V1
 Fizemos testes de usabilidade para avaliar a interação entre o robô Dobot Magician Lite e o PySimpleGUI. Para isso, criamos um arquivo executável do programa e testamos em diversos computadores com o objetivo principal de confirmar se o programa estava funcionando corretamente.
 
 Com o arquivo executável em mãos, você pode facilmente executar o programa em sua máquina e, ao conectar o robô Dobot Magician Lite através de um cabo USB, pode realizar o ciclo de ensaio previamente programado. Além disso, você também pode gerar novos ensaios e testá-los, tudo isso sem a necessidade de instalar o Python ou outras bibliotecas no seu computador.
 
 Com essa abordagem, torna-se mais fácil e prático testar a funcionalidade do programa em diferentes máquinas e ambientes, sem precisar passar por processos de instalação ou configuração complexos. O arquivo executável empacota todo o código e dependências necessárias para o programa funcionar corretamente em um único arquivo, simplificando a distribuição e a utilização do aplicativo.
-
 
 https://user-images.githubusercontent.com/99203402/224576115-a0a9aa83-9ee1-4f89-82d6-70484bd09211.mp4
 
@@ -385,17 +425,31 @@ A demonstração também enfatiza que não é necessário estar conectado a uma 
 
 Em resumo, o vídeo mostra a facilidade de uso do PySimpleGUI em conjunto com o robô Dobot Magician Lite, bem como a praticidade de não precisar de uma conexão WiFi para executar o programa.
 
-
-
+### V2
+Após novos testes foram descobertos problemas com o pysimplegui. A principal falha é que requisições http não retornavam seu resultado após finalizarem, somente retornando algo quando o usuário tomava alguma ação na página. Devido a isso, foi testado o uso do electron para de forma similar gerar um executável que não necessitasse de wifi para funcionar e comunicar o front, o banco de dados e o dobot com nosso back. O executável é de tamanho simillar ao gerado pelo pysimplegui e incia em torno de 2 segundos. Nosso interface chama uma série de rotas que controlam o robo, nos nossos testes o maior delay encontrado entre o chamado da rota no front e tempo de reação do robot documentado foi de 4 segundos. Um problema do modelo atual é que se dois comandos chegam ao dobot ele tenta executar os dois  simultaneamente alternando qual comando ele obedece, uma solução para esse erro ainda há de ser encontrada. Em geral todos os testes realizados com o python simplegui e o dobot se aplicam ao eletron já que ambos usam o memso back como intermidiário para comandar o robo
 ## Design de Interface - Guia de Estilos
+
 Desenvolvemos nossa interface utilizando várias linhas (rows) que contêm elementos minimalistas e de fácil compreensão. Os ícones utilizados são destacados para facilitar a identificação e as instruções são simples e diretas. Além disso, as imagens foram usadas para melhorar a aparência geral da interface.
 
 Para manter a consistência visual, optamos por usar a fonte "Montserrat" em toda a interface, o que contribui para uma aparência mais moderna e sofisticada. A paleta de cores foi desenvolvida a partir das cores padrão do IPT, garantindo uma harmonização visual com outros projetos e sistemas desenvolvidos pela instituição.
 
 Com essa abordagem, buscamos criar uma interface agradável e fácil de usar, que possa ser compreendida facilmente pelos usuários, independentemente do seu nível de habilidade ou experiência com a utilização de programas e aplicativos. Acreditamos que a combinação de elementos minimalistas, instruções claras e imagens atraentes cria uma interface atraente e intuitiva que facilita o uso e aumenta a satisfação do usuário.
 
-
 # Projeto de Banco de Dados
+
+Nosso banco de dados contém somente uma tabela que armazena uma série de pontos do dobot. Essa tabela tem as seguintes colunas:
+
+id: primary key.
+
+x,y,z e r: coordenadas do robô são floats.
+
+track: a qual rota esse ponto pertence é uma string. A rota padrão é 0, rotas subsequentes são nomeadas pelo usuário.
+
+order: a ordem que os pontos serão percorridos na rota é um int.
+
+magnet: se o imã deve ou não estar ligado naquele momento é um booleano.
+
+![img](https://github.com/2023M5T2-Inteli/grupo2/blob/dev/docs/img/project/IPTech%20database%20diagram.png)
 
 ## Modelo Conceitual
 

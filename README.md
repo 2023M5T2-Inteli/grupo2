@@ -17,22 +17,26 @@ O propósito deste repositório é proporcionar espaço de armazenamento e ferra
 Abaixo encontra-se a árvore de pastas do repositório:
 
 ```bash
-├───docs
-│   ├───img
-│   │   └───tutoriais
+╭───docs
+│   ├───diagrama
 │   ├───infografico
-│   └───Sprint 1
+│   ├───Sprint 1
+│   ╰───img
+│        ├───tutoriais
+│        ╰───project
+│
 ├───media
-└───src
-    ├───backend
-    │   ├───postman
-    │   └───__pycache__
-    ├───thonny
-    └───frontend
-        ├───pages
-        │   └───api
-        ├───public
-        └───styles
+╰───src
+     ├───embedded
+     ├───postman
+     ╰───app
+          ├───api
+          ├───assets
+          ├───pages
+          ├───scripts
+          ├───startup
+          ╰───styles
+
 ```
 
 Os principais diretórios do repositório são:

@@ -1,0 +1,135 @@
+body {
+	background: linear-gradient(-45deg, #52caec, #3444bd, #18a8dc, #1febbb);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+/* 3d title font */
+
+.title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 3em;
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    text-shadow: 0 0 10px #000;
+}
+
+/* button fill only*/
+
+.fill{
+    width: 100%;
+}
+
+/* image on background bottom*/
+
+#main {
+    /* same size as body */
+    width: 100%;
+    height: 100%;
+    /* center image */
+    background-image: url("../assets/magician-lite.png");
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: contain;
+  }
+
+button{
+    background-color: #3444bd !important;
+    border: 1px solid #2d4b67 !important;
+    color: #fff;
+    
+}
+
+.arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+  
+.up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+}
+  
+  .down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+
+  /* table scroll for mobile screen */
+@media screen and (max-width: 600px) {
+    .scrollit {
+        /* sizing */
+        width: 50%;
+        height: 50%;
+    }
+}
+
+/* table scroll for desktop screen */
+@media screen and (min-width: 600px) {
+    .scrollit {
+        overflow: scroll;
+        overflow-x: hidden;
+        height: 610px;
+    }
+    /* minimalist bar style */
+    .scrollit::-webkit-scrollbar {
+        width: 10px;
+    }
+    .scrollit::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+    .scrollit::-webkit-scrollbar-thumb {
+        background: #888;
+    }
+    .scrollit::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+}
+
+
+.backButton{
+    position: absolute;
+    right: 10vh;
+    top: 8vh;
+}
+
+.header img{
+    margin-left: 12vh;
+    margin-top: 3vh;
+}
+
+.tableData{
+    color: #fff;
+}
+
+.routeDescripition{
+    color: #fff;
+    font-weight: 500;
+}
+
+.btnAdd{
+    margin-left: 6px;
+}
+
+.form{
+    margin-left: 9px;
+}
+
