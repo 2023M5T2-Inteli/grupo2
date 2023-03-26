@@ -11,8 +11,14 @@ const py_installLibs = () => {
         console.log(data.toString());
       });
       pythonProcess.on("close", (code) => {
-        console.log(`child process exited with code ${code}`);
-        resolve();
+        if (code == 0) {
+          console.log(`script finalizado`);
+          resolve();
+        }
+        else {
+          console.error("erro na execução do script")
+          process.exit()
+        }
       });
     });
   };
@@ -22,16 +28,21 @@ const py_installLibs = () => {
   
       pythonProcess.stdout.on("data", (data) => {
         console.log(data.toString());
-        if (data.includes("PORT==")) {
-          let port = data.toString();
-          port = port.replace("PORT==", "");
-          port = port.replace("==", "");
-          console.log("A PORTA DO DOBOT É", Number(port));
-          resolve(Number(port));
-        }
+      });
+      pythonProcess.stderr.on("data", (data) => {
+        console.log(data.toString());
       });
       pythonProcess.on("close", (code) => {
-        console.log(`child process exited with code ${code}`);
+        if (code) {
+          console.log(`script finalizado`);
+          dobotPort = "COM"+ code.toString()
+          console.log(dobotPort);
+          resolve(dobotPort)
+        }
+        else {
+          console.error("erro na execucao do script")
+          process.exit()
+        }
       });
     });
   };

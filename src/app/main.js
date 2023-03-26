@@ -31,5 +31,5 @@ app.whenReady().then( async () => {
   setTimeout(()=>{
     createWindow();
   }, 5000)
-  
+
 });
