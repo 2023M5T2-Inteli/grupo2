@@ -83,6 +83,27 @@ def magnet_off():
         return "off"
     except Exception as e:
         return str(e)
-
+    
+@app.get("/delete")
+def delete():
+    try:
+       dobot().delete_track(request.get_json())
+       return "deleted"
+    except Exception as e:
+        return str(e)
+@app.get("run_track")
+def run_track():
+    try:
+        dobot().run_track(request.get_json())
+        return "running"
+    except Exception as e:
+        return str(e)
+@app.get("/run_track_dataless")
+def run_track_dataless():
+    try:
+        dobot().run_track_dataless(request.get_json())
+        return "running"
+    except Exception as e:
+        return str(e)
 if __name__ == '__main__':
     app.run(debug=True)

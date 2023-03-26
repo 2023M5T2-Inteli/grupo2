@@ -1,5 +1,8 @@
 from extensions import db
 from models import Position
+import pydobot
+import serial
+from sys import argv
 
 class DobotController:
 
@@ -38,19 +41,7 @@ class DobotController:
             return str(e)
         
     #get hightes order in a track
-    # def get_highest_order(data):
-    #     try:
-    #         track = data["track"]
-    #         positions = db.session.query(Position).filter(Position.track == track).order_by(Position.order.desc()).first()
-    #         return str(positions.order)
-    #     except Exception as e:
-    #         return str(e)
-    # def get_highest_order_track():
-    #     try:
-    #         positions = db.session.query(Position).order_by(Position.order.desc()).first()
-    #         return str(positions.track)
-    #     except Exception as e:
-    #         return str(e)
+  
     def get_tracks():
         try:
             positions = db.session.query(Position).all()
@@ -80,3 +71,60 @@ class DobotController:
         except Exception as e:
             return str(e)
         
+    def delete_track(data):
+        try:
+            track = data["track"]
+            positions = db.session.query(Position).filter(Position.track == track).all()
+            for position in positions:
+                db.session.delete(position)
+            db.session.commit()
+            return "track deleted"
+        except Exception as e:
+            return str(e)
+    
+    def run_track(data):
+        port = argv[0]
+        tempo_espera = 2
+        taxa_transmissao = 115200
+        comunicacao_serial = serial.Serial("COM8", taxa_transmissao, timeout = tempo_espera)
+
+
+        # Connect to Dobot
+        dobot = pydobot.Dobot(port=port)
+        for position in data:
+            if position["magnet"] == "on":
+                comunicacao_serial.write(b"on\n")
+            else:
+                comunicacao_serial.write(b"off\n")
+
+            dobot.move_to(position["x"],position["y"],position["z"],position["r"])
+            
+        return "track run"
+    def run_track_dataless(data):
+        port = argv[0]
+        tempo_espera = 2
+        taxa_transmissao = 115200
+        comunicacao_serial = serial.Serial("COM8", taxa_transmissao, timeout = tempo_espera)
+
+
+        # Connect to Dobot
+        dobot = pydobot.Dobot(port=port)
+        try:
+            track = data["track"]
+            positions = db.session.query(Position).filter(Position.track == track).order_by(Position.order.asc()).all()
+            
+        except Exception as e:
+            return str(e)
+        try:
+            for position in positions:
+                if position["magnet"] == "on":
+                    comunicacao_serial.write(b"on\n")
+                else:
+                    comunicacao_serial.write(b"off\n")
+
+                dobot.move_to(position["x"],position["y"],position["z"],position["r"])
+        except Exception as e:
+            return str(e)
+        return "track run"
+        
+    
