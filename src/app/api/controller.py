@@ -9,10 +9,12 @@ class DobotController:
         z = data["z"]
         r = data["r"]
         track = data["track"]
+        magnet = data["magnet"]
+        order = data["order"]
 
        
         try:
-            position = Position(x=x, y=y, z=z,r=r, track=track)
+            position = Position(x=x, y=y, z=z,r=r, track=track,order=order,magnet=magnet)
             db.session.add(position)
             db.session.commit()
             return f"Added {str(data)}"
@@ -65,12 +67,13 @@ class DobotController:
             z = data["z"]
             r = data["r"]
             order = data["order"]
+            magnet = data["magnet"]
             positions = db.session.query(Position).filter(Position.track == track).all()
             if positions:
                 for position in positions:
                     if position.order >= order:
                         position.order += 1
-            position = Position(x=x, y=y, z=z,r=r, track=track,order=order)
+            position = Position(x=x, y=y, z=z,r=r, track=track,order=order,magnet=magnet)
             db.session.add(position)
             db.session.commit()
             return "track added"
