@@ -17,65 +17,26 @@ O propósito deste repositório é proporcionar espaço de armazenamento e ferra
 Abaixo encontra-se a árvore de pastas do repositório:
 
 ```bash
-├───docs
-│   ├───img
-│   │   └───tutoriais
+╭───docs
+│   ├───diagrama
 │   ├───infografico
-│   └───Sprint 1
+│   ├───Sprint 1
+│   ╰───img
+│        ├───tutoriais
+│        ╰───project
+│
 ├───media
-└───src
-    ├───backend
-    │   ├───postman
-    │   └───__pycache__
-    ├───embedded
-    └───frontend
-        ├───android
-        │   ├───.idea
-        │   ├───app
-        │   │   └───src
-        │   │       ├───androidTest
-        │   │       │   └───java
-        │   │       │       └───com
-        │   │       │           └───getcapacitor
-        │   │       │               └───myapp
-        │   │       ├───main
-        │   │       │   ├───java
-        │   │       │   │   └───com
-        │   │       │   │       └───example
-        │   │       │   │           └───app
-        │   │       │   └───res
-        │   │       │       ├───drawable
-        │   │       │       ├───drawable-land-hdpi
-        │   │       │       ├───drawable-land-mdpi
-        │   │       │       ├───drawable-land-xhdpi
-        │   │       │       ├───drawable-land-xxhdpi
-        │   │       │       ├───drawable-land-xxxhdpi
-        │   │       │       ├───drawable-port-hdpi
-        │   │       │       ├───drawable-port-mdpi
-        │   │       │       ├───drawable-port-xhdpi
-        │   │       │       ├───drawable-port-xxhdpi
-        │   │       │       ├───drawable-port-xxxhdpi
-        │   │       │       ├───drawable-v24
-        │   │       │       ├───layout
-        │   │       │       ├───mipmap-anydpi-v26
-        │   │       │       ├───mipmap-hdpi
-        │   │       │       ├───mipmap-mdpi
-        │   │       │       ├───mipmap-xhdpi
-        │   │       │       ├───mipmap-xxhdpi
-        │   │       │       ├───mipmap-xxxhdpi
-        │   │       │       ├───values
-        │   │       │       └───xml
-        │   │       └───test
-        │   │           └───java
-        │   │               └───com
-        │   │                   └───getcapacitor
-        │   │                       └───myapp
-        │   └───gradle
-        │       └───wrapper
-        ├───pages
-        │   └───api
-        ├───public
-        └───styles
+╰───src
+     ├───embedded
+     ├───postman
+     ╰───app
+          ├───api
+          ├───assets
+          ├───pages
+          ├───scripts
+          ├───startup
+          ╰───styles
+
 ```
 
 Os principais diretórios do repositório são:
