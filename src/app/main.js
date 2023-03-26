@@ -1,7 +1,11 @@
 const { app, BrowserWindow } = require("electron");
 const { spawn } = require("child_process");
 
-const {py_connectDobot, py_installLibs, py_runServer} = require("./startup/startupScript")
+const {
+  py_connectDobot,
+  py_installLibs,
+  py_runServer,
+} = require("./startup/startupScript");
 
 const createWindow = () => {
   const win = new BrowserWindow({
@@ -18,8 +22,7 @@ app.on("window-all-closed", () => {
   if (process.platform !== "darwin") app.quit();
 });
 
-app.whenReady().then( async () => {
-
+app.whenReady().then(async () => {
   console.log("--------------INSTALANDO LIBS NECESSARIAS--------------");
   await py_installLibs();
 
@@ -28,8 +31,7 @@ app.whenReady().then( async () => {
 
   console.log("--------------INICIANDO SERVIDOR-----------------------");
   py_runServer(dobotPort);
-  setTimeout(()=>{
+  setTimeout(() => {
     createWindow();
-  }, 5000)
-
+  }, 5000);
 });
