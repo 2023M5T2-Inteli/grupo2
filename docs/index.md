@@ -103,11 +103,16 @@ O processo de separação magnética realizada pelo IPT é manual e toma o tempo
 
 ### Objetivos gerais
 
-Com o objetivo de salientar as dores apresentadas pelo cliente, o tempo despendido com um processo totalmente manual e a necessidade de um profissional treinado para realizar a tarefa, pretende-se conceber uma ferramenta que automatize este processo.
+Tendo em vista a otimização do tempo dos pesquisadores que trabalham no IPT, o grupo IPTech propõe o desenvolvimento de uma ferramenta que possa automatizar o processo de separação magnética, neste caso será utilizado um braço mecânico acoplado com um microcontrolador, Raspberry Pi Pico W, e atuadores, conjunto de eletroimãs, que irão realizar a tarefa de coletar, lavar e separar os itens de uma mistura.
 
 ### Objetivos específicos
+Temos 4 objetivos principais com esse protótipo:
 
-Tendo em vista a otimização do tempo dos pesquisadores que trabalham no IPT, o grupo IPTech propõe o desenvolvimento de uma ferramenta que possa automatizar o processo de separação magnética, neste caso será utilizado um braço mecânico acoplado com um microcontrolador, Raspberry Pi Pico W, e atuadores, conjunto de eletroimãs, que irão realizar a tarefa de coletar, lavar e separar os itens de uma mistura.
+1) O braço robótico  deve ser capaz de percorrer a totalidace 3 bandejas dispostas em volta do robô cada uma 90 graus de distância uma da outra. 
+2) Iniciar o percorrimento da bandeja deve ser simples, somente necessitando inserir as dimensões das bandejas e apertar um botão
+3) O tempo para percorrer as bandejas uma vez deve ser menor que 2 minutos e o tempo para realizar o processo totalmente deve ser menor que 15 min (tempo que um funcionário do ipt demora para realizar o processo)
+4) Deve haver uma forma do robô salvar executar caminhos personalizados que o usuário consiga inputar de forma clara e objetiva
+
 
 ## Partes interessadas
 
@@ -184,6 +189,10 @@ Ao fenalizar a testagem com as células de carga, foi possível concluir que nã
 
 ![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/Arquitetura-por-blocos-2.png)
 
+3.versão da arquitetura do sistema, agora reflete a utilização do eletron
+
+![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/arquitetura-por-blcos3.jpeg)
+
 ## Módulos do Sistema e Visão Geral (Big Picture)
 
 ## Descrição dos Subsistemas
@@ -215,12 +224,24 @@ Durante os testes, no entanto, houve momentos em que o robô travou ao tentar mo
 Outro aspecto observado nos testes foi o delay de alguns segundos após a execução do código para o braço robótico se movimentar. Esse delay pode ser relevante em situações que exigem uma resposta rápida do robô, porém, acreditamos que isso não impactará nosso projeto.
 
 Além disso testes com a garra mostraram que apesar da garra facilmente pegar o imâ existem momentos em que o imã escorrega caindo da garra quando ela se move muito rápido.
-[vídeo do braço carregando imã](https://drive.google.com/file/d/1U3UM0020-NH9rNW-j4T8iVwKVBouk3X4/view?usp=sharing)
+[vídeo do braço carregando imã]
+
+https://user-images.githubusercontent.com/99188421/225750970-88165905-a67a-4805-bce9-52022a9f8418.mp4
+
+
 
 ### Eletroimã
 
 Além do teste que realizamos da garra levantando imã (citado na seção acima) realizamos um teste para medir a capacidade magnética do ima. Ligamos o imã a uma fonte de voltagem variável e fomos gradativamente aumentando a voltagem. Percebemos que quanto maior a voltagem maior a capacidade de captação do ima. Magnetizamos moedas pois sabendo o peso das moedas poderemos estimar a massa de metal que o imã é capaz de reter (ainda não realizamos esse cálculo). Concluimos também que a forma como os metais se acumulam no imã impacta a massa que ele consegue segurar, já que se o material for depositado no sentido horizontal ele afeta o impacto di imã negativamente já que o campo magnético é inversamente proporcional a distância por isso deve-se botar o material na vertical.
-[vídeo do imã sendo testado](https://drive.google.com/file/d/1GvG1zHHmeROZmBOhi5rblqbd3_31_6Tq/view?usp=share_link)
+[vídeo do imã sendo testado]
+
+
+
+
+https://user-images.githubusercontent.com/99188421/225979202-89a1aac9-9ae4-4954-926b-f0b82df7cc26.mp4
+
+
+
 
 ### Bomba de água
 
@@ -232,7 +253,17 @@ Na sprint 3 fizemos a implementação dos componentes eletrônicos juntamente co
 
 Desta forma, utilizando uma peça quadrangular de circuito impresso fizemos uma base para acoplar os 4 imãs utilizados e verificar se área de varredura pensada até então atendia o objetivo da solução. Como é possível ver no vídeo abaixo.
 
-[Teste de Conceito](https://drive.google.com/file/d/1xd4uUyERMX7U0zyBkPTvCpRegGQAV03W/view?usp=sharing)
+[Teste de Conceito]
+
+
+
+
+
+https://user-images.githubusercontent.com/99188421/225978501-5d349fbb-136e-44f6-98d9-761da858e281.mp4
+
+
+
+
 
 Utilizando um computador foi realizada a comunicação entre Raspberry Pi Pico W e os eletroimãs supramencionados, de modo a verificar se o código desenvolvido realizava as funções de ativação dos eletroimãs, inversão da corrente para inverter o momento dipolar do imã, evitando que ele se torne um ímã permanente, e desativação deste componente. Com o teste pudemos observar que o microcontrolador estava adequado à solução, tendo em vista que este fez o controle pretendido dos atuadores.
 
