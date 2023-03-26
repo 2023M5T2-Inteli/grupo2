@@ -244,8 +244,12 @@ https://user-images.githubusercontent.com/99188421/225979202-89a1aac9-9ae4-4954-
 
 
 ### Bomba de água
+Realizamos testes com duas bombas e constatamos que elas possuem a capacidade de agitar a água com eficiência. A partir desse resultado, identificamos uma oportunidade para utilizá-las na separação dos minérios, já que a agitação pode promover a separação dos minerais com maior densidade. Ao agitar a água, os minérios mais densos serão impulsionados para cima, permitindo que o imã possa facilmente capturá-los.
 
-Foram realizados teste com a bomba e percebemos que ele foi capaz de agitar a água, porém chegamos a conclusão de que quando o material for disperso na água a chance da bomba não atuar de forma similar ao nossos teste é grande. Logo, mais testes devem ser realizados.
+
+https://user-images.githubusercontent.com/99203402/227799128-c41d327a-2fe3-4722-a307-53fcb9ee4961.mp4
+
+
 
 ## Testes de atuadores, sensores e do microcontrolador (Sprint 3)
 
