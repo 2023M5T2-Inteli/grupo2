@@ -189,6 +189,10 @@ Ao fenalizar a testagem com as células de carga, foi possível concluir que nã
 
 ![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/Arquitetura-por-blocos-2.png)
 
+3.versão da arquitetura do sistema, agora reflete a utilização do eletron
+
+![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/arquitetura-por-blcos3.jpeg)
+
 ## Módulos do Sistema e Visão Geral (Big Picture)
 
 ## Descrição dos Subsistemas
