@@ -57,16 +57,17 @@ Concepção de sistema de automação industrial
     - [V1](#v1)
     - [V2](#v2)
 - [Detalhamento da interface](#detalhamento-da-interface)
-    - [V1](#v1-1)
-    - [V2](#v2-1)
+  - [V1](#v1-1)
+  - [V2](#v2-1)
 - [Detalhamento da criação do executável](#detalhamento-da-criação-do-executável)
-    - [V1](#v1-2)
-    - [V2](#v2-2)
+  - [V1](#v1-2)
+  - [V2](#v2-2)
 - [Testes entre interface o robô](#testes-entre-interface-o-robô)
-    - [V1](#v1-3)
-    - [V2](#v2-3)
+  - [V1](#v1-3)
+  - [V2](#v2-3)
   - [Design de Interface - Guia de Estilos](#design-de-interface---guia-de-estilos)
 - [Projeto de Banco de Dados](#projeto-de-banco-de-dados)
+- [Documentação backend](#documentação-backend)
   - [Modelo Conceitual](#modelo-conceitual)
   - [Modelo Lógico](#modelo-lógico)
 - [Teste de Software](#teste-de-software)
@@ -106,13 +107,13 @@ O processo de separação magnética realizada pelo IPT é manual e toma o tempo
 Tendo em vista a otimização do tempo dos pesquisadores que trabalham no IPT, o grupo IPTech propõe o desenvolvimento de uma ferramenta que possa automatizar o processo de separação magnética, neste caso será utilizado um braço mecânico acoplado com um microcontrolador, Raspberry Pi Pico W, e atuadores, conjunto de eletroimãs, que irão realizar a tarefa de coletar, lavar e separar os itens de uma mistura.
 
 ### Objetivos específicos
+
 Temos 4 objetivos principais com esse protótipo:
 
-1) O braço robótico  deve ser capaz de percorrer a totalidace 3 bandejas dispostas em volta do robô cada uma 90 graus de distância uma da outra. 
-2) Iniciar o percorrimento da bandeja deve ser simples, somente necessitando inserir as dimensões das bandejas e apertar um botão
-3) O tempo para percorrer as bandejas uma vez deve ser menor que 2 minutos e o tempo para realizar o processo totalmente deve ser menor que 15 min (tempo que um funcionário do ipt demora para realizar o processo)
-4) Deve haver uma forma do robô salvar executar caminhos personalizados que o usuário consiga inputar de forma clara e objetiva
-
+1. O braço robótico deve ser capaz de percorrer a totalidace 3 bandejas dispostas em volta do robô cada uma 90 graus de distância uma da outra.
+2. Iniciar o percorrimento da bandeja deve ser simples, somente necessitando inserir as dimensões das bandejas e apertar um botão
+3. O tempo para percorrer as bandejas uma vez deve ser menor que 2 minutos e o tempo para realizar o processo totalmente deve ser menor que 15 min (tempo que um funcionário do ipt demora para realizar o processo)
+4. Deve haver uma forma do robô salvar executar caminhos personalizados que o usuário consiga inputar de forma clara e objetiva
 
 ## Partes interessadas
 
@@ -228,28 +229,18 @@ Além disso testes com a garra mostraram que apesar da garra facilmente pegar o 
 
 https://user-images.githubusercontent.com/99188421/225750970-88165905-a67a-4805-bce9-52022a9f8418.mp4
 
-
-
 ### Eletroimã
 
 Além do teste que realizamos da garra levantando imã (citado na seção acima) realizamos um teste para medir a capacidade magnética do ima. Ligamos o imã a uma fonte de voltagem variável e fomos gradativamente aumentando a voltagem. Percebemos que quanto maior a voltagem maior a capacidade de captação do ima. Magnetizamos moedas pois sabendo o peso das moedas poderemos estimar a massa de metal que o imã é capaz de reter (ainda não realizamos esse cálculo). Concluimos também que a forma como os metais se acumulam no imã impacta a massa que ele consegue segurar, já que se o material for depositado no sentido horizontal ele afeta o impacto di imã negativamente já que o campo magnético é inversamente proporcional a distância por isso deve-se botar o material na vertical.
 [vídeo do imã sendo testado]
 
-
-
-
 https://user-images.githubusercontent.com/99188421/225979202-89a1aac9-9ae4-4954-926b-f0b82df7cc26.mp4
 
-
-
-
 ### Bomba de água
+
 Realizamos testes com duas bombas e constatamos que elas possuem a capacidade de agitar a água com eficiência. A partir desse resultado, identificamos uma oportunidade para utilizá-las na separação dos minérios, já que a agitação pode promover a separação dos minerais com maior densidade. Ao agitar a água, os minérios mais densos serão impulsionados para cima, permitindo que o imã possa facilmente capturá-los.
 
-
 https://user-images.githubusercontent.com/99203402/227799128-c41d327a-2fe3-4722-a307-53fcb9ee4961.mp4
-
-
 
 ## Testes de atuadores, sensores e do microcontrolador (Sprint 3)
 
@@ -259,15 +250,7 @@ Desta forma, utilizando uma peça quadrangular de circuito impresso fizemos uma 
 
 [Teste de Conceito]
 
-
-
-
-
 https://user-images.githubusercontent.com/99188421/225978501-5d349fbb-136e-44f6-98d9-761da858e281.mp4
-
-
-
-
 
 Utilizando um computador foi realizada a comunicação entre Raspberry Pi Pico W e os eletroimãs supramencionados, de modo a verificar se o código desenvolvido realizava as funções de ativação dos eletroimãs, inversão da corrente para inverter o momento dipolar do imã, evitando que ele se torne um ímã permanente, e desativação deste componente. Com o teste pudemos observar que o microcontrolador estava adequado à solução, tendo em vista que este fez o controle pretendido dos atuadores.
 
@@ -343,19 +326,18 @@ Desenho em 3D da peça fabricada junto com a peça irá segurá-la, através do 
 Desenho em 3D da peça fabricada, através do desenho é possível verificar as medidas principais da peça. Como elementos geométricos temos: um cubo principal onde os eletroímãs serão posicionados com a medida de 4 centímetros por comprimento e largura e um paralelepípedo vazado que irá dar caminho para a fiação elétrica com 5 centímetros e de 1 centímetro de largura.
 Para a construção da peça iremos utilizar o único filamento que é hidrofóbico (material que não absorve água) o PP (polipropileno), visto que, é um material bastante resistente e é frequentemente utilizado em projetos que requerem resistência à água como: a fabricação de embalagens para alimentos, bebidas, produtos químicos e farmacêuticos.
 
-A primeira versão peça abaixo foi modelada na plataforma de desenvolvimento de produtos integrada à nuvem Fusion 360. Possibilitando o salvamento do arquivo SLT, que é o formato que usaremos para redirecionar o desenho para a impressora com tecnologia 3D.  A peça foi dividida em duas partes, sendo a primeira a que irá acoplar os eletroímãs, tendo sua base com quatros furos com uma circunferência de 17 milímetros de diâmetro, que por sua vez tem o diâmetro menor do que cada um dos eletroímãs, já que cada eletroímã tem 10 milímetros de raio. Assim, espessura de 3 milímetros que ficará envoltas do eletroímã, como o mostrado na imagem,  impedirá que a ação da gravidade o faça se soltar da peça, a pequena barreira é de suma importância para todos os eletroímãs ficarem bem posicionados e evitar um deslocamento indesejado verticalmente quando o braço robótico estive em movimento.
+A primeira versão peça abaixo foi modelada na plataforma de desenvolvimento de produtos integrada à nuvem Fusion 360. Possibilitando o salvamento do arquivo SLT, que é o formato que usaremos para redirecionar o desenho para a impressora com tecnologia 3D. A peça foi dividida em duas partes, sendo a primeira a que irá acoplar os eletroímãs, tendo sua base com quatros furos com uma circunferência de 17 milímetros de diâmetro, que por sua vez tem o diâmetro menor do que cada um dos eletroímãs, já que cada eletroímã tem 10 milímetros de raio. Assim, espessura de 3 milímetros que ficará envoltas do eletroímã, como o mostrado na imagem, impedirá que a ação da gravidade o faça se soltar da peça, a pequena barreira é de suma importância para todos os eletroímãs ficarem bem posicionados e evitar um deslocamento indesejado verticalmente quando o braço robótico estive em movimento.
 
 ![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/pe%C3%A7a1_modelada.png)
-Diferentes ângulos da peça que irá acoplar os eletroímas. 
+Diferentes ângulos da peça que irá acoplar os eletroímas.
 
 Além disso, é possível visualizar que há uma pequena variação de tamanho nas paredes do paralelepípedo, isso ocorre porque na parte lateral de cada eletroímã saíra sua fiação elétrica, onde é necessário um espaço maior do que sua base principal para justamente os fios terem espaços suficientes de estarem na superfície superior dos eletroímãs. Já a segunda peça consiste na parte que fará a função de “tampar” o paralelepípedo que irá acoplar os eletroímãs. Sua forma foi projetada pra encaixar na peça que já veio com o kit do robô, mais precisamente a peça que segura o tubo da caneta.
 
 ![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/pe%C3%A7a2-modelada1.png)
-Peça superior de encaixe. 
+Peça superior de encaixe.
 
 ![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/pe%C3%A7a2-modelada2.png)
-Visão da parte debaixo da peça superior de encaixe. 
-
+Visão da parte debaixo da peça superior de encaixe.
 
 # UX e UI Design
 
@@ -387,12 +369,11 @@ OBS.: Esta interface ainda está em estágio de desenvolvimento, e será aprimor
 
 ### V2
 
-O programa atualmente contem 2 telas uma home e uma tela de execução. A tela de home atualmente serve propósitos estéticos mas também tem a função de reconectar o dobot ao computador se a conexão for perdida. Aqui segue seu desing atual: 
+O programa atualmente contem 2 telas uma home e uma tela de execução. A tela de home atualmente serve propósitos estéticos mas também tem a função de reconectar o dobot ao computador se a conexão for perdida. Aqui segue seu desing atual:
 ![img](https://github.com/2023M5T2-Inteli/grupo2/blob/dev/docs/img/project/wireframe_v2_tela_inicial.png)
 
 A tela de execução atualmente agrupa a função de duas telas que ainda serão desenvolvidas. A primeira funcionalidade dessa tela é de executar o ciclo padrão do robot, isso é realizado apertando o botão iniciar ensaio padrão. Atualmente essa tela tem a funcionalidade de permitir o usuário salvar novos ciclos (ainda não integrada com o back) que sera uma tela própia no futuro, nessa tela o usuário ensira os pontos que o dobot vai percorrer e decidir se o imã estará ligado ou não.
 ![img](https://github.com/2023M5T2-Inteli/grupo2/blob/dev/docs/img/project/wireframe_v2_tela_ensaio.png)
-
 
 # Detalhamento da criação do executável
 
@@ -431,6 +412,7 @@ Para gerar um executável o usuário devera entar no diretório src (caminho rel
 # Testes entre interface o robô
 
 ### V1
+
 Fizemos testes de usabilidade para avaliar a interação entre o robô Dobot Magician Lite e o PySimpleGUI. Para isso, criamos um arquivo executável do programa e testamos em diversos computadores com o objetivo principal de confirmar se o programa estava funcionando corretamente.
 
 Com o arquivo executável em mãos, você pode facilmente executar o programa em sua máquina e, ao conectar o robô Dobot Magician Lite através de um cabo USB, pode realizar o ciclo de ensaio previamente programado. Além disso, você também pode gerar novos ensaios e testá-los, tudo isso sem a necessidade de instalar o Python ou outras bibliotecas no seu computador.
@@ -448,7 +430,9 @@ A demonstração também enfatiza que não é necessário estar conectado a uma 
 Em resumo, o vídeo mostra a facilidade de uso do PySimpleGUI em conjunto com o robô Dobot Magician Lite, bem como a praticidade de não precisar de uma conexão WiFi para executar o programa.
 
 ### V2
-Após novos testes foram descobertos problemas com o pysimplegui. A principal falha é que requisições http não retornavam seu resultado após finalizarem, somente retornando algo quando o usuário tomava alguma ação na página. Devido a isso, foi testado o uso do electron para de forma similar gerar um executável que não necessitasse de wifi para funcionar e comunicar o front, o banco de dados e o dobot com nosso back. O executável é de tamanho simillar ao gerado pelo pysimplegui e incia em torno de 2 segundos. Nosso interface chama uma série de rotas que controlam o robo, nos nossos testes o maior delay encontrado entre o chamado da rota no front e tempo de reação do robot documentado foi de 4 segundos. Um problema do modelo atual é que se dois comandos chegam ao dobot ele tenta executar os dois  simultaneamente alternando qual comando ele obedece, uma solução para esse erro ainda há de ser encontrada. Em geral todos os testes realizados com o python simplegui e o dobot se aplicam ao eletron já que ambos usam o memso back como intermidiário para comandar o robo
+
+Após novos testes foram descobertos problemas com o pysimplegui. A principal falha é que requisições http não retornavam seu resultado após finalizarem, somente retornando algo quando o usuário tomava alguma ação na página. Devido a isso, foi testado o uso do electron para de forma similar gerar um executável que não necessitasse de wifi para funcionar e comunicar o front, o banco de dados e o dobot com nosso back. O executável é de tamanho simillar ao gerado pelo pysimplegui e incia em torno de 2 segundos. Nosso interface chama uma série de rotas que controlam o robo, nos nossos testes o maior delay encontrado entre o chamado da rota no front e tempo de reação do robot documentado foi de 4 segundos. Um problema do modelo atual é que se dois comandos chegam ao dobot ele tenta executar os dois simultaneamente alternando qual comando ele obedece, uma solução para esse erro ainda há de ser encontrada. Em geral todos os testes realizados com o python simplegui e o dobot se aplicam ao eletron já que ambos usam o memso back como intermidiário para comandar o robo
+
 ## Design de Interface - Guia de Estilos
 
 Desenvolvemos nossa interface utilizando várias linhas (rows) que contêm elementos minimalistas e de fácil compreensão. Os ícones utilizados são destacados para facilitar a identificação e as instruções são simples e diretas. Além disso, as imagens foram usadas para melhorar a aparência geral da interface.
@@ -472,6 +456,16 @@ order: a ordem que os pontos serão percorridos na rota é um int.
 magnet: se o imã deve ou não estar ligado naquele momento é um booleano.
 
 ![img](https://github.com/2023M5T2-Inteli/grupo2/blob/dev/docs/img/project/IPTech%20database%20diagram.png)
+
+# Documentação backend
+
+Nosso backend se encontra no path src\app\api relativo a root. Nosso back foi construindo usando flask e sqlalchemy, nosso back está na porta 5000.Usamos sqlite como banco de dados e esse arquivo se encontra na pasta instance, se o banco de dados não existir deve se rodar o comando: "python models.py" dentro da pasta api.O back atualmente roda ao inciar o executável. Nosso banco de dados tem 1 tabela que armazena posições explicada na seção acima. Atualmente temos 4 rotas principais que recebem jsons quando necessário :
+
+1. add_track: recebe x,y,z,track,order e magnet. Adiciona uma posição a uma track. É um post
+2. magnet_on/magnet_of : rotas que ligam e desligam o imã. É um get
+3. get_track: recebe uma track e retorna todas as posições dela. É um get
+
+Nosso back tem todas funções que mexem com o db no arquivo controller na class Dobotontroller
 
 ## Modelo Conceitual
 
