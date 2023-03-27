@@ -343,6 +343,20 @@ Desenho em 3D da peça fabricada junto com a peça irá segurá-la, através do 
 Desenho em 3D da peça fabricada, através do desenho é possível verificar as medidas principais da peça. Como elementos geométricos temos: um cubo principal onde os eletroímãs serão posicionados com a medida de 4 centímetros por comprimento e largura e um paralelepípedo vazado que irá dar caminho para a fiação elétrica com 5 centímetros e de 1 centímetro de largura.
 Para a construção da peça iremos utilizar o único filamento que é hidrofóbico (material que não absorve água) o PP (polipropileno), visto que, é um material bastante resistente e é frequentemente utilizado em projetos que requerem resistência à água como: a fabricação de embalagens para alimentos, bebidas, produtos químicos e farmacêuticos.
 
+A primeira versão peça abaixo foi modelada na plataforma de desenvolvimento de produtos integrada à nuvem Fusion 360. Possibilitando o salvamento do arquivo SLT, que é o formato que usaremos para redirecionar o desenho para a impressora com tecnologia 3D.  A peça foi dividida em duas partes, sendo a primeira a que irá acoplar os eletroímãs, tendo sua base com quatros furos com uma circunferência de 17 milímetros de diâmetro, que por sua vez tem o diâmetro menor do que cada um dos eletroímãs, já que cada eletroímã tem 10 milímetros de raio. Assim, espessura de 3 milímetros que ficará envoltas do eletroímã, como o mostrado na imagem,  impedirá que a ação da gravidade o faça se soltar da peça, a pequena barreira é de suma importância para todos os eletroímãs ficarem bem posicionados e evitar um deslocamento indesejado verticalmente quando o braço robótico estive em movimento.
+
+![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/pe%C3%A7a1_modelada.png)
+Diferentes ângulos da peça que irá acoplar os eletroímas. 
+
+Além disso, é possível visualizar que há uma pequena variação de tamanho nas paredes do paralelepípedo, isso ocorre porque na parte lateral de cada eletroímã saíra sua fiação elétrica, onde é necessário um espaço maior do que sua base principal para justamente os fios terem espaços suficientes de estarem na superfície superior dos eletroímãs. Já a segunda peça consiste na parte que fará a função de “tampar” o paralelepípedo que irá acoplar os eletroímãs. Sua forma foi projetada pra encaixar na peça que já veio com o kit do robô, mais precisamente a peça que segura o tubo da caneta.
+
+![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/pe%C3%A7a2-modelada1.png)
+Peça superior de encaixe. 
+
+![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/pe%C3%A7a2-modelada2.png)
+Visão da parte debaixo da peça superior de encaixe. 
+
+
 # UX e UI Design
 
 ## Wireframe + Storyboard
