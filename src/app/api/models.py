@@ -17,10 +17,10 @@ class Position(db.Model):
 
 
     def __repr__(self):
-        return f"Position {self.id} {self.x} {self.y} {self.z} {self.time} {self.order} {self.track} {self.magnet}"
+        return f"Position {self.id} {self.x} {self.y} {self.z}  {self.order} {self.track} {self.magnet}"
     
     def return_json(self):
-        return {"id":self.id,"x":self.x,"y":self.y,"z":self.z,"time":self.time,"order":self.order,"track":self.track ,"magnet":self.magnet}
+        return {"id":self.id,"x":self.x,"y":self.y,"z":self.z,"order":self.order,"track":self.track ,"magnet":self.magnet}
 
     
 
