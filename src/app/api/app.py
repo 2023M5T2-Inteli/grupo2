@@ -25,15 +25,9 @@ from controller import DobotController as dobot
 def api():
     return 'Hello World'
 
-@app.post('/add')
-def add():
-    data = request.get_json()
-    message = dobot.add(data)
-    return message
-       
-@app.get('/get')
-def get():
-    message = dobot.get()
+@app.get("/get_tracks")
+def get_tracks():
+    message = dobot.get_tracks()
     return message
 @app.get('/get_track')
 def get_track():
@@ -41,48 +35,26 @@ def get_track():
     message = dobot.get_track(data)
     return message
 
-@app.get('/get_highest_order')
-def get_highest_order():
-    data = request.get_json()
-    message = dobot.get_highest_order(data)
-    return message
-
-@app.get("/get_highest_order_track")
-def get_highest_order_track():
-    
-    message = dobot.get_highest_order_track()
-    return message
 @app.post("/add_track")
 def add_track():
     data = request.get_json()
-    message = dobot.add_track(data)
+    message = dobot().add_position(data)
     return message
 @app.get("/magnet_on")
 def magnet_on():
-    import serial
-    import time
-    try:
-        tempo_espera = 2
-        taxa_transmissao = 115200
-        comunicacao_serial = serial.Serial("COM8", taxa_transmissao, timeout = tempo_espera)
-        comunicacao_serial.write(b"on\n") # Escreve "on" na serial
-        time.sleep(1)
-        return "on"
-    except Exception as e:
-        return str(e)
+    return dobot.magnet_on()
 @app.get("/magnet_off")
 def magnet_off():
-    import serial
-    import time
-    try:
-        tempo_espera = 2
-        taxa_transmissao = 115200
-        comunicacao_serial = serial.Serial("COM8", taxa_transmissao, timeout = tempo_espera)
-        comunicacao_serial.write(b"off\n") # Escreve "on" na serial
-        time.sleep(1)
-        return "off"
-    except Exception as e:
-        return str(e)
+    return dobot.magnet_off()
+@app.get("/run_track")
+def run_track():
+    data = request.get_json()
+    return dobot.run_track(data)
+@app.get("/add_position_dobot")
+def add_position_dobot():
+    data = request.get_json()
+    return dobot().add_position_dobot(data)
+    
 
 if __name__ == '__main__':
     app.run(debug=True)

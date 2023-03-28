@@ -3,31 +3,6 @@ from models import Position
 
 class DobotController:
 
-    def add(data):
-        x = data["x"]
-        y = data["y"]
-        z = data["z"]
-        r = data["r"]
-        track = data["track"]
-        magnet = data["magnet"]
-        order = data["order"]
-
-       
-        try:
-            position = Position(x=x, y=y, z=z,r=r, track=track,order=order,magnet=magnet)
-            db.session.add(position)
-            db.session.commit()
-            return f"Added {str(data)}"
-        
-        except Exception as e:
-            return str(e)
-    def get():
-        try:
-            positions = db.session.query(Position).all()
-            return [position.return_json() for position in positions]
-        except Exception as e:
-            return str(e)
-        
     #get all positions in a track       
     def get_track(data):
         try:
@@ -37,20 +12,7 @@ class DobotController:
         except Exception as e:
             return str(e)
         
-    #get hightes order in a track
-    # def get_highest_order(data):
-    #     try:
-    #         track = data["track"]
-    #         positions = db.session.query(Position).filter(Position.track == track).order_by(Position.order.desc()).first()
-    #         return str(positions.order)
-    #     except Exception as e:
-    #         return str(e)
-    # def get_highest_order_track():
-    #     try:
-    #         positions = db.session.query(Position).order_by(Position.order.desc()).first()
-    #         return str(positions.track)
-    #     except Exception as e:
-    #         return str(e)
+    #   get all tracks
     def get_tracks():
         try:
             positions = db.session.query(Position).all()
@@ -59,7 +21,7 @@ class DobotController:
             return str(e)
         
     # adds position to track
-    def add_track(data):
+    def add_position(self,data):
         try:
             track = data["track"]
             x = data["x"]
@@ -68,15 +30,86 @@ class DobotController:
             r = data["r"]
             order = data["order"]
             magnet = data["magnet"]
+            max = -1
             positions = db.session.query(Position).filter(Position.track == track).all()
-            if positions:
+            #fixes the order in the track
+            if len(positions):
                 for position in positions:
                     if position.order >= order:
                         position.order += 1
+                    if max < position.order:
+                        max = position.order
+                if order > max:
+                    order = max + 1
+            else:
+                order = 0
             position = Position(x=x, y=y, z=z,r=r, track=track,order=order,magnet=magnet)
             db.session.add(position)
             db.session.commit()
-            return "track added"
+            return f"Position {x},{y},{z},{r} added to track {track} with order {order} "
+        except Exception as e:
+            return str(e)
+    #turns on the magnet
+    def magnet_on():
+        import serial
+        import time
+        try:
+            tempo_espera = 2
+            taxa_transmissao = 115200
+            comunicacao_serial = serial.Serial("COM8", taxa_transmissao, timeout = tempo_espera)
+            comunicacao_serial.write(b"on\n") # Escreve "on" na serial
+            time.sleep(1)
+            return "on"
+        except Exception as e:
+            return str(e)
+    #turns off the magnet   
+    def magnet_off():
+        import serial
+        import time
+        try:
+            tempo_espera = 2
+            taxa_transmissao = 115200
+            comunicacao_serial = serial.Serial("COM8", taxa_transmissao, timeout = tempo_espera)
+            comunicacao_serial.write(b"off\n") # Escreve "on" na serial
+            time.sleep(1)
+            return "off"
+        except Exception as e:
+            return str(e)
+    #runs a track
+    def run_track(data):
+        import pydobot
+        device = pydobot.Dobot(port="COM5", verbose=False)
+        if not device:
+            raise Exception("unable to connect to dobot")
+        try:
+            track = data["track"]
+            positions = db.session.query(Position).filter(Position.track == track).order_by(Position.order.asc()).all()
+            for position in positions:
+                if position.magnet == "on":
+                    DobotController.magnet_on()
+                else:
+                    DobotController.magnet_off()
+                device.move_to(position.x,position.y,position.z,position.r)
+            return "track run"
         except Exception as e:
             return str(e)
         
+    def add_position_dobot(self,data):
+        import pydobot
+        device = pydobot.Dobot(port="COM5", verbose=False)
+        track = data["track"]
+        order = data["order"]
+        magnet = data["magnet"]
+        if not device:
+            raise Exception("unable to connect to dobot")
+      
+        try:
+            x,y,z,r,j1,j2,j3,j4 = device.pose()
+            print(x,y,z,r)
+            json = {"x":x,"y":y,"z":z,"r":r,"track":track,"order":order,"magnet":magnet}
+            print(json)
+            return self.add_position(json)
+          
+        except Exception as e:
+            return str(e)
+                
