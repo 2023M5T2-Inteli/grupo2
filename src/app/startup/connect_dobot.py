@@ -36,7 +36,9 @@ window = sg.Window('Oops!', layout)
 while True:
     event, values = window.read()
     if event == sg.WIN_CLOSED or event == 'OK':
+        
         sys.exit(0)
+        
     elif event == 'Continuar mesmo assim':
         sys.exit(1)
 
