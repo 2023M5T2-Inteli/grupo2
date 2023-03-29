@@ -78,19 +78,36 @@ class DobotController:
     #runs a track
     def run_track(data):
         import pydobot
+        import datetime
         device = pydobot.Dobot(port="COM5", verbose=False)
         if not device:
             raise Exception("unable to connect to dobot")
         try:
             track = data["track"]
+            cycles = data["cycles"]
+            aceleration = data["aceleration"]
+            t1 = datetime.datetime.now()
+            try:
+                dict_aceleration = {
+                    1:100,
+                    2:200,
+                    3:300,
+                    4:400
+                }
+                aceleration = dict_aceleration[aceleration]
+            except Exception as e:
+                return str(e)
+            device.speed(400,aceleration)
             positions = db.session.query(Position).filter(Position.track == track).order_by(Position.order.asc()).all()
-            for position in positions:
-                if position.magnet == "on":
-                    DobotController.magnet_on()
-                else:
-                    DobotController.magnet_off()
-                device.move_to(position.x,position.y,position.z,position.r)
-            return "track run"
+            for i in range(int(cycles)-1) :
+                print(i)
+                for position in positions:
+                    if position.magnet == "on":
+                        DobotController.magnet_on()
+                    else:
+                        DobotController.magnet_off()
+                    device.move_to(position.x,position.y,position.z,position.r,wait =True)
+            return str((datetime.datetime.now() -t1).total_seconds())
         except Exception as e:
             return str(e)
         
