@@ -54,7 +54,10 @@ def run_track():
 def add_position_dobot():
     data = request.get_json()
     return dobot().add_position_dobot(data)
-    
+@app.delete("/delete_track")
+def delete_tracks():
+    data = request.get_json()
+    return  dobot.delete_track(data)
 
 if __name__ == '__main__':
     app.run(debug=True)

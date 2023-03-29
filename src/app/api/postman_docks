@@ -1,0 +1,223 @@
+{
+	"info": {
+		"_postman_id": "e902fd30-7c8e-411a-878e-f5af7f3b61d7",
+		"name": "Robot_backend_inteli",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20724054"
+	},
+	"item": [
+		{
+			"name": "get_track",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"track\":\"0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/get_track",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"get_track"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add_track( add certo)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"x\":12,\r\n    \"y\":7,\r\n    \"z\":3,\r\n    \"r\":2,\r\n    \"track\":0,\r\n    \"magnet\":true,\r\n    \"order\":2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/add_track",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"add_track"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "magnet_off",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/magnet_off",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"magnet_off"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "magnet_on",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "magnet_on",
+					"host": [
+						"magnet_on"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add_position_dobot",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"track\": 0,\r\n    \"order\":0,\r\n    \"magnet\":true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/add_position_dobot",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"add_position_dobot"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "run_track",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"track\":0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/run_track",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"run_track"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete_track",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"track\":0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/delete_track",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"delete_track"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_tracks",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/get_tracks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"get_tracks"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

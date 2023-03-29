@@ -112,4 +112,16 @@ class DobotController:
           
         except Exception as e:
             return str(e)
-                
+        
+    def delete_track(data):
+       
+        track = data["track"]
+        try:
+            positions  = db.session.query(Position).filter(Position.track == track).all()
+            for position in positions:
+                db.session.delete(position)
+            db.session.commit()
+            return f"rota {track} deletada com sucesso"
+        except Exception as e:
+            return str(e)
+       
