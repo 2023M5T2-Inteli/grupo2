@@ -5,7 +5,7 @@ var order = 0;
 getRoutes = () => {
   console.log("getRoutes");
   axios
-    .get("http://localhost:5000/robot/getroutes")
+    .get("http://localhost:5000/get_tracks")
     .then(function (response) {
       console.log(response.data);
       // populate the table with the routes
@@ -18,7 +18,7 @@ getRoutes = () => {
         let select = document.createElement("td");
 
         let deleteRoute = document.createElement("td");
-        name.innerHTML = route.name;
+        name.innerHTML = route.track;
         description.innerHTML = route.description;
         select.innerHTML =
           '<button class="btn btn-primary">Selecionar</button>';
