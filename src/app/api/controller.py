@@ -125,6 +125,24 @@ class DobotController:
             print(x,y,z,r)
             json = {"x":x,"y":y,"z":z,"r":r,"track":track,"order":order,"magnet":magnet}
             print(json)
+            return f"Position {x},{y},{z},{r} added to track {track} with order {order} "
+          
+        except Exception as e:
+            return str(e)
+    def add_position_dobot(self,data):
+        import pydobot
+        device = pydobot.Dobot(port="COM5", verbose=False)
+        track = data["track"]
+        order = data["order"]
+        magnet = data["magnet"]
+        if not device:
+            raise Exception("unable to connect to dobot")
+      
+        try:
+            x,y,z,r,j1,j2,j3,j4 = device.pose()
+            print(x,y,z,r)
+            json = {"x":x,"y":y,"z":z,"r":r,"track":track,"order":order,"magnet":magnet}
+            print(json)
             return self.add_position(json)
           
         except Exception as e:
@@ -141,4 +159,15 @@ class DobotController:
             return f"rota {track} deletada com sucesso"
         except Exception as e:
             return str(e)
+        
+    def add_track(poisition_list):
+            try:
+                for position in poisition_list:
+                    position_ = Position(x=position["x"], y=position["y"], z=position["z"],r=position["r"], track=position["track"],order=position["order"],magnet=position["magnet"])
+                    db.session.add(position_)
+                db.session.commit()
+                return f"rota adicionada com sucesso"
+            except Exception as e:
+                return str(e)
+
        
