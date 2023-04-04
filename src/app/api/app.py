@@ -4,7 +4,7 @@ from extensions import db
 
 #initialize the app
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite+pysqlite:///project.db"
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite+pysqlite:///../project.db"
 
 
 #initialize the database
@@ -12,6 +12,7 @@ db.init_app(app)
 
 
 from controller import DobotController as dobot
+
 
 #engine:[//[user[:password]@][host]/[dbname]]
 # engine -> postgresql

@@ -45,6 +45,27 @@ const py_installLibs = () => {
 //     });
 //   });
 // };
+const py_models = () => {
+  return new Promise((resolve, reject) => {
+    const pythonProcess = spawn("python", ["../app/api/models.py"]);
+
+    pythonProcess.stdout.on("data", (data) => {
+      console.log(data.toString());
+    });
+    pythonProcess.stderr.on("data", (data) => {
+      console.log(data.toString());
+    });
+    pythonProcess.on("close", (code) => {
+      if (code == 0) {
+        console.log(`script finalizado`);
+        resolve();
+      } else {
+        console.error("erro na execução do script");
+        process.exit();
+      }
+    });
+  });
+};
 const py_runServer = (dobotPort) => {
   return new Promise((resolve, reject) => {
     const pythonProcess = spawn("python", ["./api/app.py", dobotPort]);
@@ -62,4 +83,4 @@ const py_runServer = (dobotPort) => {
   });
 };
 
-module.exports = { py_installLibs, py_runServer };
+module.exports = { py_installLibs, py_runServer, py_models };

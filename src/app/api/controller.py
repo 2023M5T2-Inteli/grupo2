@@ -15,7 +15,8 @@ class DobotController:
     #   get all tracks
     def get_tracks():
         try:
-            positions = db.session.query(Position).all()
+            #get all unique tarcks
+            positions = db.session.query(Position.track).distinct().all()
             return [position.track for position in positions]
         except Exception as e:
             return str(e)

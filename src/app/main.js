@@ -4,6 +4,7 @@ const { spawn } = require("child_process");
 const {
   py_connectDobot,
   py_installLibs,
+  py_models,
   py_runServer,
 } = require("./startup/startupScript");
 
@@ -28,7 +29,7 @@ app.whenReady().then(async () => {
 
   // console.log("--------------EXECUTANDO SCRIPT PYTHON-----------------");
   // dobotPort = await py_connectDobot();
-
+  await py_models();
   console.log("--------------INICIANDO SERVIDOR-----------------------");
   py_runServer("COM3");
   setTimeout(() => {
