@@ -3,7 +3,6 @@ var order = 0;
 
 // body onload get all routes from database
 getRoutes = () => {
-  console.log("getRoutes");
   axios
     .get("http://localhost:5000/get_tracks")
     .then(function (response) {
@@ -11,21 +10,15 @@ getRoutes = () => {
       // populate the table with the routes
       let routes = document.getElementById("routes");
       for (let i = 0; i < response.data.length; i++) {
-        let route = response.data[i];
         let row = document.createElement("tr");
         let name = document.createElement("td");
-        let description = document.createElement("td");
         let select = document.createElement("td");
-
         let deleteRoute = document.createElement("td");
-        name.innerHTML = route.track;
-        description.innerHTML = route.description;
-        select.innerHTML =
-          '<button class="btn btn-primary">Selecionar</button>';
-        deleteRoute.innerHTML =
-          '<button class="btn btn-primary">Excluir</button>';
+        let route = response.data[i];
+        name.innerHTML = route;
+        select.innerHTML = `<button class="btn btn-primary" onclick="selectRoute('${route}')">Selecionar</button>`;
+        deleteRoute.innerHTML = `<button class="btn btn-danger" onclick="deleteRoute('${route}')">Deletar</button>`;
         row.appendChild(name);
-        row.appendChild(description);
         row.appendChild(select);
         row.appendChild(deleteRoute);
         routes.appendChild(row);

@@ -5,6 +5,8 @@ db.metadata.clear()
 
     
 class Position(db.Model):
+    __tablename__ = "position"
+
     id = db.Column(db.Integer, primary_key=True)
     x = db.Column(db.Float)
     y = db.Column(db.Float)
