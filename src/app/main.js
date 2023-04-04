@@ -27,8 +27,8 @@ app.whenReady().then(async () => {
   console.log("--------------INSTALANDO LIBS NECESSARIAS--------------");
   await py_installLibs();
 
-  // console.log("--------------EXECUTANDO SCRIPT PYTHON-----------------");
-  // dobotPort = await py_connectDobot();
+  console.log("--------------EXECUTANDO SCRIPT PYTHON-----------------");
+  dobotPort = await py_connectDobot();
   await py_models();
   console.log("--------------INICIANDO SERVIDOR-----------------------");
   py_runServer("COM3");

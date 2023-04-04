@@ -73,7 +73,7 @@ function magnetStatus(){
 // Pega a posição atual do robô e insere no array track
 function addNodePost(){
   axios
-    .get("http://localhost:5000/add_position_dobot")
+    .get("http://localhost:5000/add_position_dobot2")
     .then(function (response) {
       // apeend into track response and order
       track.push(response.x, response.y, response.z, response.r, order, magnetStatus());

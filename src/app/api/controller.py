@@ -57,7 +57,7 @@ class DobotController:
         try:
             tempo_espera = 2
             taxa_transmissao = 115200
-            comunicacao_serial = serial.Serial("COM8", taxa_transmissao, timeout = tempo_espera)
+            comunicacao_serial = serial.Serial("COM7", taxa_transmissao, timeout = tempo_espera)
             comunicacao_serial.write(b"on\n") # Escreve "on" na serial
             time.sleep(1)
             return "on"
@@ -112,9 +112,9 @@ class DobotController:
         except Exception as e:
             return str(e)
         
-    def add_position_dobot(self,data):
+    def add_position_dobot2(self,data):
         import pydobot
-        device = pydobot.Dobot(port="COM5", verbose=False)
+        device = pydobot.Dobot(port="COM7", verbose=False)
         track = data["track"]
         order = data["order"]
         magnet = data["magnet"]
@@ -132,7 +132,7 @@ class DobotController:
             return str(e)
     def add_position_dobot(self,data):
         import pydobot
-        device = pydobot.Dobot(port="COM5", verbose=False)
+        device = pydobot.Dobot(port="COM7", verbose=False)
         track = data["track"]
         order = data["order"]
         magnet = data["magnet"]
