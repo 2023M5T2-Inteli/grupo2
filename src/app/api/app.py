@@ -4,7 +4,7 @@ from extensions import db
 
 #initialize the app
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///project.db"
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite+pysqlite:///project.db"
 
 
 #initialize the database
