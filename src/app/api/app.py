@@ -35,8 +35,8 @@ def get_track():
     message = dobot.get_track(data)
     return message
 
-@app.post("/add_track")
-def add_track():
+@app.post("/add_position")
+def add_position():
     data = request.get_json()
     message = dobot().add_position(data)
     return message
@@ -54,10 +54,20 @@ def run_track():
 def add_position_dobot():
     data = request.get_json()
     return dobot().add_position_dobot(data)
+@app.get("/add_position_dobot2")
+def add_position_dobo2t():
+    data = request.get_json()
+    return dobot().add_position_dobot2(data)
 @app.delete("/delete_track")
 def delete_tracks():
     data = request.get_json()
     return  dobot.delete_track(data)
+
+@app.post("/add_track")
+def add_track():
+    data = request.get_json()
+    message = dobot.add_track(data["data"])
+    return message
 
 if __name__ == '__main__':
     app.run(debug=True)
