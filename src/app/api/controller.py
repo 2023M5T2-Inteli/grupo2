@@ -25,10 +25,10 @@ class DobotController:
     def add_position(self,data):
         try:
             track = data["track"]
-            x = data["x"]
-            y = data["y"]
-            z = data["z"]
-            r = data["r"]
+            j1 = data["j1"]
+            j2 = data["j2"]
+            j3 = data["j3"]
+            j4 = data["j4"]
             order = data["order"]
             magnet = data["magnet"]
             max = -1
@@ -44,10 +44,10 @@ class DobotController:
                     order = max + 1
             else:
                 order = 0
-            position = Position(x=x, y=y, z=z,r=r, track=track,order=order,magnet=magnet)
+            position = Position(j1=j1, j2=j2, j3=j3,j4=j4, track=track,order=order,magnet=magnet)
             db.session.add(position)
             db.session.commit()
-            return f"Position {x},{y},{z},{r} added to track {track} with order {order} "
+            return f"Position {j1},{j2},{j3},{j4} added to track {track} with order {order} "
         except Exception as e:
             return str(e)
     #turns on the magnet
@@ -87,30 +87,21 @@ class DobotController:
         try:
             track = data["track"]
             cycles = data["cycles"]
-            # aceleration = data["aceleration"]
+            
             t1 = datetime.datetime.now()
-            try:
-                dict_aceleration = {
-                    1:100,
-                    2:200,
-                    3:300,
-                    4:400
-                }
-                # aceleration = dict_aceleration[aceleration]
-            except Exception as e:
-                return str(e)
+           
             device.speed(400,200)#aceleration
             positions = db.session.query(Position).filter(Position.track == track).order_by(Position.order.asc()).all()
             # device._set_ptp_cmd(0,0,0, 0, mode=pydobot.enums.PTPMode.MOVJ_ANGLE, wait=True)
             for i in range(int(cycles)) :
-                print(i)
+               
                 for position in positions:
                     if position.magnet == "on":
                         DobotController.magnet_on()
                     else:
                         DobotController.magnet_off()
                     # device.move_to(position.x,position.y,position.z,position.r,wait =True)
-                    device._set_ptp_cmd(position.x,position.y,position.z,position.r, mode=pydobot.enums.PTPMode.MOVJ_ANGLE, wait=True)
+                    device._set_ptp_cmd(position.j1,position.j2,position.j3,position.j4, mode=pydobot.enums.PTPMode.MOVJ_ANGLE, wait=True)
             return str((datetime.datetime.now() -t1).total_seconds())
         except Exception as e:
             return str(e)
@@ -126,10 +117,9 @@ class DobotController:
       
         try:
             x,y,z,r,j1,j2,j3,j4 = device.pose()
-            print(x,y,z,r)
-            # json = {"x":x,"y":y,"z":z,"r":r,"track":track,"order":order,"magnet":magnet}
-            # print(json)
-            json = {"x":j1,"y":j2,"z":j3,"r":j4}
+            
+           
+            json = {"j1":j1,"j2":j2,"j3":j3,"j4":j4}
             return json
           
         except Exception as e:
@@ -145,8 +135,8 @@ class DobotController:
       
         try:
             x,y,z,r,j1,j2,j3,j4 = device.pose()
-            print(x,y,z,r)
-            json = {"x":x,"y":y,"z":z,"r":r,"track":track,"order":order,"magnet":magnet}
+            
+            json = {"j1":j1,"j2":j2,"j3":j3,"j4":j4,"track":track,"order":order,"magnet":magnet}
             print(json)
             return self.add_position(json)
           
@@ -168,7 +158,7 @@ class DobotController:
     def add_track(poisition_list):
             try:
                 for position in poisition_list:
-                    position_ = Position(x=position[0], y=position[1], z=position[2],r=position[3], track=position[6],order=position[4],magnet=position[5])
+                    position_ = Position(j1=position[0], j2=position[1], j3=position[2],j4=position[3], track=position[6],order=position[4],magnet=position[5])
                     db.session.add(position_)
                 db.session.commit()
                 return f"rota adicionada com sucesso"
