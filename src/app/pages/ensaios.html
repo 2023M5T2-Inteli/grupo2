@@ -59,11 +59,11 @@
               class="col-auto ml-2 d-flex justify-content-center align-items-start"
             >
               <button
-                onclick="magnetonoff()"
+                onclick="goToHome()"
                 id="magnetButton"
                 class="btn btn-primary"
               >
-                Ligar imã
+                HOME                
               </button>
             </div>
           </div>
@@ -116,7 +116,7 @@
               </button>
                   </div>
                   <div class="col-sm pl-4 pb-4">
-                    <button class="btn btn-primary" type="button" onclick="sendPostRoute()">
+                    <button class="btn btn-primary" type="button" onclick="sendPostTrack()">
                       Salvar rota
                     </button>
                   </div>
@@ -129,7 +129,7 @@
         <div class="col-sm">
           <div class="row">
             <div class="col scrollit">
-              <table class="table table-striped" id="tracksTable">
+              <table class="table table-striped justify-content-center" id="tracksTable">
                 <thead>
                   <tr>
                     <th scope="col">Nome</th>
@@ -149,12 +149,12 @@
       </div>
     </div>
     <!-- toast -->
-    <div class="toast" id="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="500">
+    <div class="toast toastBgGood" id="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="500">
       <div class="toast-header">
         <strong class="mr-auto">SALVANDO</strong>
-        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+        <!-- <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
           <span aria-hidden="true">&times;</span>
-        </button>
+        </button> -->
       </div>
       <div class="toast-body" id="toastText">
         Ponto sendo adicionado, por favor aguarde...

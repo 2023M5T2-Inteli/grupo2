@@ -112,6 +112,7 @@ class DobotController:
                         DobotController.magnet_on()
                     else:
                         DobotController.magnet_off()
+                    print(position.j1,position.j2,position.j3,position.j4)
                     # device.move_to(position.x,position.y,position.z,position.r,wait =True)
                     device._set_ptp_cmd(position.j1,position.j2,position.j3,position.j4, mode=pydobot.enums.PTPMode.MOVJ_ANGLE, wait=True)
             try:

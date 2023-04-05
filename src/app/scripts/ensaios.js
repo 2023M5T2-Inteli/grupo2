@@ -10,17 +10,18 @@ getTracks = () => {
       let tracksTable = document.getElementById("tracksTable");
       for (let i = 0; i < response.data.length; i++) {
         let row = document.createElement("tr");
+        row.classList.add("text-center", "justify-content-center");
         row.id = response.data[i];
         let name = document.createElement("td");
+        name.classList.add("text-center");
         let select = document.createElement("td");
         let cycles = document.createElement("td");
-        cycles.classList.add("d-flex", "justify-content-center");
         let deleteRoute = document.createElement("td");
         let trackName = response.data[i];
         name.innerHTML = trackName;
         select.innerHTML = `<button class="btn btn-primary" onclick="selectRoute('${trackName}')">Selecionar</button>`;
         // select numbers of cycles
-        cycles.innerHTML = `<input type="number" id="cycles${trackName}" class="form-control w-50" name="cycles" min="1" max="10" value="1">`;
+        cycles.innerHTML = `<input type="number" id="cycles${trackName}" class="w-50 cyclesInput" name="cycles" min="1" max="10" value="1">`;
         deleteRoute.innerHTML = `<button class="btn btn-danger" onclick="deleteRoute('${trackName}')">Deletar</button>`;
         row.appendChild(name);
         row.appendChild(select);
@@ -33,6 +34,35 @@ getTracks = () => {
       console.log(error);
     });
 };
+
+function toastShowFade(msg, time, type) {
+  // add class to toast
+  if (type == "good") {
+    $('.toast').removeClass("toastBgBad");
+    $('.toast').addClass("toastBgGood");
+  } else if (type == "bad") {
+    $('.toast').removeClass("toastBgGood");
+    $('.toast').addClass("toastBgBad");
+  }
+
+  $("#toastText").text(msg);
+  $('.toast').toast('show');
+  if (time != 0)
+    setTimeout(function() {
+      $('.toast').toast('hide');
+    }, time);
+}
+
+function goToHome() {
+  let xhttp = new XMLHttpRequest();
+  xhttp.open("GET", "http://localhost:5000/home", true);
+  xhttp.send();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      toastShowFade("Retornado à posição incial!", 2000, "good");
+    }
+  }
+}
 
 function magnetRecord(){
   const magnetButtonRecord = document.getElementById("magnetButtonRecord");
@@ -62,22 +92,17 @@ function magnetStatus(){
 // Pega a posição atual do robô e insere no array track
 function addNodePost(){
   // toast notification
-  $("#toastText").text("Adicionando posição, por favor aguarde...");
-  $('.toast').toast('show');
+  toastShowFade("Adicionando posição, por favor aguarde...", 0, "good");
   let xhttp = new XMLHttpRequest();
   xhttp.open("GET", "http://localhost:5000/add_position_dobot2", true);
   xhttp.send();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       let response = JSON.parse(this.responseText);
-      track.push([response.x, response.y, response.z, response.r, order, magnetStatus()]);
+      track.push([response.j1, response.j2, response.j3, response.j4, order, magnetStatus()]);
       order++;
       console.log(track);
-      $("#toastText").text("Posição adicionada com sucesso!");
-      // fade out toast
-      setTimeout(function() {
-        $('.toast').toast('hide');
-      }, 1000);
+      toastShowFade("Posição adicionada com sucesso!", 1000, "good");
     }
   }
 }
@@ -97,7 +122,17 @@ function mkArray(){
   return trackPost
 }
 
-function sendPostRoute(){
+function sendPostTrack(){
+  if (track.length == 0){
+    // alert("Não há posições para adicionar à rota!"); toast
+    toastShowFade("Não há posições para adicionar à rota!", 1000, "bad");
+    return;
+  }
+  else if (document.getElementById("trackName").value == ""){
+    // alert("O nome da rota não pode ser vazio!"); toast 
+    toastShowFade("O nome da rota não pode ser vazio!", 1000, "bad");
+    return;
+  }
   let xhttp = new XMLHttpRequest();
   xhttp.open("POST", "http://localhost:5000/add_track", true);
   xhttp.setRequestHeader("Content-type", "application/json");
@@ -105,6 +140,7 @@ function sendPostRoute(){
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       console.log(this.responseText);
+      toastShowFade("Rota adicionada com sucesso!", 1000, "good");
     }
   }
 }
@@ -113,13 +149,13 @@ function getCycles(track){
   let cycles = document.getElementById(`cycles${track}`).value;
   if (cycles == 0){
     cycles = 1;
-    document.getElementById("cycles").value = 1;
-    alert("O número de ciclos foi alterado para 1 (mínimo permitido)")
+    document.getElementById(`cycles${track}`).value = 1;
+    toastShowFade("O número de ciclos foi alterado para 1 (mínimo permitido)", 2000, "bad");
   }
   else if (cycles > 10){
     cycles = 10;
-    document.getElementById("cycles").value = 10;
-    alert("O número de ciclos foi alterado para 10 (máximo permitido)")
+    document.getElementById(`cycles${track}`).value = 10;
+    toastShowFade("O número de ciclos foi alterado para 10 (máximo permitido)", 2000, "bad");
   }
   return cycles;
 }
@@ -132,6 +168,8 @@ function selectRoute(track){
   console.log(JSON.stringify({"track": track, "cycles": getCycles(track)}));
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
+      // toast 
+      toastShowFade(`Rota executada com o tempo de ${this.responseText}'s`, 1000, "good");
       console.log(this.responseText);
     }
   };
@@ -165,21 +203,3 @@ async function postRotaPadrao(test) {
       console.log(error);
     });
 }
-
-// Função que altera o botão de ligar/desligar imã e envia o comando para o raspberry
-// function magnetonoff() {
-//   const magnetButton = document.getElementById("magnetButton");
-//   if (magnetButton.innerHTML == "Ligar Imã") {
-//     magnetButton.innerHTML = "Desligar Imã";
-//     axios.get("http://localhost:5000/magnet_on").then(function (response) {
-//       console.log(response.data);
-//     });
-//   } else {
-//     magnetButton.innerHTML = "Ligar Imã";
-//     axios.get("http://localhost:5000/magnet_off").then(function (response) {
-//       console.log(response.data);
-//     });
-//   }
-// }
-
-// {"data": [array]}
