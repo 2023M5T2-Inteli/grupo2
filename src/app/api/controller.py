@@ -73,13 +73,13 @@ class DobotController:
         except Exception as e:
             return str(e)
     #turns off the magnet   
-    def magnet_off():
+    def magnet_off(self):
         import serial
         import time
         try:
             tempo_espera = 2
             taxa_transmissao = 115200
-            comunicacao_serial = serial.Serial("COM8", taxa_transmissao, timeout = tempo_espera)
+            comunicacao_serial = serial.Serial(self.raspPort, taxa_transmissao, timeout = tempo_espera)
             comunicacao_serial.write(b"off\n") # Escreve "on" na serial
             time.sleep(1)
             return "off"
