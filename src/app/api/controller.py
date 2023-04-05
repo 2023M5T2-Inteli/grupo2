@@ -80,6 +80,18 @@ class DobotController:
     def run_track(data):
         import pydobot
         import datetime
+        import serial
+        import time
+
+        try:
+            tempo_espera = 2
+            taxa_transmissao = 115200
+            comunicacao_serial = serial.Serial("COM7", taxa_transmissao, timeout = tempo_espera)
+            comunicacao_serial.write(b"bomba\n") # Escreve "on" na serial
+            time.sleep(1)
+            
+        except Exception as e:
+            return str(e)
 
         device = pydobot.Dobot(port="COM7", verbose=False)
         if not device:
@@ -102,6 +114,15 @@ class DobotController:
                         DobotController.magnet_off()
                     # device.move_to(position.x,position.y,position.z,position.r,wait =True)
                     device._set_ptp_cmd(position.j1,position.j2,position.j3,position.j4, mode=pydobot.enums.PTPMode.MOVJ_ANGLE, wait=True)
+            try:
+                tempo_espera = 2
+                taxa_transmissao = 115200
+                comunicacao_serial = serial.Serial("COM7", taxa_transmissao, timeout = tempo_espera)
+                comunicacao_serial.write(b"desbomba\n") # Escreve "on" na serial
+                time.sleep(1)
+            
+            except Exception as e:
+                return str(e)
             return str((datetime.datetime.now() -t1).total_seconds())
         except Exception as e:
             return str(e)
