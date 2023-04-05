@@ -93,3 +93,18 @@ body {
   .form {
     margin-left: 9px;
   }
+
+  /* toast on the bottom left of screen */
+  .toast {
+    position: absolute;
+    top: 83%;
+    left: 2%;
+    min-width: 200px;
+    max-width: 500px;
+    z-index: 9999;
+    background-color: #3444bd;
+    color: #fff;
+    border: 1px solid #2d4b67;
+    border-radius: 0 0 0 5px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  }

@@ -80,6 +80,7 @@ class DobotController:
     def run_track(data):
         import pydobot
         import datetime
+
         device = pydobot.Dobot(port="COM7", verbose=False)
         if not device:
             raise Exception("unable to connect to dobot")
@@ -100,19 +101,21 @@ class DobotController:
                 return str(e)
             device.speed(400,200)#aceleration
             positions = db.session.query(Position).filter(Position.track == track).order_by(Position.order.asc()).all()
-            for i in range(int(cycles)-1) :
+            # device._set_ptp_cmd(0,0,0, 0, mode=pydobot.enums.PTPMode.MOVJ_ANGLE, wait=True)
+            for i in range(int(cycles)) :
                 print(i)
                 for position in positions:
                     if position.magnet == "on":
                         DobotController.magnet_on()
                     else:
                         DobotController.magnet_off()
-                    device.move_to(position.x,position.y,position.z,position.r,wait =True)
+                    # device.move_to(position.x,position.y,position.z,position.r,wait =True)
+                    device._set_ptp_cmd(position.x,position.y,position.z,position.r, mode=pydobot.enums.PTPMode.MOVJ_ANGLE, wait=True)
             return str((datetime.datetime.now() -t1).total_seconds())
         except Exception as e:
             return str(e)
         
-    def add_position_dobot2(self,data):
+    def add_position_dobot2(self):
         import pydobot
         device = pydobot.Dobot(port="COM7", verbose=False)
         # track = data["track"]
@@ -126,7 +129,7 @@ class DobotController:
             print(x,y,z,r)
             # json = {"x":x,"y":y,"z":z,"r":r,"track":track,"order":order,"magnet":magnet}
             # print(json)
-            json = {"x":x,"y":y,"z":z,"r":r}
+            json = {"x":j1,"y":j2,"z":j3,"r":j4}
             return json
           
         except Exception as e:
@@ -165,7 +168,7 @@ class DobotController:
     def add_track(poisition_list):
             try:
                 for position in poisition_list:
-                    position_ = Position(x=position["x"], y=position["y"], z=position["z"],r=position["r"], track=position["track"],order=position["order"],magnet=position["magnet"])
+                    position_ = Position(x=position[0], y=position[1], z=position[2],r=position[3], track=position[6],order=position[4],magnet=position[5])
                     db.session.add(position_)
                 db.session.commit()
                 return f"rota adicionada com sucesso"

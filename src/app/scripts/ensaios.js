@@ -20,7 +20,7 @@ getTracks = () => {
         name.innerHTML = trackName;
         select.innerHTML = `<button class="btn btn-primary" onclick="selectRoute('${trackName}')">Selecionar</button>`;
         // select numbers of cycles
-        cycles.innerHTML = `<input type="number" id="cycles" class="form-control w-50" name="cycles" min="1" max="10" value="1">`;
+        cycles.innerHTML = `<input type="number" id="cycles${trackName}" class="form-control w-50" name="cycles" min="1" max="10" value="1">`;
         deleteRoute.innerHTML = `<button class="btn btn-danger" onclick="deleteRoute('${trackName}')">Deletar</button>`;
         row.appendChild(name);
         row.appendChild(select);
@@ -50,7 +50,6 @@ function magnetRecord(){
 
 // Função que retorna o status do imã
 function magnetStatus(){
-  console.log("ima")
   const magnetButtonRecord = document.getElementById("magnetButtonRecord");
   if (magnetButtonRecord.innerHTML == "Imã Ligado") {
     return true;
@@ -62,20 +61,25 @@ function magnetStatus(){
 
 // Pega a posição atual do robô e insere no array track
 function addNodePost(){
-  console.log("ENTREI")
-  axios
-    .get("http://localhost:5000/add_position_dobot2")
-    .then(function (response) {
-      // apeend into track response and order
-      track.push(response.x, response.y, response.z, response.r, order, magnetStatus());
+  // toast notification
+  $("#toastText").text("Adicionando posição, por favor aguarde...");
+  $('.toast').toast('show');
+  let xhttp = new XMLHttpRequest();
+  xhttp.open("GET", "http://localhost:5000/add_position_dobot2", true);
+  xhttp.send();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      let response = JSON.parse(this.responseText);
+      track.push([response.x, response.y, response.z, response.r, order, magnetStatus()]);
       order++;
       console.log(track);
+      $("#toastText").text("Posição adicionada com sucesso!");
+      // fade out toast
+      setTimeout(function() {
+        $('.toast').toast('hide');
+      }, 1000);
     }
-    )
-    .catch(function (error) {
-      console.log(error);
-    }
-    );
+  }
 }
 
 function mkArray(){
@@ -88,23 +92,25 @@ function mkArray(){
   let trackPost = {"data": track}
   order = 0
   track = []
+  console.log(trackPost)
   // make trackPost a json with the "data:" object
   return trackPost
 }
 
 function sendPostRoute(){
-  axios
-    .post("http://localhost:5000/add_track", mkArray())
-    .then(function (response) {
-      console.log(response.data);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+  let xhttp = new XMLHttpRequest();
+  xhttp.open("POST", "http://localhost:5000/add_track", true);
+  xhttp.setRequestHeader("Content-type", "application/json");
+  xhttp.send(JSON.stringify(mkArray()));
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      console.log(this.responseText);
+    }
+  }
 }
 
-function getCycles(){
-  let cycles = document.getElementById("cycles").value;
+function getCycles(track){
+  let cycles = document.getElementById(`cycles${track}`).value;
   if (cycles == 0){
     cycles = 1;
     document.getElementById("cycles").value = 1;
@@ -120,9 +126,10 @@ function getCycles(){
 
 function selectRoute(track){
   let xhttp = new XMLHttpRequest();
-  xhttp.open("GET", "http://localhost:5000/run_track", true);
+  xhttp.open("POST", "http://localhost:5000/run_track", true);
   xhttp.setRequestHeader("Content-type", "application/json");
-  xhttp.send(JSON.stringify({"track": track, "cycles": getCycles()}));
+  xhttp.send(JSON.stringify({"track": track, "cycles": getCycles(track)}));
+  console.log(JSON.stringify({"track": track, "cycles": getCycles(track)}));
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       console.log(this.responseText);

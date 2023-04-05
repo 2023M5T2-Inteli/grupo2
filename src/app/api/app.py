@@ -50,7 +50,7 @@ def magnet_on():
 @app.get("/magnet_off")
 def magnet_off():
     return dobot.magnet_off()
-@app.get("/run_track")
+@app.post("/run_track")
 def run_track():
     data = request.get_json()
     return dobot.run_track(data)
@@ -60,8 +60,8 @@ def add_position_dobot():
     return dobot().add_position_dobot(data)
 @app.get("/add_position_dobot2")
 def add_position_dobot2():
-    data = request.get_json()
-    return dobot().add_position_dobot2(data)
+    # data = request.get_json()
+    return dobot().add_position_dobot2()
 @app.delete("/delete_track")
 def delete_tracks():
     data = request.get_json()
