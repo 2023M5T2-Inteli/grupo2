@@ -3,6 +3,7 @@ from time import sleep
 
 timewait = 2
 baudrate = 115200
+com = "COM30"
 
 # Lista todas as portas COM, uma delas é o Raspberry Pi Pico
 def find_coms():
@@ -16,17 +17,23 @@ def find_coms():
 
 find_coms() # Executa a função
 
-ser = serial.Serial("COM27", baudrate, timeout = timewait) # Abre um objeto de comunicação com a porta na qual o Raspberry Pi Pico esta
+ser = serial.Serial(com, baudrate, timeout = timewait) # Abre um objeto de comunicação com a porta na qual o Raspberry Pi Pico esta
 
 while True:
     print("base")
     ser.write(b"on\n")
-    sleep(2)
-    line = ser.readline() # Realiza a leitura de um pacote de informaçãoes via serial
+    line = ser.readline()
+    while line.decode().strip() != 'basereaded':
+        line = ser.readline()
     print(line.decode("UTF-8")) # Exibe a string que foi enviada pelo Raspberry Pi Pico decodificada como texto
+
+    sleep(2)
 
     print("medindo")
     ser.write(b"off\n")
-    sleep(2)
-    line = ser.readline() # Realiza a leitura de um pacote de informaçãoes via serial
+    line = ser.readline()
+    while line.decode().strip() == "" or line.decode().strip() == 'basereaded':
+        line = ser.readline()
     print(line.decode("UTF-8")) # Exibe a string que foi enviada pelo Raspberry Pi Pico decodificada como texto
+
+    sleep(2)
