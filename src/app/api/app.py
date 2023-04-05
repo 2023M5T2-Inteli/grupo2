@@ -73,5 +73,14 @@ def add_track():
     message = dobot.add_track(data["data"])
     return message
 
+@app.get("/home")
+def home():
+    return dobot.run_home()
+
+@app.post("/change_default_track")
+def change_default_track():
+    data = request.get_json()
+    return dobot.change_default_track(data)
+
 if __name__ == '__main__':
     app.run(debug=True)

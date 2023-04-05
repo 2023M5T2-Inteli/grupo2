@@ -8,7 +8,7 @@ class DobotController:
         try:
             track = data["track"]
             positions = db.session.query(Position).filter(Position.track == track).order_by(Position.order.asc()).all()
-            return [position.return_json() for position in positions]
+            return positions
         except Exception as e:
             return str(e)
         
@@ -185,5 +185,33 @@ class DobotController:
                 return f"rota adicionada com sucesso"
             except Exception as e:
                 return str(e)
+            
+    def run_home():
+        import pydobot
+
+        try:
+            device = pydobot.Dobot(port="COM7", verbose=False)
+        except:
+            raise Exception("unable to connect to dobot")
+        try:
+            
+            device._set_ptp_cmd(0,0,0,0, mode=pydobot.enums.PTPMode.MOVJ_ANGLE, wait=True)
+            
+        except Exception as e:
+                return str(e)
+        return "return to home"
+       
+    def change_default_track(self,data):
+
+        try:
+            self.delete_track({"track":"default"})
+
+            positions = self.get_track({"track":data["track"]})
+            for position in positions:
+                position.track = "default"
+            db.session.commit()
+            return "default track changed"
+        except Exception as e:
+            return str(e)
 
        
