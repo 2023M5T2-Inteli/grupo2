@@ -48,27 +48,8 @@
         <div id="buttonsMain" class="col-sm d-flex flex-column">
           <div class="row">
             <div class="col-auto pl-4 pb-2">
+
               <button
-                class="btn btn-primary btn-lg"
-                onclick="postRotaPadrao('rodar')"
-              >
-                Iniciar ensaio padrão
-              </button>
-            </div>
-            <div
-              class="col-auto ml-2 d-flex justify-content-center align-items-start"
-            >
-              <button
-                onclick="goToHome()"
-                id="magnetButton"
-                class="btn btn-primary"
-              >
-                HOME                
-              </button>
-            </div>
-          </div>
-          <div class="p-2">
-            <button
               class="btn btn-primary btn-lg"
               data-bs-toggle="collapse"
               data-bs-target="#divContainer"
@@ -77,6 +58,18 @@
             >
               Adicionar nova rota
             </button>
+            </div>
+            <div
+              class="col-auto ml-2 d-flex justify-content-center align-self-center pb-2"
+            >
+              <button
+                onclick="goToHome()"
+                id="homeButton"
+                class="btn btn-primary"
+              >
+                HOME                
+              </button>
+            </div>
           </div>
 
           <div class="row collapse pt-3" id="divContainer">
@@ -107,7 +100,7 @@
               class="col-sm pb-2 pl-4"
             >
               <button
-                onclick="magnetRecord()"
+                onclick="magnetRecordChange()"
                 id="magnetButtonRecord"
                 class="btn btn-primary redbg"
                 type="button"
@@ -126,7 +119,7 @@
           </div>
         </div>
 
-        <div class="col-sm">
+        <div class="col-sm pt-2">
           <div class="row">
             <div class="col scrollit">
               <table class="table table-striped justify-content-center" id="tracksTable">
@@ -151,7 +144,7 @@
     <!-- toast -->
     <div class="toast toastBgGood" id="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="500">
       <div class="toast-header">
-        <strong class="mr-auto">SALVANDO</strong>
+        <strong class="mr-auto">Mensagem...</strong>
         <!-- <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button> -->
