@@ -80,13 +80,13 @@ class DobotController:
     def run_track(data):
         import pydobot
         import datetime
-        device = pydobot.Dobot(port="COM5", verbose=False)
+        device = pydobot.Dobot(port="COM7", verbose=False)
         if not device:
             raise Exception("unable to connect to dobot")
         try:
             track = data["track"]
             cycles = data["cycles"]
-            aceleration = data["aceleration"]
+            # aceleration = data["aceleration"]
             t1 = datetime.datetime.now()
             try:
                 dict_aceleration = {
@@ -95,10 +95,10 @@ class DobotController:
                     3:300,
                     4:400
                 }
-                aceleration = dict_aceleration[aceleration]
+                # aceleration = dict_aceleration[aceleration]
             except Exception as e:
                 return str(e)
-            device.speed(400,aceleration)
+            device.speed(400,200)#aceleration
             positions = db.session.query(Position).filter(Position.track == track).order_by(Position.order.asc()).all()
             for i in range(int(cycles)-1) :
                 print(i)
@@ -115,18 +115,19 @@ class DobotController:
     def add_position_dobot2(self,data):
         import pydobot
         device = pydobot.Dobot(port="COM7", verbose=False)
-        track = data["track"]
-        order = data["order"]
-        magnet = data["magnet"]
+        # track = data["track"]
+        # order = data["order"]
+        # magnet = data["magnet"]
         if not device:
             raise Exception("unable to connect to dobot")
       
         try:
             x,y,z,r,j1,j2,j3,j4 = device.pose()
             print(x,y,z,r)
-            json = {"x":x,"y":y,"z":z,"r":r,"track":track,"order":order,"magnet":magnet}
-            print(json)
-            return f"Position {x},{y},{z},{r} added to track {track} with order {order} "
+            # json = {"x":x,"y":y,"z":z,"r":r,"track":track,"order":order,"magnet":magnet}
+            # print(json)
+            json = {"x":x,"y":y,"z":z,"r":r}
+            return json
           
         except Exception as e:
             return str(e)

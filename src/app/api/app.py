@@ -59,7 +59,7 @@ def add_position_dobot():
     data = request.get_json()
     return dobot().add_position_dobot(data)
 @app.get("/add_position_dobot2")
-def add_position_dobo2t():
+def add_position_dobot2():
     data = request.get_json()
     return dobot().add_position_dobot2(data)
 @app.delete("/delete_track")

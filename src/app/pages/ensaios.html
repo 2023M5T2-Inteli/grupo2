@@ -15,7 +15,7 @@
     <script src="../scripts/ensaios.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
-  <body onload="getRoutes()">
+  <body onload="getTracks()">
     <!-- <div class="header">
       <img src="../assets/logo.png" alt="" />
 
@@ -129,11 +129,12 @@
         <div class="col-sm">
           <div class="row">
             <div class="col scrollit">
-              <table class="table table-striped" id="routes">
+              <table class="table table-striped" id="tracksTable">
                 <thead>
                   <tr>
                     <th scope="col">Nome</th>
                     <th scope="col">Selecionar</th>
+                    <th scope="col">NºCiclos</th>
                     <th scope="col">Excluir</th>
                   </tr>
                 </thead>

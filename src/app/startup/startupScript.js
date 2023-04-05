@@ -33,7 +33,7 @@ const py_connectDobot = () => {
       console.log(data.toString());
     });
     pythonProcess.on("close", (code) => {
-      if (code && code != 1) {
+      if (code && code != 2) {
         console.log(`script finalizado`);
         dobotPort = "COM" + code.toString();
         console.log(dobotPort);

@@ -76,6 +76,10 @@ body {
   td,th {
     color: #fff;
   }
+
+  th {
+    text-align: center;
+  }
   
   .routeDescripition {
     color: #fff;
