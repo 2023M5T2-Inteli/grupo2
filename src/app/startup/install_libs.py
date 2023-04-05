@@ -3,7 +3,7 @@ import subprocess
 import time
 
 subprocess.check_call([sys.executable, '-m', 'pip', 'install', 
- 'pysimpleGUI', 'numpy', 'pyserial', 'pydobot'])
+ 'pysimpleGUI', 'numpy', 'pyserial', 'pydobot', 'flask_sqlalchemy'])
 
 time.sleep(1)
 

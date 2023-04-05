@@ -29,9 +29,12 @@ app.whenReady().then(async () => {
 
   console.log("--------------EXECUTANDO SCRIPT PYTHON-----------------");
   dobotPort = await py_connectDobot();
+
+  console.log("--------------RODANDO MODELOS-----------------------");
   await py_models();
+
   console.log("--------------INICIANDO SERVIDOR-----------------------");
-  py_runServer("COM3");
+  py_runServer(dobotPort);
   setTimeout(() => {
     createWindow();
   }, 5000);

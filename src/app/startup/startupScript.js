@@ -36,7 +36,7 @@ const py_connectDobot = () => {
       if (code && code != 2) {
         console.log(`script finalizado`);
         dobotPort = "COM" + code.toString();
-        console.log(dobotPort);
+        console.log("!!!", dobotPort);
         resolve(dobotPort);
       } else {
         console.error("erro na execucao do script");

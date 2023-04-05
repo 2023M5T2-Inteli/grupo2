@@ -1,6 +1,10 @@
 from flask import Flask,request
 from flask_sqlalchemy import SQLAlchemy
 from extensions import db
+import sys
+
+
+
 
 #initialize the app
 app = Flask(__name__)
@@ -14,7 +18,10 @@ else:
 db.init_app(app)
 
 
-from controller import DobotController as dobot
+from controller import DobotController
+
+dobot = ''
+port = ""
 
 
 #engine:[//[user[:password]@][host]/[dbname]]
@@ -30,7 +37,7 @@ def api():
     return 'Hello World'
 
 @app.get("/get_tracks")
-def get_tracks():
+def get_trackss():
     message = dobot.get_tracks()
     return message
 @app.get('/get_track')
@@ -61,7 +68,7 @@ def add_position_dobot():
 @app.get("/add_position_dobot2")
 def add_position_dobot2():
     # data = request.get_json()
-    return dobot().add_position_dobot2()
+    return dobot.add_position_dobot2()
 @app.delete("/delete_track")
 def delete_tracks():
     data = request.get_json()
@@ -83,4 +90,12 @@ def change_default_track():
     return dobot.change_default_track(data)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+
+    if sys.argv[1] == "COM1":
+        print("porta não selecionada!")
+        pass
+    else:
+        port = sys.argv[1]
+        dobot = DobotController(port)
+
+    app.run(debug=False)

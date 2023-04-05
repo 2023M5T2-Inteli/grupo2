@@ -1,7 +1,14 @@
 from extensions import db
 from models import Position
+import pydobot
 
 class DobotController:
+
+    dobot = ""
+
+    def __init__(self, port):
+        self.dobot = pydobot.Dobot(port=port, verbose=True)
+        
 
     #get all positions in a track       
     def get_track(data):
@@ -13,7 +20,7 @@ class DobotController:
             return str(e)
         
     #   get all tracks
-    def get_tracks():
+    def get_tracks(self):
         try:
             #get all unique tarcks
             positions = db.session.query(Position.track).distinct().all()
@@ -77,7 +84,7 @@ class DobotController:
         except Exception as e:
             return str(e)
     #runs a track
-    def run_track(data):
+    def run_track(self, data):
         import pydobot
         import datetime
         import serial
@@ -91,18 +98,15 @@ class DobotController:
             time.sleep(1)
             
         except Exception as e:
-            return str(e)
+            print("bomba não conectado")
 
-        device = pydobot.Dobot(port="COM7", verbose=False)
-        if not device:
-            raise Exception("unable to connect to dobot")
         try:
             track = data["track"]
             cycles = data["cycles"]
             
             t1 = datetime.datetime.now()
            
-            device.speed(400,200)#aceleration
+            self.dobot.speed(400,200)#aceleration
             positions = db.session.query(Position).filter(Position.track == track).order_by(Position.order.asc()).all()
             # device._set_ptp_cmd(0,0,0, 0, mode=pydobot.enums.PTPMode.MOVJ_ANGLE, wait=True)
             for i in range(int(cycles)) :
@@ -114,7 +118,7 @@ class DobotController:
                         DobotController.magnet_off()
                     print(position.j1,position.j2,position.j3,position.j4)
                     # device.move_to(position.x,position.y,position.z,position.r,wait =True)
-                    device._set_ptp_cmd(position.j1,position.j2,position.j3,position.j4, mode=pydobot.enums.PTPMode.MOVJ_ANGLE, wait=True)
+                    self.dobot._set_ptp_cmd(position.j1,position.j2,position.j3,position.j4, mode=pydobot.enums.PTPMode.MOVJ_ANGLE, wait=True)
             try:
                 tempo_espera = 2
                 taxa_transmissao = 115200
@@ -123,22 +127,14 @@ class DobotController:
                 time.sleep(1)
             
             except Exception as e:
-                return str(e)
+                print("bomba não conectado")
             return str((datetime.datetime.now() -t1).total_seconds())
         except Exception as e:
             return str(e)
         
     def add_position_dobot2(self):
-        import pydobot
-        device = pydobot.Dobot(port="COM7", verbose=False)
-        # track = data["track"]
-        # order = data["order"]
-        # magnet = data["magnet"]
-        if not device:
-            raise Exception("unable to connect to dobot")
-      
         try:
-            x,y,z,r,j1,j2,j3,j4 = device.pose()
+            x,y,z,r,j1,j2,j3,j4 = self.dobot.pose()
             
            
             json = {"j1":j1,"j2":j2,"j3":j3,"j4":j4}
@@ -147,16 +143,14 @@ class DobotController:
         except Exception as e:
             return str(e)
     def add_position_dobot(self,data):
-        import pydobot
-        device = pydobot.Dobot(port="COM7", verbose=False)
         track = data["track"]
         order = data["order"]
         magnet = data["magnet"]
-        if not device:
+        if not self.dobot:
             raise Exception("unable to connect to dobot")
       
         try:
-            x,y,z,r,j1,j2,j3,j4 = device.pose()
+            x,y,z,r,j1,j2,j3,j4 = self.dobot.pose()
             
             json = {"j1":j1,"j2":j2,"j3":j3,"j4":j4,"track":track,"order":order,"magnet":magnet}
             print(json)
@@ -177,7 +171,7 @@ class DobotController:
         except Exception as e:
             return str(e)
         
-    def add_track(poisition_list):
+    def add_track(self, poisition_list):
             try:
                 for position in poisition_list:
                     position_ = Position(j1=position[0], j2=position[1], j3=position[2],j4=position[3], track=position[6],order=position[4],magnet=position[5])
@@ -187,16 +181,10 @@ class DobotController:
             except Exception as e:
                 return str(e)
             
-    def run_home():
-        import pydobot
-
-        try:
-            device = pydobot.Dobot(port="COM7", verbose=False)
-        except:
-            raise Exception("unable to connect to dobot")
+    def run_home(self):
         try:
             
-            device._set_ptp_cmd(0,0,0,0, mode=pydobot.enums.PTPMode.MOVJ_ANGLE, wait=True)
+            self.dobot._set_ptp_cmd(0,0,0,0, mode=pydobot.enums.PTPMode.MOVJ_ANGLE, wait=True)
             
         except Exception as e:
                 return str(e)
