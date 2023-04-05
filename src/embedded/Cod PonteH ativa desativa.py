@@ -47,12 +47,15 @@ while True:
     # Se a string lida for "on", ele liga o LED da placa, se for "off", desliga
     if v.lower() == "on":
         ativaIma()
-        ativaBomb()
+        
     elif v.lower() == "off":
         desativaIma()
+        
+    
+    if v.lower() == "bomba":
+        ativaBomb()
+    elif v.lower() == "desbomba":
         desativaBomb()
-    
-    
     
   
     
