@@ -23,17 +23,17 @@ while True:
     print("base")
     ser.write(b"on\n")
     line = ser.readline()
-    while line.decode().strip() != 'basereaded':
+    while line.decode("UTF-8") != 'basereaded':
         line = ser.readline()
-    print(line.decode("UTF-8")) # Exibe a string que foi enviada pelo Raspberry Pi Pico decodificada como texto
+    print(line.decode("UTF-8"))
 
-    sleep(2)
+    sleep(1)
 
     print("medindo")
     ser.write(b"off\n")
     line = ser.readline()
-    while line.decode().strip() == "" or line.decode().strip() == 'basereaded':
+    while line.decode().strip() == '':# or line.decode().strip() == 'basereaded':
         line = ser.readline()
-    print(line.decode("UTF-8")) # Exibe a string que foi enviada pelo Raspberry Pi Pico decodificada como texto
+    print(line.decode("UTF-8"))
 
-    sleep(2)
+    sleep(1)
