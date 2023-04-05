@@ -5,9 +5,11 @@ import pydobot
 class DobotController:
 
     dobot = ""
+    raspPort = ""
 
-    def __init__(self, port):
-        self.dobot = pydobot.Dobot(port=port, verbose=True)
+    def __init__(self, dobotPort, raspPort):
+        self.dobot = pydobot.Dobot(port=dobotPort, verbose=True)
+        self.raspPort = raspPort
         
 
     #get all positions in a track       
@@ -58,13 +60,13 @@ class DobotController:
         except Exception as e:
             return str(e)
     #turns on the magnet
-    def magnet_on():
+    def magnet_on(self):
         import serial
         import time
         try:
             tempo_espera = 2
             taxa_transmissao = 115200
-            comunicacao_serial = serial.Serial("COM7", taxa_transmissao, timeout = tempo_espera)
+            comunicacao_serial = serial.Serial(self.raspPort, taxa_transmissao, timeout = tempo_espera)
             comunicacao_serial.write(b"on\n") # Escreve "on" na serial
             time.sleep(1)
             return "on"
@@ -93,7 +95,7 @@ class DobotController:
         try:
             tempo_espera = 2
             taxa_transmissao = 115200
-            comunicacao_serial = serial.Serial("COM7", taxa_transmissao, timeout = tempo_espera)
+            comunicacao_serial = serial.Serial(self.raspPort, taxa_transmissao, timeout = tempo_espera)
             comunicacao_serial.write(b"bomba\n") # Escreve "on" na serial
             time.sleep(1)
             
@@ -122,7 +124,7 @@ class DobotController:
             try:
                 tempo_espera = 2
                 taxa_transmissao = 115200
-                comunicacao_serial = serial.Serial("COM7", taxa_transmissao, timeout = tempo_espera)
+                comunicacao_serial = serial.Serial(self.raspPort, taxa_transmissao, timeout = tempo_espera)
                 comunicacao_serial.write(b"desbomba\n") # Escreve "on" na serial
                 time.sleep(1)
             

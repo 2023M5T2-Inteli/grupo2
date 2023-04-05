@@ -95,7 +95,8 @@ if __name__ == '__main__':
         print("porta não selecionada!")
         pass
     else:
-        port = sys.argv[1]
-        dobot = DobotController(port)
+        dobotPort = sys.argv[1]
+        raspPort = sys.argv[2]
+        dobot = DobotController(dobotPort, raspPort)
 
     app.run(debug=False)
