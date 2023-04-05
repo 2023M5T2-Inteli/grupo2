@@ -64,7 +64,7 @@ function goToHome() {
   }
 }
 
-function magnetRecordChange(){
+function magnetRecord(){
   const magnetButtonRecord = document.getElementById("magnetButtonRecord");
   if (magnetButtonRecord.innerHTML == "Imã Ligado") {
     magnetButtonRecord.innerHTML = "Imã Desligado";
@@ -103,10 +103,6 @@ function addNodePost(){
       order++;
       console.log(track);
       toastShowFade("Posição adicionada com sucesso!", 1000, "good");
-    }
-    // if error show toast
-    else if (this.readyState == 4 && this.status != 200){
-      toastShowFade("Erro ao adicionar posição!", 1000, "bad");
     }
   }
 }
@@ -173,7 +169,7 @@ function selectRoute(track){
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       // toast 
-      toastShowFade(`Rota executada com o tempo de ${this.responseText}'s`, 2000, "good");
+      toastShowFade(`Rota executada com o tempo de ${this.responseText}'s`, 1000, "good");
       console.log(this.responseText);
     }
   };
@@ -195,4 +191,15 @@ function deleteRoute(track){
       }
     }
   };
+}
+
+async function postRotaPadrao(test) {
+  axios
+    .post("http://localhost:5000/robot", test)
+    .then(function (response) {
+      console.log("It says: " + response.data);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
 }
