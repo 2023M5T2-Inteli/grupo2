@@ -114,7 +114,7 @@ class DobotController:
             for i in range(int(cycles)) :
                
                 for position in positions:
-                    if position.magnet == "on":
+                    if position.magnet == True:
                         DobotController.magnet_on()
                     else:
                         DobotController.magnet_off()
