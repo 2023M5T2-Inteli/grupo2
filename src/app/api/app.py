@@ -20,6 +20,7 @@ db.init_app(app)
 
 from controller import DobotController
 
+
 dobot = ''
 port = ""
 
@@ -56,7 +57,7 @@ def magnet_on():
     return dobot.magnet_on()
 @app.get("/magnet_off")
 def magnet_off():
-    return dobot().magnet_off()
+    return dobot.magnet_off()
 @app.post("/run_track")
 def run_track():
     data = request.get_json()

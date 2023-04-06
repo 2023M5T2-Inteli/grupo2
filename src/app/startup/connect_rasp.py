@@ -11,7 +11,7 @@ for i in available_ports:
     print("-- conectando na porta -> ", i.device)
     try:
         comm = serial.Serial(i.device, 115200, timeout=2)
-        comm.write(b"connect\n")
+        comm.write(b"start\n")
         line = comm.readline().decode('utf-8')
         if line:
             print("PORT=="+i.device+"==")

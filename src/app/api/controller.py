@@ -2,7 +2,7 @@ from extensions import db
 from models import Position
 import pydobot
 
-class DobotController:
+class DobotController():
 
     dobot = ""
     raspPort = ""
@@ -68,6 +68,7 @@ class DobotController:
             taxa_transmissao = 115200
             comunicacao_serial = serial.Serial(self.raspPort, taxa_transmissao, timeout = tempo_espera)
             comunicacao_serial.write(b"on\n") # Escreve "on" na serial
+            print("oi")
             time.sleep(1)
             return "on"
         except Exception as e:
@@ -87,20 +88,9 @@ class DobotController:
             return str(e)
     #runs a track
     def run_track(self, data):
-        import pydobot
         import datetime
         import serial
         import time
-
-        try:
-            tempo_espera = 2
-            taxa_transmissao = 115200
-            comunicacao_serial = serial.Serial(self.raspPort, taxa_transmissao, timeout = tempo_espera)
-            comunicacao_serial.write(b"bomba\n") # Escreve "on" na serial
-            time.sleep(1)
-            
-        except Exception as e:
-            print("bomba não conectado")
 
         try:
             track = data["track"]
@@ -115,9 +105,9 @@ class DobotController:
                
                 for position in positions:
                     if position.magnet == True:
-                        DobotController.magnet_on()
+                        self.magnet_on()
                     else:
-                        DobotController.magnet_off()
+                        self.magnet_off()
                     print(position.j1,position.j2,position.j3,position.j4)
                     # device.move_to(position.x,position.y,position.z,position.r,wait =True)
                     self.dobot._set_ptp_cmd(position.j1,position.j2,position.j3,position.j4, mode=pydobot.enums.PTPMode.MOVJ_ANGLE, wait=True)
@@ -161,7 +151,7 @@ class DobotController:
         except Exception as e:
             return str(e)
         
-    def delete_track(data):
+    def delete_track(self, data):
        
         track = data["track"]
         try:

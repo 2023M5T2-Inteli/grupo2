@@ -41,6 +41,15 @@ def desativaIma():
     
 print("oii")
 
+
+while not start:
+    v = sys.stdin.readline().strip()
+    if v.lower() == "start":
+        start = True
+        print("start")
+    else:
+        print("não start")
+    
 # Ciclo de funcionamento dos imãs
 while start:
     v = sys.stdin.readline().strip()
@@ -50,6 +59,7 @@ while start:
         ativaIma()
         
     elif v.lower() == "off":
+        inverteIma()
         desativaIma()
         
     
@@ -57,14 +67,3 @@ while start:
         ativaBomb()
     elif v.lower() == "desbomba":
         desativaBomb()
-    
-while not start:
-    v = sys.stdin.readline().strip()
-    if v.lower() == "start":
-        start = True
-        print("start")
-    else:
-        print("não start")
-  
-    
-      
