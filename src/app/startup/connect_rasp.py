@@ -27,7 +27,7 @@ for i in available_ports:
 print("Nao foi possivel identificar o controlador Raspberry em nenhuma das portas disponiveis")
 
 sg.theme("DarkRed1")
-layout = [  [sg.Text("Não foi possivel identificar o Dobot!")],
+layout = [  [sg.Text("Não foi possivel identificar o Rasberry pi pico w!")],
             [sg.Text('certifique-se que ele está ligado e conectado ao computador. O progarma será encerrado.')],
             [sg.Button('OK')] ]
 
