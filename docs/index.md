@@ -477,14 +477,5 @@ Nosso back tem todas funções que mexem com o db no arquivo controller na class
 
 ## Teste de Usabilidade
 
-# Análise de Dados
-
-# Manuais
-
-## Manual de Implantação
-
-## Manual do Usuário
-
-## Manual do Administrador
 
 # Referências
