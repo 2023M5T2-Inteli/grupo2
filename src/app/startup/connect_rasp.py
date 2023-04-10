@@ -1,3 +1,7 @@
+
+# estão comentados apenas os trechos que são diferentes de "connect_dobot.py"
+# A documentação completa pode ser encontrada lá.
+
 import PySimpleGUI as sg
 from serial.tools import list_ports
 import serial
@@ -10,11 +14,15 @@ print(f'\n-- portas disponiveis: {[x.device for x in available_ports]}\n')
 for i in available_ports:
     print("-- conectando na porta -> ", i.device)
     try:
+        # enviamos uma comunicação serial com a mensagem start
+        # o Rasp está configurado para responder "ok" caso receba essa comunicação
         comm = serial.Serial(i.device, 115200, timeout=2)
         comm.write(b"start\n")
+        # se recebermos uma resposta para essa mensagem, significa que estamos na porta certa
         line = comm.readline().decode('utf-8')
         if line:
             print("PORT=="+i.device+"==")
+            # finalizamos o processo retornando a porta que encontramos na finalização do processo
             exit(int(i.device.replace("COM","")))
         else:
             print("[X] sem resposta na porta \n")

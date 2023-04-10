@@ -1,18 +1,23 @@
 from extensions import db
 from models import Position
 import pydobot
+import serial
+import time
+import datetime
 
 class DobotController():
 
     dobot = ""
     raspPort = ""
 
+    # inicia a classe com as portas do dobot e rasp
     def __init__(self, dobotPort, raspPort):
+        # instancia a classe do dobot com a porta recebida
         self.dobot = pydobot.Dobot(port=dobotPort, verbose=True)
         self.raspPort = raspPort
         
 
-    #get all positions in a track       
+    #Retorna todas as posições de uma rota do dobot     
     def get_track(data):
         try:
             track = data["track"]
@@ -21,16 +26,16 @@ class DobotController():
         except Exception as e:
             return str(e)
         
-    #   get all tracks
+    #Retorna todas as rotas do Dobot
     def get_tracks(self):
         try:
-            #get all unique tarcks
             positions = db.session.query(Position.track).distinct().all()
             return [position.track for position in positions]
         except Exception as e:
             return str(e)
         
-    # adds position to track
+    #Adiciona uma nova posição em uma rota já existente
+    # As posições são sempre gravadas como configuração de juntas, não coordenadas
     def add_position(self,data):
         try:
             track = data["track"]
@@ -42,7 +47,6 @@ class DobotController():
             magnet = data["magnet"]
             max = -1
             positions = db.session.query(Position).filter(Position.track == track).all()
-            #fixes the order in the track
             if len(positions):
                 for position in positions:
                     if position.order >= order:
@@ -61,8 +65,6 @@ class DobotController():
             return str(e)
     #turns on the magnet
     def magnet_on(self):
-        import serial
-        import time
         try:
             tempo_espera = 2
             taxa_transmissao = 115200
@@ -75,8 +77,6 @@ class DobotController():
             return str(e)
     #turns off the magnet   
     def magnet_off(self):
-        import serial
-        import time
         try:
             tempo_espera = 2
             taxa_transmissao = 115200
@@ -88,9 +88,6 @@ class DobotController():
             return str(e)
     #runs a track
     def run_track(self, data):
-        import datetime
-        import serial
-        import time
 
         try:
             track = data["track"]
@@ -134,6 +131,7 @@ class DobotController():
           
         except Exception as e:
             return str(e)
+        
     def add_position_dobot(self,data):
         track = data["track"]
         order = data["order"]
