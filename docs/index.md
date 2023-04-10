@@ -346,6 +346,22 @@ Peça superior de encaixe.
 ![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/pe%C3%A7a2-modelada2.png)
 Visão da parte debaixo da peça superior de encaixe.
 
+Após algumas análises, foi concluído que para peças que se encaixam perfeitamente o ideal era colocar parafusos próximos aos vértices da peça que irá segurar os eletroímãs. Assim, foram atualizadas conforme as imagens abaixo ilustram. Especialmente na peça que irá acoplar os eletroímãs também foram adicionados encaixes para que os dispositivos não se desestabilizarem na parte inferior.
+
+![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/Pe%C3%A7a1_Atualizada.png)
+Diferentes ângulos da peça que irá acoplar os eletroímãs já com os furos para os parafusos serem colocados após a impressão ser feita.
+
+
+![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/Pe%C3%A7a2_Atualizada.png)
+Visão da peça superior de encaixe com o espaço dos parafusos.
+
+Para terminar a impressão das peças foi necessário a utilização do software  CURA 3D Ultimaker, após salvar os arquivos das peças como SLT, configurar de acordo com as características da impressora e após esse processo, o software nos informa em quanto tempo a impressora terá concluindo o processo de fabricação dos objetos. 
+
+![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/Pe%C3%A7a1_Cura.png) Peça salva no CURA, observe que o tempo de impressão nesse caso será de duas horas e vinte e quatro minutos. 
+
+![img](https://github.com/2023M5T2-Inteli/grupo2/blob/main/docs/img/project/Pe%C3%A7a2_Cura.png) Peça salva no CURA, observe que o tempo de impressão nesse caso será de três horas e onze minutos. 
+
+
 # UX e UI Design
 
 ## Wireframe + Storyboard
