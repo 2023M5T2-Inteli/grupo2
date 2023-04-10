@@ -484,5 +484,30 @@ Nosso back tem todas funções que mexem com o db no arquivo controller na class
 
 ## Teste de Usabilidade
 
+### Executável
+Criamos um executável para os testes de usabilidade da interface proposta. 
+
+https://user-images.githubusercontent.com/99201276/230815960-e416b811-2cd8-4942-b400-c662ed55141d.mp4
+
+### Interface
+Como é possível ver abaixo, o usuário estará diante de uma tela que possibilitará a gravação de rotas através da adição de pontos na rotina designada, essa adição de pontos deve ser feita manualmente, pois verificou-se a complexidade com a qual o usuário teria de lidar caso quisesse imputar as coordenadas de cada eixo, desta forma, basta que ele leve o braço robótico até cada ponto que deseja que ele passe e clicar no botão adicionar ponto.
+
+
+https://user-images.githubusercontent.com/99201276/230816417-427f954b-c285-426e-810b-ced44ca90616.mp4
+
+
+### Execução de Rotina
+Afim de avaliar a execução de rotina, fora criada uma rota padrão padrão para o robo, ela executa um percurso básico onde se pretende compreender a eficiência da solução. Cabe ressaltar que devido a uma imprecisão milimétrica na peça, pouco material é coletado, contudo, assegura-se que a solução possa ser aplicada, tendo em vista que mesmo com um erro é possível coletar parcialmente o material, contudo recomenda-se ajuste na faceta inferior da peça de apoio.
+
+
+https://user-images.githubusercontent.com/99201276/230816829-2b15e43f-104f-49ed-b4ab-1a6f9972efff.mp4
+
+
+
+https://user-images.githubusercontent.com/99201276/230816839-987ace4c-9313-4e89-b9e8-142d72c6545a.mp4
+
+
+
+https://user-images.githubusercontent.com/99201276/230816848-32dd5333-2def-4efe-afc5-75f7bc1ffd70.mp4
 
 # Referências
