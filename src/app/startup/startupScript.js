@@ -27,15 +27,16 @@ const py_connectDobot = () => {
 
     pythonProcess.stdout.on("data", (data) => {
       console.log(data.toString());
+
     });
     pythonProcess.stderr.on("data", (data) => {
       console.log(data.toString());
     });
     pythonProcess.on("close", (code) => {
-      if (code) {
+      if (code && code != 2) {
         console.log(`script finalizado`);
         dobotPort = "COM" + code.toString();
-        console.log(dobotPort);
+        console.log("!!!", dobotPort);
         resolve(dobotPort);
       } else {
         console.error("erro na execucao do script");
@@ -44,9 +45,54 @@ const py_connectDobot = () => {
     });
   });
 };
-const py_runServer = (dobotPort) => {
+const py_connectRasp = () => {
   return new Promise((resolve, reject) => {
-    const pythonProcess = spawn("python", ["./api/app.py", dobotPort]);
+    const pythonProcess = spawn("python", ["./startup/connect_rasp.py"]);
+
+    pythonProcess.stdout.on("data", (data) => {
+      console.log(data.toString());
+
+    });
+    pythonProcess.stderr.on("data", (data) => {
+      console.log(data.toString());
+    });
+    pythonProcess.on("close", (code) => {
+      if (code && code != 2) {
+        console.log(`script finalizado`);
+        raspPort = "COM" + code.toString();
+        console.log("!!!", raspPort);
+        resolve(raspPort);
+      } else {
+        console.error("erro na execucao do script");
+        process.exit();
+      }
+    });
+  });
+};
+const py_models = () => {
+  return new Promise((resolve, reject) => {
+    const pythonProcess = spawn("python", ["../app/api/models.py"]);
+
+    pythonProcess.stdout.on("data", (data) => {
+      console.log(data.toString());
+    });
+    pythonProcess.stderr.on("data", (data) => {
+      console.log(data.toString());
+    });
+    pythonProcess.on("close", (code) => {
+      if (code == 0) {
+        console.log(`script finalizado`);
+        resolve();
+      } else {
+        console.error("erro na execução do script");
+        process.exit();
+      }
+    });
+  });
+};
+const py_runServer = (dobotPort, raspPort) => {
+  return new Promise((resolve, reject) => {
+    const pythonProcess = spawn("python", ["./api/app.py", dobotPort, raspPort]);
 
     pythonProcess.stdout.on("data", (data) => {
       console.log(data.toString());
@@ -61,4 +107,4 @@ const py_runServer = (dobotPort) => {
   });
 };
 
-module.exports = { py_connectDobot, py_installLibs, py_runServer };
+module.exports = { py_installLibs, py_runServer, py_models, py_connectDobot, py_connectRasp };

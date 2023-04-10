@@ -4,7 +4,9 @@ const { spawn } = require("child_process");
 const {
   py_connectDobot,
   py_installLibs,
+  py_models,
   py_runServer,
+  py_connectRasp
 } = require("./startup/startupScript");
 
 const createWindow = () => {
@@ -26,11 +28,17 @@ app.whenReady().then(async () => {
   console.log("--------------INSTALANDO LIBS NECESSARIAS--------------");
   await py_installLibs();
 
-  console.log("--------------EXECUTANDO SCRIPT PYTHON-----------------");
+  console.log("--------------SCRIPT DE CONEXÃO DO ROBO-----------------");
   dobotPort = await py_connectDobot();
 
+  console.log("--------------SCRIPT DE CONEXÃO DO RASPBERRY-----------------");
+  raspPort = await py_connectRasp();
+
+  console.log("--------------RODANDO MODELOS-----------------------");
+  await py_models();
+
   console.log("--------------INICIANDO SERVIDOR-----------------------");
-  py_runServer(dobotPort);
+  py_runServer(dobotPort, raspPort);
   setTimeout(() => {
     createWindow();
   }, 5000);

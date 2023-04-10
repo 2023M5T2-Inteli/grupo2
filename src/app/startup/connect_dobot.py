@@ -14,14 +14,16 @@ for i in available_ports:
     print("-- conectando na porta -> ", i.device)
     try:
         dobot = pydobot.Dobot(port=i.device, verbose=False)
-        pose = dobot.get_pose()
-        if type(pose) == list and pose[0]:
+        pose = dobot.pose()
+        print(pose)
+        if type(pose) == tuple and pose[0]:
             print("PORT=="+i.device+"==")
-            exit(i.device)
+            exit(int(i.device.replace("COM","")))
         else:
             print("[X] sem resposta na porta \n")
 
-    except:
+    except Exception as e:
+        print(e)
         print("[X] erro ao conectar na porta \n")
         continue
 
@@ -36,7 +38,9 @@ window = sg.Window('Oops!', layout)
 while True:
     event, values = window.read()
     if event == sg.WIN_CLOSED or event == 'OK':
+        
         sys.exit(0)
+        
     elif event == 'Continuar mesmo assim':
         sys.exit(1)
 

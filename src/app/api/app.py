@@ -1,17 +1,29 @@
 from flask import Flask,request
 from flask_sqlalchemy import SQLAlchemy
 from extensions import db
+import sys
+
+
+
 
 #initialize the app
 app = Flask(__name__)
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///project.db"
+if __name__ == '__main__':
+    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite+pysqlite:///project.db"
+else: 
+    app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite+pysqlite:///../../instance/project.db"
 
 
 #initialize the database
 db.init_app(app)
 
 
-from controller import DobotController as dobot
+from controller import DobotController
+
+
+dobot = ''
+port = ""
+
 
 #engine:[//[user[:password]@][host]/[dbname]]
 # engine -> postgresql
@@ -25,15 +37,9 @@ from controller import DobotController as dobot
 def api():
     return 'Hello World'
 
-@app.post('/add')
-def add():
-    data = request.get_json()
-    message = dobot.add(data)
-    return message
-       
-@app.get('/get')
-def get():
-    message = dobot.get()
+@app.get("/get_tracks")
+def get_trackss():
+    message = dobot.get_tracks()
     return message
 @app.get('/get_track')
 def get_track():
@@ -41,48 +47,57 @@ def get_track():
     message = dobot.get_track(data)
     return message
 
-@app.get('/get_highest_order')
-def get_highest_order():
+@app.post("/add_position")
+def add_position():
     data = request.get_json()
-    message = dobot.get_highest_order(data)
-    return message
-
-@app.get("/get_highest_order_track")
-def get_highest_order_track():
-    
-    message = dobot.get_highest_order_track()
-    return message
-@app.post("/add_track")
-def add_track():
-    data = request.get_json()
-    message = dobot.add_track(data)
+    message = dobot().add_position(data)
     return message
 @app.get("/magnet_on")
 def magnet_on():
-    import serial
-    import time
-    try:
-        tempo_espera = 2
-        taxa_transmissao = 115200
-        comunicacao_serial = serial.Serial("COM8", taxa_transmissao, timeout = tempo_espera)
-        comunicacao_serial.write(b"on\n") # Escreve "on" na serial
-        time.sleep(1)
-        return "on"
-    except Exception as e:
-        return str(e)
+    return dobot.magnet_on()
 @app.get("/magnet_off")
 def magnet_off():
-    import serial
-    import time
-    try:
-        tempo_espera = 2
-        taxa_transmissao = 115200
-        comunicacao_serial = serial.Serial("COM8", taxa_transmissao, timeout = tempo_espera)
-        comunicacao_serial.write(b"off\n") # Escreve "on" na serial
-        time.sleep(1)
-        return "off"
-    except Exception as e:
-        return str(e)
+    return dobot.magnet_off()
+@app.post("/run_track")
+def run_track():
+    data = request.get_json()
+    return dobot.run_track(data)
+@app.get("/add_position_dobot")
+def add_position_dobot():
+    data = request.get_json()
+    return dobot().add_position_dobot(data)
+@app.get("/add_position_dobot2")
+def add_position_dobot2():
+    # data = request.get_json()
+    return dobot.add_position_dobot2()
+@app.delete("/delete_track")
+def delete_tracks():
+    data = request.get_json()
+    return  dobot.delete_track(data)
+
+@app.post("/add_track")
+def add_track():
+    data = request.get_json()
+    message = dobot.add_track(data["data"])
+    return message
+
+@app.get("/home")
+def home():
+    return dobot.run_home()
+
+@app.post("/change_default_track")
+def change_default_track():
+    data = request.get_json()
+    return dobot.change_default_track(data)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+
+    if sys.argv[1] == "COM1":
+        print("porta não selecionada!")
+        pass
+    else:
+        dobotPort = sys.argv[1]
+        raspPort = sys.argv[2]
+        dobot = DobotController(dobotPort, raspPort)
+
+    app.run(debug=False)

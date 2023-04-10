@@ -8,6 +8,7 @@ bomb1 = machine.Pin(0, machine.Pin.OUT)  # Pino 1 da Ponte H
 bomb2 = machine.Pin(2, machine.Pin.OUT)  # Pino 3 da Ponte H
 ima1 = machine.Pin(7, machine.Pin.OUT)  # Pino 9 da Ponte H
 ima2 = machine.Pin(9, machine.Pin.OUT)  # Pino 10 da Ponte H
+start = False
 
 # Função para ligar os imãs
 def ativaIma():
@@ -40,20 +41,29 @@ def desativaIma():
     
 print("oii")
 
+
+while not start:
+    v = sys.stdin.readline().strip()
+    if v.lower() == "start":
+        start = True
+        print("start")
+    else:
+        print("não start")
+    
 # Ciclo de funcionamento dos imãs
-while True:
+while start:
     v = sys.stdin.readline().strip()
 
     # Se a string lida for "on", ele liga o LED da placa, se for "off", desliga
     if v.lower() == "on":
         ativaIma()
-        ativaBomb()
+        
     elif v.lower() == "off":
+        inverteIma()
         desativaIma()
+        
+    
+    if v.lower() == "bomba":
+        ativaBomb()
+    elif v.lower() == "desbomba":
         desativaBomb()
-    
-    
-    
-  
-    
-      

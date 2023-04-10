@@ -11,11 +11,12 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="../styles/style.css" />
+    <link rel="stylesheet" href="../styles/ensaios.css" />
     <script src="../scripts/ensaios.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </head>
-  <body onload="getRoutes()">
-    <div class="header">
+  <body onload="getTracks()">
+    <!-- <div class="header">
       <img src="../assets/logo.png" alt="" />
 
       <div class="backButton mb-3">
@@ -26,33 +27,29 @@
           Voltar
         </button>
       </div>
+    </div> -->
+
+    <div class="container">
+      <div class="row pt-4">
+
+        <div class="col-xs pl-4">
+          <img src="../assets/logo.png" alt="logo">
+        </div>
+
+        <div class="col-xs ml-auto pr-4">
+          <button class="mt-4 btn btn-primary" onclick="window.location.href='index.html'">Voltar</button>
+        </div>
+
+      </div>
     </div>
+
     <div class="container pt-5">
       <div class="row d-flex justify-content-left">
         <div id="buttonsMain" class="col-sm d-flex flex-column">
           <div class="row">
             <div class="col-auto pl-4 pb-2">
+
               <button
-                class="btn btn-primary btn-lg"
-                onclick="makePostRequest('rodar')"
-              >
-                Iniciar ensaio padrão
-              </button>
-            </div>
-            <div
-              class="col-auto ml-2 d-flex justify-content-center align-items-start"
-            >
-              <button
-                onclick="magnetonoff()"
-                id="magnetButton"
-                class="btn btn-primary"
-              >
-                Ligar Imã
-              </button>
-            </div>
-          </div>
-          <div class="p-2">
-            <button
               class="btn btn-primary btn-lg"
               data-bs-toggle="collapse"
               data-bs-target="#divContainer"
@@ -61,6 +58,18 @@
             >
               Adicionar nova rota
             </button>
+            </div>
+            <div
+              class="col-auto ml-2 d-flex justify-content-center align-self-center pb-2"
+            >
+              <button
+                onclick="goToHome()"
+                id="homeButton"
+                class="btn btn-primary"
+              >
+                HOME                
+              </button>
+            </div>
           </div>
 
           <div class="row collapse pt-3" id="divContainer">
@@ -73,19 +82,8 @@
                   <input
                     type="text"
                     class="form-control"
-                    id="name"
+                    id="trackName"
                     placeholder="Nome da rota"
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="description" class="routeDescripition"
-                    >Descrição da rota</label
-                  >
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="description"
-                    placeholder="Descrição da rota"
                   />
                 </div>
                 <div class="row">
@@ -98,8 +96,20 @@
                       Adicionar ponto
                     </button>
                   </div>
-                  <div class="col-sm pl-4">
-                    <button class="btn btn-primary" type="submit">
+                  <div
+              class="col-sm pb-2 pl-4"
+            >
+              <button
+                onclick="magnetRecordChange()"
+                id="magnetButtonRecord"
+                class="btn btn-primary redbg"
+                type="button"
+              >
+                Imã Desligado
+              </button>
+                  </div>
+                  <div class="col-sm pl-4 pb-4">
+                    <button class="btn btn-primary" type="button" onclick="sendPostTrack()">
                       Salvar rota
                     </button>
                   </div>
@@ -109,24 +119,20 @@
           </div>
         </div>
 
-        <div class="col-sm">
+        <div class="col-sm pt-2">
           <div class="row">
             <div class="col scrollit">
-              <table class="table table-striped" id="routes">
+              <table class="table table-striped justify-content-center" id="tracksTable">
                 <thead>
                   <tr>
                     <th scope="col">Nome</th>
-                    <th scope="col">Descrição</th>
                     <th scope="col">Selecionar</th>
+                    <th scope="col">NºCiclos</th>
                     <th scope="col">Excluir</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Nome da rota</td>
-                    <td>Descrição da rota</td>
-                    <td><button class="btn btn-primary">Selecionar</button></td>
-                    <td><button class="btn btn-primary">Excluir</button></td>
                   </tr>
                 </tbody>
               </table>
@@ -135,11 +141,24 @@
         </div>
       </div>
     </div>
+    <!-- toast -->
+    <div class="toast toastBgGood" id="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="500">
+      <div class="toast-header">
+        <strong class="mr-auto">Mensagem...</strong>
+        <!-- <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button> -->
+      </div>
+      <div class="toast-body" id="toastText">
+        Ponto sendo adicionado, por favor aguarde...
+      </div>
+    </div>
+    <!-- bootstrap js -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
       integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
       crossorigin="anonymous"
     ></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </body>
 </html>
