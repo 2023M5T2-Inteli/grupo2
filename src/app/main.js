@@ -1,3 +1,8 @@
+// Este arquivo é responsável por fazer o setup de todo o sistema
+// antes de executar a interface gráfica.
+
+// São processos python que executam em sequencia.
+
 const { app, BrowserWindow } = require("electron");
 const { spawn } = require("child_process");
 
@@ -9,6 +14,7 @@ const {
   py_connectRasp
 } = require("./startup/startupScript");
 
+// Configura a janela do Electron
 const createWindow = () => {
   const win = new BrowserWindow({
     width: 800,
@@ -24,6 +30,8 @@ app.on("window-all-closed", () => {
   if (process.platform !== "darwin") app.quit();
 });
 
+// quando o electron está pronto, executa essa função
+// cada uma dessas funções está em "startup/startupScript.js"
 app.whenReady().then(async () => {
   console.log("--------------INSTALANDO LIBS NECESSARIAS--------------");
   await py_installLibs();
@@ -41,5 +49,5 @@ app.whenReady().then(async () => {
   py_runServer(dobotPort, raspPort);
   setTimeout(() => {
     createWindow();
-  }, 5000);
+  }, 2000);
 });
