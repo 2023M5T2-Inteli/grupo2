@@ -88,7 +88,7 @@ Concepção de sistema de automação industrial
 - [Igor Garcia](https://www.linkedin.com/in/igor-garcia-126a1823b/)
 - [Israel Carvalho](https://www.linkedin.com/in/israel-carvalho-706133241/)
 - [Paulo Presa Evangelista](https://www.linkedin.com/in/paulo-evangelista/)
-- [Tainara Rodrigues](https://www.linkedin.com/in/tainara-rodrigues-763a42233/)
+- [Tainara Rodrigues](https://www.linkedin.com/in/tainara-rodrigues-teixeira/)
 
 # Visão Geral do Projeto
 
@@ -105,6 +105,13 @@ O processo de separação magnética realizada pelo IPT é manual e toma o tempo
 ### Objetivos gerais
 
 Tendo em vista a otimização do tempo dos pesquisadores que trabalham no IPT, o grupo IPTech propõe o desenvolvimento de uma ferramenta que possa automatizar o processo de separação magnética, neste caso será utilizado um braço mecânico acoplado com um microcontrolador, Raspberry Pi Pico W, e atuadores, conjunto de eletroimãs, que irão realizar a tarefa de coletar, lavar e separar os itens de uma mistura.
+Assim, é evidente que temos metas específicas para a construção desse protótipo, tais como: 
+1. Como no ambiente que o projeto será utilizado não terá acesso a internet, a solução precisará cumprir um dos principais requisitos, que seu funcionamento não seja dependente de internet e sim apenas de um computador, ou outro dispositivo eletrônico como o celular.  
+2. A automatização será feita com o uso de eletroímãs para justamente ter o controle de desligar e ligar o campo magnético de acordo com cada necessidade das bandejas. 
+3. O desenvolvimento, seja ele web ou não, terá que ser simples e bem intuitivo, sem muitas informações para que um operador possa utilizar sem grandes problemas e ter uma boa usabilidade. 
+4. Se for necessário, tudo o que for desenvolvido por desenho 3D precisará de atenção, pois os eletroímãs não poderão ter cuidado direto com água que é usada para a “lavagem” dos materiais. 
+5. Na solução, terá uma opção para que se caso o operador queira intervir no processo automatizado do braço mecânico, ele consiga facilmente. Pois, caso aconteça alguma falha no sistema sua manutenção precisará ser feita de maneira que não seja complexa demasiadamente. 
+
 
 ### Objetivos específicos
 
@@ -117,8 +124,8 @@ Temos 4 objetivos principais com esse protótipo:
 
 ## Partes interessadas
 
-- Setor de materiais avançados do IPT
-- Inteli
+Alunos do segundo ano de Engenharia da Computação no Inteli, que vão estudar diversos assuntos na construção do protótipo, tais como: na parte de Hardware, vão aprofundar eixos temáticos de  Robótica e Internet das Coisas, além de aprenderem na prática Automação industrial e sistemas de controle, em Software, no eixo de Computação visual vão ver na  Computação gráfica como construir um infográfico da solução com o braço robótico. Ao final das dez semanas, a versão final do projeto será entregue ao Setor de Materiais Avançados do IPT que terão em mãos seis soluções únicas de altíssimo nível  tecnológico para serem implementadas no sistema do Instituto de Pesquisas Tecnológicas, assim, garantindo a confiabilidade de todos os projetos desenvolvidos. 
+
 
 # Análise do Problema
 
